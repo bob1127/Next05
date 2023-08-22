@@ -3,7 +3,7 @@ export const metadata = {
   description: 'Page description',
 }
 import Image from 'next/image'
-import Img01 from '../../public/images/maven.jpg'
+
 import Img02 from '../../public/images/c2.jpg'
 import Hero from '@/components/hero'
 import Features from '@/components/features'
@@ -49,9 +49,11 @@ export default function Home() {
         <div className="relative flex justify-center mb-8 border" data-aos="zoom-y-out" data-aos-delay="450">
         <Image
           className='mt-7 md:mt-20'
-          src={Img01}
+            src="https://images.pexels.com/photos/18004507/pexels-photo-18004507.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
           alt="Brand Banner - 01"
           priority
+          width={1080}
+          height={576}
 
         />
         </div>
