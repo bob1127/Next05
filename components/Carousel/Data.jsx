@@ -5,19 +5,19 @@ export const countries = [
         url: 'https://www.ultraehp.com'
     },
     {
-        image: "../public/images/china.jpg",
+        image: "./images/china.jpg",
         title: "China",
     },
     {
-        image: "../public/images/france.jpg",
+        image: "./images/france.jpg",
         title: "France",
     },
     {
-        image: "../public/images/japan.jpg",
+        image: "./images/japan.jpg",
         title: "Japan",
     },
     {
-        image: "../public/images/norway.jpg",
+        image: "./images/norway.jpg",
         title: "Norway",
     },
 ];
