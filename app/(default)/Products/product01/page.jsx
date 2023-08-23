@@ -13,14 +13,14 @@ import ProductImage from "../../../../components/ProductImage";
 
 
 
-import Carousel from "../../../components/Products/ProductCarousel";
-import Navigation from "../../../components/Products/Navigation";
+import Carousel from "../../../../components/Carousel/Carousel";;
+import Navigation from "../../../../components/Products/Navigation";
 
-import styles from '../../../components/two-colum/twoColumn.module.scss'
-import { projects } from '../../../components/two-colum/data';
+import styles from '../../../../components/two-colum/twoColumn.module.scss'
+import { projects } from '../../../../components/two-colum/data';
 
-import Double from '../../../components/two-colum/Double';
-import ModalBrn from "../../../components/ModalBtn"
+import Double from '../../../../components/two-colum/Double';
+import ModalBrn from "../../../../components/ModalBtn"
 
 
 
@@ -75,7 +75,7 @@ const fadeInUp = {
 
 
 
-const data = [
+const data1 = [
     {
         image:
             "https://blenderartists.org/uploads/default/original/4X/5/4/f/54f2cbb9c456be76911967e686ca5898ac6a065d.jpeg",
@@ -131,7 +131,7 @@ const Product = props => (
                     initial={{ x: 200, opacity: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ delay: 0.2 }}
-                    data={data}
+                    data={data1}
                     time={3000}
 
                     captionStyle={captionStyle}

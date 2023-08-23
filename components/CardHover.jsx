@@ -28,7 +28,7 @@ export default function App() {
 
     return (
         <div
-            className="cardFiver group relative w-full rounded-xl border border-white/10 bg-gray-900 px-8 py-16 shadow-2xl "
+            className="cardFiver group py-40 px-30 relative w-full rounded-xl border border-white/10 bg-gray-900 px-8 py-16 shadow-2xl "
             onMouseMove={handleMouseMove}
         >
             <motion.div

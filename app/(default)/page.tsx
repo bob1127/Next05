@@ -3,7 +3,7 @@ export const metadata = {
   description: 'Page description',
 }
 import Image from 'next/image'
-
+import Img01 from '../../public/images/wix.jpg'
 import Img02 from '../../public/images/c2.jpg'
 import Hero from '@/components/hero'
 import Features from '@/components/features'
@@ -46,25 +46,28 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="relative flex justify-center mb-8 border" data-aos="zoom-y-out" data-aos-delay="450">
-        <Image
-          className='mt-7 md:mt-20'
-            src="https://images.pexels.com/photos/18004507/pexels-photo-18004507.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
-          alt="Brand Banner - 01"
-          priority
-          width={1080}
-          height={576}
 
-        />
+        <img src='../../../../public/images/wix.jpg' alt="" className='w-full' />
+
+        <div className="relative flex justify-center mb-8 border" data-aos="zoom-y-out" data-aos-delay="450">
+          <Image
+            src="https://www.zensor.com.tw/images/wix.jpg"
+            alt="Picture of the author"
+            width={1920}
+            height={576}
+          />
+     
         </div>
         <div className="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-        <Image
-          className='mt-7 md:mt-20'
-          src={Img02}
-          alt="Brand Banner - 01"
-          priority
 
-        />
+          <Image
+            src="https://www.zensor.com.tw/images/maven.jpg"
+            alt="Picture of the author"
+            width={1920}
+            height={576}
+          />
+          {/* <img src='https://www.zensor.com.tw/images/maven.jpg' className='w-full' alt="" /> */}
+       
         </div>
       
         <FeaturesBlocks />

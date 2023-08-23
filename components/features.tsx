@@ -138,12 +138,19 @@ export default function Features() {
                     leave="transition ease-in-out duration-300 transform absolute"
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 -translate-y-16"
-                    beforeEnter={() => heightFix()}
-                    unmount={false}                     
+                    //
+                                      
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image className="md:max-w-none mx-auto rounded" src={FeaturesBg} width={500} height="462" alt="Features bg" />
-                      {/* <Image className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement} width={500} height="44" alt="Element" style={{ top: '30%' }} /> */}
+
+                      <Image
+                        src="https://www.zensor.com.tw/images/maven.jpg"
+                        alt="Picture of the author"
+                        width={1920}
+                        height={576}
+                      />
+                    
+                    
                     </div>
                   </Transition>
                   {/* Item 2 */}
@@ -157,12 +164,17 @@ export default function Features() {
                     leave="transition ease-in-out duration-300 transform absolute"
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 -translate-y-16"
-                    beforeEnter={() => heightFix()}
-                    unmount={false}                     
+                   
+                                      
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image className="md:max-w-none mx-auto rounded" src={FeaturesBg02} width={500} height="462" alt="Features bg" />
-                      {/* <Image className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement} width={500} height="44" alt="Element" style={{ top: '30%' }} /> */}
+                      <Image
+                        src="https://www.zensor.com.tw/images/maven.jpg"
+                        alt="Picture of the author"
+                        width={1920}
+                        height={576}
+                      />
+                   
                     </div>
                   </Transition>
                   {/* Item 3 */}
@@ -176,12 +188,17 @@ export default function Features() {
                     leave="transition ease-in-out duration-300 transform absolute"
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 -translate-y-16"
-                    beforeEnter={() => heightFix()}
-                    unmount={false}                     
+                   
+                                      
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image className="md:max-w-none mx-auto rounded" src={FeaturesBg03} width={500} height="462" alt="Features bg" />
-                      {/* <Image className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement} width={500} height="44" alt="Element" style={{ top: '30%' }} /> */}
+                      <Image
+                        src="https://www.zensor.com.tw/images/maven.jpg"
+                        alt="Picture of the author"
+                        width={1920}
+                        height={576}
+                      />
+                    
                     </div>
                   </Transition>
                   {/* Item 4 */}
@@ -195,12 +212,18 @@ export default function Features() {
                     leave="transition ease-in-out duration-300 transform absolute"
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 -translate-y-16"
-                    beforeEnter={() => heightFix()}
+                   
                     unmount={false}
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image className="md:max-w-none mx-auto rounded" src={FeaturesBg04} width={500} height="462" alt="Features bg" />
-                      {/* <Image className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement} width={500} height="44" alt="Element" style={{ top: '30%' }} /> */}
+
+                      <Image
+                        src="https://www.zensor.com.tw/images/maven.jpg"
+                        alt="Picture of the author"
+                        width={1920}
+                        height={576}
+                      />
+
                     </div>
                   </Transition>
                 </div>
