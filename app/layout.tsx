@@ -3,12 +3,13 @@ import '../styles/globals.scss'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { useEffect } from 'react'
-import Header from '@/components/ui/header'
+import Footer from '@/components/ui/footer'
 import Banner from '@/components/banner'
 import Navbar from '../components/Navbar/Navbar'
 // const inter = Inter({
 //   subsets: ['latin'],
 //   variable: '--font-inter',
+
 //   display: 'swap'
 // })
 
@@ -35,9 +36,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={` font-inter antialiased bg-white text-gray-900 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
+          <div className="fix bg-neutral-800	 py-4 w-full text-white text-center ">
+             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis repellat consequuntur officia 
+          </div>
           <Navbar />
           {children}
           <Banner />
+          <Footer/>
         </div>
       </body>
     </html>

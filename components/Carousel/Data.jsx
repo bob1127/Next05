@@ -1,23 +1,23 @@
 export const countries = [
     {
-        image: "./images/brazil.jpg",
+        image: "./images/brazil.webp",
         title: "超越感測界線，極致健康生活",
         url: 'https://www.ultraehp.com'
     },
     {
-        image: "./images/china.jpg",
+        image: "./images/brazil.webp",
         title: "China",
     },
     {
-        image: "./images/france.jpg",
+        image: "./images/brazil.webp",
         title: "France",
     },
     {
-        image: "./images/japan.jpg",
+        image: "./images/brazil.webp",
         title: "Japan",
     },
     {
-        image: "./images/norway.jpg",
+        image: "./images/brazil.webp",
         title: "Norway",
     },
 ];

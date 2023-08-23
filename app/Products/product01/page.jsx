@@ -232,8 +232,7 @@ const Product = props => (
                         <motion.h2
                             className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
                             variants={textAnimate}
-                        > 關於<mark class="ml-2 px-2 text-white bg-pink-600 rounded dark:bg-blue-500">胃幽門螺旋桿菌
-                            </mark> </motion.h2>
+                        > 關於胃幽門螺旋桿菌</motion.h2>
 
 
                     </motion.div>
@@ -243,30 +242,21 @@ const Product = props => (
         <section className="w-full section-about border border-b-orange-700 ">
             <div class="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
+                    {/* Section header */}
+                    <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
+                    <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+                        <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">什麼是胃幽門螺旋桿菌</h3>
+                            <p className="mb-6 text-m font-normal text-gray-800 lg:text-normal  text-left md:text-center   dark:text-gray-400">感染幽門螺旋桿菌後，不同個體的反應會有所不同：某些個體可能不會出現明顯的症狀，即使他們已被幽門螺旋桿菌感染。另一些個體可能會因感染導致胃酸過量，進而引發幽門部胃炎和十二指腸潰瘍等併發症。另一類個體感染幽門螺旋桿菌後，可能進展為慢性胃炎，此狀況更增加罹患胃癌的風險。</p>
 
+                    </div>
+                    </div>
 
-                    <motion.div className="card"
-                        initial={"offscreen"}
-                        whileInView={"onscreen"}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ staggerChildren: 0.3 }}
-                    >
-
-                        <motion.h2
-                            className="text-center mb-4 text-2xl font-extrabold  tracking-tight text-gray-900 lg:text-3xl lg:leading-loose  dark:text-white"
-                            variants={textAnimate}
-                        > 什麼是<small class="ml-2 text-2xl lg:text-3xl  font-semibold text-gray-500 dark:text-gray-400">胃幽門螺旋桿菌</small></motion.h2>
-                        <motion.p
-                            className="text-center text-md font-light text-gray-500 lg:text-lg dark:text-gray-400"
-                            variants={textAnimate}
-                        >感染幽門螺旋桿菌後，不同個體的反應會有所不同：某些個體可能不會出現明顯的症狀，即使他們已被幽門螺旋桿菌感染。另一些個體可能會因感染導致胃酸過量，進而引發幽門部胃炎和十二指腸潰瘍等併發症。另一類個體感染幽門螺旋桿菌後，可能進展為慢性胃炎，此狀況更增加罹患胃癌的風險。</motion.p>
-
+              
 
 
 
                      
 
-                    </motion.div>
 
                 </div>
              
@@ -274,6 +264,34 @@ const Product = props => (
 
             </div>
         </section>
+        <section className="w-full section-global border border-b-orange-700 ">
+            <div class="Container items-center flex justify-center w-full	pt-10">
+                <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
+
+                    {/* Section header */}
+                    <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
+                        <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+                            <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">全球有幾乎一半的人感染胃幽門螺旋桿菌</h3>
+                            <p className="mb-6 text-m font-normal text-gray-800 lg:text-normal text-left md:text-center   dark:text-gray-400">胃幽門螺旋桿菌的感染方式主要通過飲食或口腔傳染。這種細菌可以存在於受感染者的唾液、口腔、嘔吐物或粪便中。它可以透過直接接觸、共用餐具、飲食中被污染的食物或水等途徑傳播。此外，感染者也可以通過接觸受感染者的嘔吐物或粪便而感染。</p>
+
+                        </div>
+                    </div>
+                
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+        </section>
+
 
 
 
@@ -282,6 +300,14 @@ const Product = props => (
                 <div className="table-wrap border  mt-20">
 
                     <div class="w-4/5 mx-auto">
+                        <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
+                        {/* Section header */}
+                        <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+                                <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">胃幽門螺旋桿菌感染的診斷方式比較</h3>
+                         
+
+                        </div>
+                        </div>
 
 
                         <div class="flex flex-col">
@@ -289,7 +315,7 @@ const Product = props => (
                                 <div class="inline-block min-w-full align-middle">
                                     <div class="overflow-hidden ">
                                         <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
-                                            <thead class="bg-pink-400 text-gray-100 dark:bg-gray-700">
+                                            <thead class="bg-gray-800 text-gray-100 dark:bg-gray-700">
                                                 <tr>
                                                     <th scope="col" class="p-4">
                                                         <div class="flex items-center">
@@ -437,25 +463,15 @@ const Product = props => (
         <section className="w-full section-about border border-b-orange-700 ">
             <div class="Container items-center flex flex-col ">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
-
-                    <motion.div className="card"
-                        initial={"offscreen"}
-                        whileInView={"onscreen"}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ staggerChildren: 0.3 }}
-                    >
-
-                        <motion.h2
-                            className="text-center mb-4 text-2xl font-extrabold  tracking-tight text-gray-900  lg:text-3xl lg:leading-loose  dark:text-white"
-                            variants={textAnimate}
-                        > 兩種版本<small class="ml-2 text-2xl  lg:text-3xl  font-semibold text-gray-500 dark:text-gray-400">的快速BUT檢測組滿足不同用戶需求</small></motion.h2>
-                        <motion.p
-                            className="text-center text-md font-light text-gray-500 lg:text-lg dark:text-gray-400"
-                            variants={textAnimate}
-                        >感染幽門螺旋桿菌後，不同個體的反應會有所不同：某些個體可能不會出現明顯的症狀，即使他們已被幽門螺旋桿菌感染。另一些個體可能會因感染導致胃酸過量，進而引發幽門部胃炎和十二指腸潰瘍等併發症。另一類個體感染幽門螺旋桿菌後，可能進展為慢性胃炎，此狀況更增加罹患胃癌的風險。</motion.p>
+                    <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
+                        {/* Section header */}
+                        <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+                            <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">兩種版本的快速BUT檢測組滿足不同用戶需求</h3>
 
 
-                    </motion.div>
+                        </div>
+                    </div>
+                  
 
                 </div>
 
