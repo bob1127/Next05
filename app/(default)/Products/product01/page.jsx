@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 // import fetch from "isomorphic-unfetch";
 import { motion } from "framer-motion";
 import Link from "next/link";
