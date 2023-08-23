@@ -3,8 +3,8 @@ const nextConfig = {
   assetPrefix: ".",
  images: {
         domains: ['www.zensor.com.tw'],
-         loader: "imgix",
-   path: "/",
+  //        loader: "imgix",
+  //  path: "/",
     },
   // images: {
   //   loader: "imgix",

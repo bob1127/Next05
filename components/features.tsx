@@ -143,12 +143,8 @@ export default function Features() {
                   >
                     <div className="relative inline-flex flex-col">
 
-                      <Image
-                        src="https://www.zensor.com.tw/images/maven.jpg"
-                        alt="Picture of the author"
-                        width={1920}
-                        height={576}
-                      />
+                      <img width={1920}
+                        height={576} src="https://www.zensor.com.tw/images/maven.jpg" alt="" />
                     
                     
                     </div>
@@ -168,12 +164,14 @@ export default function Features() {
                                       
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image
+                      <img width={1920}
+                        height={576}  src="https://www.zensor.com.tw/images/maven.jpg" alt="" />
+                      {/* <Image
                         src="https://www.zensor.com.tw/images/maven.jpg"
                         alt="Picture of the author"
                         width={1920}
                         height={576}
-                      />
+                      /> */}
                    
                     </div>
                   </Transition>
@@ -192,12 +190,8 @@ export default function Features() {
                                       
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image
-                        src="https://www.zensor.com.tw/images/maven.jpg"
-                        alt="Picture of the author"
-                        width={1920}
-                        height={576}
-                      />
+                      <img width={1920}
+                        height={576} src="https://www.zensor.com.tw/images/maven.jpg" alt="" />
                     
                     </div>
                   </Transition>
@@ -217,12 +211,8 @@ export default function Features() {
                   >
                     <div className="relative inline-flex flex-col">
 
-                      <Image
-                        src="https://www.zensor.com.tw/images/maven.jpg"
-                        alt="Picture of the author"
-                        width={1920}
-                        height={576}
-                      />
+                      <img width={1920}
+                        height={576} src="https://www.zensor.com.tw/images/maven.jpg" alt="" />
 
                     </div>
                   </Transition>

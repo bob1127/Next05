@@ -50,22 +50,14 @@ export default function Home() {
         <img src='../../../../public/images/wix.jpg' alt="" className='w-full' />
 
         <div className="relative flex justify-center mb-8 border" data-aos="zoom-y-out" data-aos-delay="450">
-          <Image
-            src="https://www.zensor.com.tw/images/wix.jpg"
-            alt="Picture of the author"
-            width={1920}
-            height={576}
-          />
+
+          <img src="https://www.zensor.com.tw/images/wix.jpg" alt="" />
+      
      
         </div>
         <div className="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-
-          <Image
-            src="https://www.zensor.com.tw/images/maven.jpg"
-            alt="Picture of the author"
-            width={1920}
-            height={576}
-          />
+          <img src="https://www.zensor.com.tw/images/maven.jpg" alt="" />
+         
           {/* <img src='https://www.zensor.com.tw/images/maven.jpg' className='w-full' alt="" /> */}
        
         </div>
