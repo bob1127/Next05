@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  assetPrefix: ".",
+  // assetPrefix: ".",
  images: {
         domains: ['www.zensor.com.tw'],
   //        loader: "imgix",
@@ -15,3 +15,4 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+                                          

@@ -10,10 +10,10 @@ import Features from '@/components/features'
 import FeaturesBlocks from '@/components/features-blocks'
 import Testimonials from '@/components/testimonials'
 import Newsletter from '@/components/newsletter'
-import ApplicateCard from '../../components/Application/ApplicateCard'
-import CardHover from '../../components/CardHover'
-import Cards from '../../components/Cards/Cards'
-import { properties } from "../../constants/data";
+import ApplicateCard from '../components/Application/ApplicateCard'
+import CardHover from '../components/CardHover'
+import Cards from '../components/Cards/Cards'
+import { properties } from "../constants/data";
 export default function Home() {
   return (
     <>
