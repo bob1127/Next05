@@ -1,6 +1,6 @@
 export const countries = [
     {
-        image: "../public/images/brazil.jpg",
+        image: "./images/brazil.jpg",
         title: "超越感測界線，極致健康生活",
         url: 'https://www.ultraehp.com'
     },
