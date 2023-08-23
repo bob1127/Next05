@@ -1,7 +1,7 @@
 1:HL["/_next/static/css/144c0531121dd986.css",{"as":"style"}]
 2:HL["/_next/static/css/f76788cadc76491e.css",{"as":"style"}]
 0:[[["",{"children":["Products",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/144c0531121dd986.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/f76788cadc76491e.css","precedence":"next"}]],["$L4",null]]]]
-5:I{"id":"226","chunks":["52:static/chunks/52-c1a7a33c64e6d2c0.js","394:static/chunks/394-96656ca570ffa04a.js","465:static/chunks/465-83ffd2d2ca6cb4e7.js","807:static/chunks/807-2c20f623249c8c3d.js","486:static/chunks/486-a899312a5f55ccdd.js","185:static/chunks/app/layout-987b3f4c75ea1eb5.js"],"name":"","async":false}
+5:I{"id":"226","chunks":["52:static/chunks/52-c1a7a33c64e6d2c0.js","394:static/chunks/394-96656ca570ffa04a.js","465:static/chunks/465-83ffd2d2ca6cb4e7.js","807:static/chunks/807-2c20f623249c8c3d.js","486:static/chunks/486-a899312a5f55ccdd.js","185:static/chunks/app/layout-891e124b71c95ee7.js"],"name":"","async":false}
 6:I{"id":"4463","chunks":["272:static/chunks/webpack-f8e5331874901da2.js","667:static/chunks/2443530c-fb23d839633dfd4a.js","488:static/chunks/488-109be8805db7f624.js"],"name":"","async":false}
 7:I{"id":"1010","chunks":["272:static/chunks/webpack-f8e5331874901da2.js","667:static/chunks/2443530c-fb23d839633dfd4a.js","488:static/chunks/488-109be8805db7f624.js"],"name":"","async":false}
 8:I{"id":"4143","chunks":["272:static/chunks/webpack-f8e5331874901da2.js","667:static/chunks/2443530c-fb23d839633dfd4a.js","488:static/chunks/488-109be8805db7f624.js"],"name":"","async":false}

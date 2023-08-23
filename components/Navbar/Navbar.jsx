@@ -216,7 +216,7 @@ export default function App() {
                     </DropdownMenu>
                 </Dropdown>
                 <NavbarItem>
-                    <Link color="foreground" href="/Products">
+                    <Link color="foreground" href="/Products.html">
                         關於我們
                     </Link>
                 </NavbarItem>
