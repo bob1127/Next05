@@ -5,6 +5,7 @@ import { useState } from "react";
 import './Carousel.css'
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import  Image  from "next/image";
 
 
 const textAnimate = {
@@ -43,7 +44,7 @@ function Carousel({ images}) {
     console.log(current);
     return (
         <div
-            className="carousel"
+            className="carousel border border-black relative"
             onMouseEnter={() => {
                 setAutoPlay(false);
                 clearTimeout(timeOut);
@@ -52,7 +53,13 @@ function Carousel({ images}) {
                 setAutoPlay(true);
             }}
         >
-            <div className="carousel_wrapper">
+            <div className="rightUi">
+                
+            </div>
+           
+            <div className="carousel_wrapper  border border-r-emerald-400">
+              
+                
                 {images.map((image, index) => {
                     return (
 
@@ -71,7 +78,7 @@ function Carousel({ images}) {
                             </div> */}
 
 
-                                <img className="card_image" src={image.image} alt="" />
+                                <Image width={500} height={500}  className="card_image" src={image.image} alt="" />
 
 
                                 <div className="card_overlay">

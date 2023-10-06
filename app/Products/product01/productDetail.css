@@ -169,7 +169,7 @@
 }
 
 .active-thumbnail {
-    border: #476ff1 solid 3px;
+    border: #161616 solid 2px;
 }
 
 @keyframes pause {

@@ -1,7 +1,22 @@
 .feature {
   display: flex;
-  align-items: center;
-  margin-right: 20px;
+  width: 100%;
+
+
+
+
+  flex-wrap:wrap;
+  
+}
+.modal__row{
+    display: flex;
+  width: 100%;
+  justify-content: start;
+  align-items: start;
+ 
+
+   flex-direction: column;
+  
 }
 
 .feature__circle {
@@ -20,5 +35,11 @@
 }
 
 .feature__label {
-  white-space: nowrap;
+  display: flex;
+  font-size: 13px;
+  /* justify-content: center;
+  align-items: center; */
+  flex-wrap: wrap;
+ 
+
 }

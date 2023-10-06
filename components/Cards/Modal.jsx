@@ -13,6 +13,7 @@ const Modal = ({ data, close }) => {
         numBedroom,
         numWashrooms,
         livingSpace,
+        Link
     } = data;
 
     const modalVariants = {
@@ -41,7 +42,7 @@ const Modal = ({ data, close }) => {
     return (
         <div className="ModalWrap">
             <motion.div
-                className="modal"
+                className="modal grid grid-cols-1 md:grid-cols-2"
                 variants={modalVariants}
                 onClick={(e) => e.stopPropagation()}
             >
@@ -56,7 +57,7 @@ const Modal = ({ data, close }) => {
                         <span className="modal__price">{price}</span>
                     </motion.div>
                     <motion.div className="modal__row" variants={modalRowVariants}>
-                        <span className="modal__address">{address}</span>
+                        <span className="modal__address mb-2">{address}</span>
                     </motion.div>
                     <motion.div className="modal__row" variants={modalRowVariants}>
                         <Feature iconName={"FaBed"} iconLabel={numBedroom} />
@@ -67,8 +68,12 @@ const Modal = ({ data, close }) => {
                         className="modal__description-wrapper"
                         variants={modalRowVariants}
                     >
-                        <p className="modal__description">{description}</p>
+                        <p className="modal__description  text-xs">{description}</p>
                     </motion.div>
+                    <motion.div className="modal__row" variants={modalRowVariants}>
+                        <a href={Link} className="modal__link mb-2 text-xs ">產品連結</a>
+                    </motion.div>
+                    
                     <motion.button
                         className="modal__close-wrapper"
                         whileHover={{ scale: 1.2 }}

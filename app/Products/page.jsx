@@ -58,12 +58,12 @@ const Index = props => (
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className='card'>
-                        <span className='category'>Protein</span>
+                        <span className='category'>快速幽門螺琁桿菌尿素呼吸檢測組</span>
                         <motion.img
                             initial={{ x: 60, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ delay: 0.2 }}
-                            src='https://images.pexels.com/photos/8647070/pexels-photo-8647070.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load'
+                            src='https://www.ultraehp.com/images/Products-Detail-Img/UP100/家用版產品圖-nav.webp'
                             width={250}
                         />
                         <div className='product-info'>
@@ -81,12 +81,12 @@ const Index = props => (
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className='card'>
-                        <span className='category'>Protein</span>
+                        <span className='category'>快速幽門螺琁桿菌尿素呼吸檢測組</span>
                         <motion.img
                             initial={{ x: 60, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ delay: 0.2 }}
-                            src="https://images.pexels.com/photos/17715610/pexels-photo-17715610.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
+                            src="https://www.ultraehp.com/images/Products-Detail-Img/UP100/家用版產品圖-nav.webp"
 
                             width={250}
 
@@ -103,7 +103,12 @@ const Index = props => (
 
             </>
         </div>
+
+
+        <Link href='/en/Products'>iggi</Link>
     </motion.div>
+
+
 )
 
 // Index.getInitialProps = async function () {

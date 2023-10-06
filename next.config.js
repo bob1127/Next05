@@ -14,5 +14,7 @@ const nextConfig = {
     output:'export'
 }
 
-module.exports = nextConfig
+module.exports = {
+  basePath: '/out',
+}
                                           

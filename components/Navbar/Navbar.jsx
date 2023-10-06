@@ -157,7 +157,9 @@ export default function App() {
             </NavbarBrand>
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
-                <Dropdown className='fixed'>
+
+
+                <Dropdown className=' w-[400px]  Menutoggle  border border-red-500'>
                     <NavbarItem>
                         <DropdownTrigger>
                             <Button
@@ -173,46 +175,72 @@ export default function App() {
                     </NavbarItem>
                     <DropdownMenu
                         aria-label="ACME features"
-                        className="w-[340px]"
+                        className="w-[100%] dropdown"
                         itemClasses={{
+
                             base: "gap-4",
                         }}
                     >
-                        <DropdownItem
-                            key="autoscaling"
-                            description="ACME scales apps to meet user demand, automagically, based on load."
-                            startContent={icons.scale}
-                        >
-                            UX100-酸鹼檢測儀
-                        </DropdownItem>
-                        <DropdownItem
-                            key="usage_metrics"
-                            description="pH chart 曲線圖"
-                            startContent={icons.activity}
-                        >
-                            UX200-酸鹼趨勢檢測儀
-                        </DropdownItem>
-                        <DropdownItem
-                            key="production_ready"
-                            description="ACME runs on ACME, join us and others serving requests at web scale."
-                            startContent={icons.flash}
-                        >
-                            磁石變頻攪拌器
-                        </DropdownItem>
-                        <DropdownItem
-                            key="99_uptime"
-                            description="Applications stay on the grid with high availability and high uptime guarantees."
-                            startContent={icons.server}
-                        >
-                            +99% Uptime
-                        </DropdownItem>
-                        <DropdownItem
-                            key="supreme_support"
-                            description="Overcome any challenge with a supporting team ready to respond."
-                            startContent={icons.user}
-                        >
-                            +Supreme Support
-                        </DropdownItem>
+                       
+                            <DropdownItem
+                                key="autoscaling"
+                                description="ACME scales apps to meet user demand, automagically, based on load."
+                                startContent={icons.scale}
+                            >
+                                UX100-酸鹼檢測儀
+                            </DropdownItem>
+                            <DropdownItem
+                                key="usage_metrics"
+                                description="pH chart 曲線圖"
+                                startContent={icons.activity}
+                            >
+                                UX200-酸鹼趨勢檢測儀
+                            </DropdownItem>
+                            <DropdownItem
+                                key="production_ready"
+                                description="ACME runs on ACME, join us and others serving requests at web scale."
+                                startContent={icons.flash}
+                            >
+                                磁石變頻攪拌器
+                            </DropdownItem>
+                       
+                            <DropdownItem
+                                key="autoscaling"
+                                description="ACME scales apps to meet user demand, automagically, based on load."
+                                startContent={icons.scale}
+                            >
+                                UX100-酸鹼檢測儀
+                            </DropdownItem>
+                            <DropdownItem
+                                key="usage_metrics"
+                                description="pH chart 曲線圖"
+                                startContent={icons.activity}
+                            >
+                                UX200-酸鹼趨勢檢測儀
+                            </DropdownItem>
+                            <DropdownItem
+                                key="production_ready"
+                                description="ACME runs on ACME, join us and others serving requests at web scale."
+                                startContent={icons.flash}
+                            >
+                                磁石變頻攪拌器
+                            </DropdownItem>
+                            <DropdownItem
+                                key="99_uptime"
+                                description="Applications stay on the grid with high availability and high uptime guarantees."
+                                startContent={icons.server}
+                            >
+                                +99% Uptime
+                            </DropdownItem>
+                            <DropdownItem
+                                key="supreme_support"
+                                description="Overcome any challenge with a supporting team ready to respond."
+                                startContent={icons.user}
+                            >
+                                +Supreme Support
+                            </DropdownItem>
+                     
+                       
                     </DropdownMenu>
                 </Dropdown>
                 <NavbarItem>

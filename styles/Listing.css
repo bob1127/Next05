@@ -71,5 +71,6 @@
 }
 
 .listing__address {
-  color: #737373;
+  font-size: 14px;
+  color: #1e1e1e;
 }

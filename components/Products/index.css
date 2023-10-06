@@ -156,9 +156,12 @@
 }
 .thumbnail {
   margin: 0 5px;
+  border-radius: 8px !important;
 }
 .active-thumbnail {
-  border: #476ff1 solid 3px;
+  border: #5f5f5f solid 1px;
+  padding: 5px;
+  border-radius: 8px !important;
 }
 @keyframes pause {
   0% {opacity: .2; }

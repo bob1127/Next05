@@ -14,18 +14,18 @@ export const projects = [
         year: 2023,
     },
     {
-        name: "MAVEN 11",
+        name: "一鍵自動檢測",
         client: "analogueagency",
         description: "New web design for the blockchain investment fund Maven 11.",
         src: "maven.jpg",
         year: 2022,
     },
     {
-        name: "Wix Playground Homepage",
+        name: "專利整合試片無需meter",
         client: "Wix Playground",
-        description: "Wix Playground is powered by the Wix.com design team.",
+        description: "New web design for the blockchain investment fund Maven 11.",
         src: "wix.jpg",
-        year: 2022,
+     
     },
     {
         name: "POWELL—STUDIO",

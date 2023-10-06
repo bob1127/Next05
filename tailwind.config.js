@@ -12,6 +12,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'DBlue': '#526c96',
+        'LBlue':'#7787a5',
         gray: {
           100: '#FBFBFB',
           200: '#EAEAEA',
@@ -72,7 +74,7 @@ module.exports = {
         base: '1rem',
         lg: '1.125rem',
         xl: '1.25rem',
-        '2xl': '1.5rem',
+        '2xl': '32px',
         '3xl': '2rem',
         '4xl': '2.625rem',
         '5xl': '3.25rem',
