@@ -12,6 +12,7 @@ const nextConfig = {
       domains: ['www.zemsor.com.tw'],
   },
     output:'export'
+
 }
 
 module.exports = nextConfig

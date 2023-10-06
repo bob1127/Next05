@@ -42,6 +42,8 @@ import ApplicateCard from '../../components/Application/ApplicateCard'
 import CardHover from '../../components/CardHover'
 import Cards from '../../components/Cards/Cards'
 import { properties } from "../../constants/data";
+import Link from 'next/link'
+
 // import TabComponent from "../../components/Tabs/TabComponent";
 // import tabs from "../../components/Tabs/tabs";
 import '../../styles/additional-styles/tab.css'
@@ -67,7 +69,8 @@ export default async function Home() {
                                 For M Series Printers</p>
                             <div className="btn-wrap">
                                 <a href="">BTN01</a>
-                                <a href="/en/index">BTN03</a>
+                                <Link href="/en/index">Post 1</Link>
+                                <a href="">BTN03</a>
                                 {/* <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure explicabo, odit placeat animi laboriosam excepturi, voluptatibus quisquam maxime nemo sapiente quibusdam officia necessitatibus velit minus dolorum in commodi veritatis eaque.</p> */}
 
                             </div>
