@@ -8,7 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import MobileMenu from './mobile-menu/MobileMenu.jsx'
+import MobileMenu from './mobile-menu/MobileMenu.jsx';
+import { ThemeSwitcher } from '@/app/ThemeSwitcher';
 
 export default function App() {
 
@@ -159,7 +160,7 @@ export default function App() {
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
 
 
-                <Dropdown className=' w-[400px]  Menutoggle  border border-red-500'>
+                <Dropdown className=' max-w-screen-xl py-10 px-16 '>
                     <NavbarItem>
                         <DropdownTrigger>
                             <Button
@@ -174,74 +175,85 @@ export default function App() {
                         </DropdownTrigger>
                     </NavbarItem>
                     <DropdownMenu
+
                         aria-label="ACME features"
-                        className="w-[100%] dropdown"
+                        className="w-[100%] border border-red-600 dropdown data-aos='zoom-y-out'"
                         itemClasses={{
 
                             base: "gap-4",
                         }}
                     >
-                       
-                            <DropdownItem
-                                key="autoscaling"
-                                description="ACME scales apps to meet user demand, automagically, based on load."
-                                startContent={icons.scale}
-                            >
-                                UX100-酸鹼檢測儀
-                            </DropdownItem>
-                            <DropdownItem
-                                key="usage_metrics"
-                                description="pH chart 曲線圖"
-                                startContent={icons.activity}
-                            >
-                                UX200-酸鹼趨勢檢測儀
-                            </DropdownItem>
-                            <DropdownItem
-                                key="production_ready"
-                                description="ACME runs on ACME, join us and others serving requests at web scale."
-                                startContent={icons.flash}
-                            >
-                                磁石變頻攪拌器
-                            </DropdownItem>
-                       
-                            <DropdownItem
-                                key="autoscaling"
-                                description="ACME scales apps to meet user demand, automagically, based on load."
-                                startContent={icons.scale}
-                            >
-                                UX100-酸鹼檢測儀
-                            </DropdownItem>
-                            <DropdownItem
-                                key="usage_metrics"
-                                description="pH chart 曲線圖"
-                                startContent={icons.activity}
-                            >
-                                UX200-酸鹼趨勢檢測儀
-                            </DropdownItem>
-                            <DropdownItem
-                                key="production_ready"
-                                description="ACME runs on ACME, join us and others serving requests at web scale."
-                                startContent={icons.flash}
-                            >
-                                磁石變頻攪拌器
-                            </DropdownItem>
-                            <DropdownItem
-                                key="99_uptime"
-                                description="Applications stay on the grid with high availability and high uptime guarantees."
-                                startContent={icons.server}
-                            >
-                                +99% Uptime
-                            </DropdownItem>
-                            <DropdownItem
-                                key="supreme_support"
-                                description="Overcome any challenge with a supporting team ready to respond."
-                                startContent={icons.user}
-                            >
-                                +Supreme Support
-                            </DropdownItem>
-                     
-                       
+
+                        <DropdownItem
+                            key="autoscaling"
+                            description="ACME scales apps to meet user demand, automagically, based on load."
+                            startContent={icons.scale}
+                        >
+                            UX100-酸鹼檢測儀
+
+
+                        </DropdownItem>
+                        <DropdownItem
+                            key="usage_metrics"
+                            description="pH chart 曲線圖"
+                            startContent={icons.activity}
+                        >
+                            UX200-酸鹼趨勢檢測儀
+                        </DropdownItem>
+                        <DropdownItem
+                            key="production_ready"
+                            description="ACME runs on ACME, join us and others serving requests at web scale."
+                            startContent={icons.flash}
+                        >
+                            磁石變頻攪拌器
+                        </DropdownItem>
+
+                        <DropdownItem
+                            key="autoscaling"
+                            description="ACME scales apps to meet user demand, automagically, based on load."
+                            startContent={icons.scale}
+                        >
+                            UX100-酸鹼檢測儀
+                        </DropdownItem>
+                        <DropdownItem
+                            key="usage_metrics"
+                            description="pH chart 曲線圖"
+                            startContent={icons.activity}
+                        >
+                            UX200-酸鹼趨勢檢測儀
+                        </DropdownItem>
+                        <DropdownItem
+                            key="production_ready"
+                            description="ACME runs on ACME, join us and others serving requests at web scale."
+                            startContent={icons.flash}
+                        >
+                            磁石變頻攪拌器
+                        </DropdownItem>
+                        <DropdownItem
+                            key="99_uptime"
+                            description="Applications stay on the grid with high availability and high uptime guarantees."
+                            startContent={icons.server}
+                        >
+                            +99% Uptime
+                        </DropdownItem>
+                        <DropdownItem
+                            key="supreme_support"
+                            description="Overcome any challenge with a supporting team ready to respond."
+                            startContent={icons.user}
+                        >
+                            +Supreme Support
+                        </DropdownItem>
+
+
+
+
+
                     </DropdownMenu>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis neque saepe officia voluptates vel sit corporis. Pariatur, placeat maxime deleniti eligendi officiis eaque reprehenderit aut eveniet, perspiciatis error architecto autem?</p>
+
+
+
+
                 </Dropdown>
                 <NavbarItem>
                     <Link color="foreground" href="/Products.html">
@@ -259,7 +271,8 @@ export default function App() {
                     </Link>
                 </NavbarItem>
             </NavbarContent>
-            <NavbarContent justify="end">
+            <ThemeSwitcher />
+            {/* <NavbarContent justify="end">
                 <div className="flex justify-center">
                     {currentTheme === 'dark' ? (
                         <button
@@ -278,7 +291,7 @@ export default function App() {
                         </button>
                     )}
                 </div>
-            </NavbarContent>
+            </NavbarContent> */}
         </Navbar>
 
     );

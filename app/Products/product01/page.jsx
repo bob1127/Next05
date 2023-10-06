@@ -598,6 +598,7 @@ const Product = props => (
                 </div>
             </div>
         </section>
+        <a href="/en/index">連結到英文版</a>
         <section className="w-full section-about border border-b-orange-700 ">
             <div class="Container items-center flex flex-col ">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">

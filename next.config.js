@@ -2,7 +2,7 @@
 const nextConfig = {
   assetPrefix: ".",
  images: {
-        domains: ['www.zensor.com.tw'],
+        // domains: ['www.zensor.com.tw'],
   //        loader: "imgix",
   //  path: "/",
     },

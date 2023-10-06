@@ -1,7 +1,29 @@
-export const metadata = {
-  title: 'Home - Simple',
-  description: 'Page description',
-}
+// export const metadata = {
+//   title: 'UltraeHP-HommingProbe',
+//   description: 'This is our description',
+//   openGraph: {
+//     title: 'Next.js',
+//     description: 'The React Framework for the Web',
+//     url: 'https://nextjs.org',
+//     siteName: 'Next.js',
+//     images: [
+//       {
+//         url: 'https://nextjs.org/og.png',
+//         width: 800,
+//         height: 600,
+//       },
+//       {
+//         url: 'https://nextjs.org/og-alt.png',
+//         width: 1800,
+//         height: 1600,
+//         alt: 'My custom alt',
+//       },
+//     ],
+//     locale: 'en_US',
+//     type: 'website',
+//   },
+// }
+
 
 import Tooltip from "../components/Tooltip"
 
@@ -17,8 +39,8 @@ import ApplicateCard from '../components/Application/ApplicateCard'
 import CardHover from '../components/CardHover'
 import Cards from '../components/Cards/Cards'
 import { properties } from "../constants/data";
-import TabComponent from "../components/Tabs/TabComponent";
-import tabs from "../components/Tabs/tabs";
+// import TabComponent from "../components/Tabs/TabComponent";
+// import tabs from "../components/Tabs/tabs";
 import '../styles/additional-styles/tab.css'
 
 
@@ -30,27 +52,27 @@ export default async function Home() {
 
   return (
     <>
-   
+
       <div className="outWrap overflow-hidden ">
 
-      
+
         <Hero />
         <section className=' px-5  md:px-15 lg:px-20'>
-         
-            <CardHover/>
-        
+
+          <CardHover />
+
         </section>
 
-        
 
-       
+
+
         <Features />
 
         <ApplicateCard />
         <div className="App">
           {/* Section header */}
           <div className="section-title flex flex-col w-full py-10 justify-center items-center">
-          
+
           </div>
           <div className="properties flex flex-wrap   justify-center items-center">
             {properties.map((item) => (
@@ -64,30 +86,30 @@ export default async function Home() {
         <div className="relative flex justify-center mb-8 border" data-aos="zoom-y-out" data-aos-delay="450">
 
           <img src="https://www.zensor.com.tw/images/wix.jpg" alt="" />
-      
-     
+
+
         </div>
         <div className="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
           <img src="https://www.zensor.com.tw/images/maven.jpg" alt="" />
-         
+
           {/* <img src='https://www.zensor.com.tw/images/maven.jpg' className='w-full' alt="" /> */}
-       
+
         </div>
-        <section className="w-full border border-black bg-black">
+        {/* <section className="w-full border border-black bg-black">
           <div className="row">
             <div className="Container">
-              <TabComponent tabs={tabs} />
+           
             </div>
           </div>
-        </section>
+        </section> */}
 
-       
-      
+
+
         <FeaturesBlocks />
 
 
 
-    
+
         <div className="section mt-20 px-20 border border-black">
           <div className="row">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 ">
@@ -98,7 +120,7 @@ export default async function Home() {
                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br></br> Natus hic sequi i Culpa, aspernatur laudantium?</p>
               </div>
               <div className='border text-3xl md:text-6xl col-span-2'>IS CLEAR</div>
-         
+
             </div>
           </div>
           <div className="row mt-5 ">
@@ -108,13 +130,13 @@ export default async function Home() {
                   <img className='width-full' src="https://www.ultraehp.com/images/Products-Detail-Img/UP100/家用版產品圖-nav.webp" alt="" />
                   <div className="top-img flex absolute top-1 right-1">
                     <div className="circle border border-black rounded-full w-6 h-6 m-1">
-                      
+
                     </div>
                     <div className="circle border border-black rounded-full w-6 h-6 m-1">
 
                     </div>
 
-                    
+
                   </div>
 
                 </div>
@@ -123,7 +145,7 @@ export default async function Home() {
                     <p>Lorem ipsum dolor sit amet consectetur<b>accusamus asperiores</b>  excepturi </p>
                   </div>
                   <div className="icons">
-                    
+
                   </div>
                 </div>
 
@@ -134,22 +156,22 @@ export default async function Home() {
                 <div className="border-white border txt absolute top-5 z-40 text-right text-white rigt-0 w-full ">
                   <span className='mr-4 '>Potentiastat</span> <p></p>
                   <span className='border border-whites rounded-full px-3 py-1 mt-4 mr-4'>Daily Shak 50+</span>
-                  
+
                 </div>
                 <div className="too absolute left-1/2 top-1/2">
-                  <Tooltip />  
+                  <Tooltip />
                 </div>
                 <div className="img ">
                   <img className='width-full' src="https://ultraehp.com/images/index/carousel-img/1024x576/UltraP幽門桿菌人體胃痛視覺圖-無字1024X576.png" alt="" />
-                 
+
                 </div>
-     
+
               </div>
               <div className='border'>333</div>
 
             </div>
           </div>
-        
+
         </div>
         <video className="mt-20 mx-auto w-36 h-24" autoPlay muted loop >
           <source src="https://cdn.builder.io/o/assets%2FYJIGb4i01jvw0SRdL5Bt%2Faebcdc568ab9443e8b5282e52d49a586%2Fcompressed?apiKey=YJIGb4i01jvw0SRdL5Bt&amp;token=aebcdc568ab9443e8b5282e52d49a586&amp;alt=media" />
@@ -158,7 +180,7 @@ export default async function Home() {
           <div className="Container px-20">
 
             <div className="row center">
-              
+
               {/* <video autoplay=""  playsinline="" className="cvqchck"><source type="video/mp4" src="https://cdn.builder.io/o/assets%2FYJIGb4i01jvw0SRdL5Bt%2Faebcdc568ab9443e8b5282e52d49a586%2Fcompressed?apiKey=YJIGb4i01jvw0SRdL5Bt&amp;token=aebcdc568ab9443e8b5282e52d49a586&amp;alt=media"></video> */}
               <h2 className="mx-auto text-center w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, sint.</h2>
             </div>
@@ -174,7 +196,7 @@ export default async function Home() {
             <div className="row mt-10">
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <div className="border border-black w-full">
-                   <span className="text-4xl">DISCOVER</span><br></br>
+                  <span className="text-4xl">DISCOVER</span><br></br>
                   <span className="text-4xl">MINDFULNESS</span><br></br>
                   <span className="text-4xl">THROUGH LESSONS</span>
                 </div>
@@ -184,16 +206,16 @@ export default async function Home() {
                 <div className="border border-black">
                   dddd
                 </div>
-                
+
               </div>
             </div>
           </div>
         </section>
-        
+
         <Testimonials />
 
 
-        
+
         <Newsletter />
 
 

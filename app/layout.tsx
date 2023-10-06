@@ -7,6 +7,8 @@ import Footer from '@/components/ui/footer'
 import Banner from '@/components/banner'
 import Navbar from '../components/Navbar/Navbar'
 import {Cloudinary} from '@cloudinary/url-gen'
+import { NextUIProvider } from '@nextui-org/react'
+import { ThemeProvider as NextThemesProvider } from "next-themes"
 
 
 // const inter = Inter({
@@ -46,8 +48,16 @@ export default function RootLayout({
           <div className="fix bg-neutral-800	 py-4 w-full text-white text-center ">
              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis repellat consequuntur officia 
           </div>
-          <Navbar />
-          {children}
+
+            <NextUIProvider>
+              <NextThemesProvider attribute="class" defaultTheme="dark">
+                <Navbar />
+
+
+                {children}
+
+              </NextThemesProvider>
+            </NextUIProvider>
           <Banner />
           <Footer/>
            

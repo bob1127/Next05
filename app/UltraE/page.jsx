@@ -28,23 +28,23 @@
 // }
 
 
-import Tooltip from "../../../components/Tooltip"
+import Tooltip from "../../components/Tooltip"
 import './ultrae.scss'
 import Image from 'next/image'
-import Img01 from '../../../public/images/wix.jpg'
-import Img02 from '../../../public/images/c2.jpg'
+import Img01 from '../../public/images/wix.jpg'
+import Img02 from '../../public/images/c2.jpg'
 import Hero from '@/components/hero'
 import Features from '@/components/features'
 import FeaturesBlocks from '@/components/features-blocks'
 import Testimonials from '@/components/testimonials'
 import Newsletter from '@/components/newsletter'
-import ApplicateCard from '../../../components/Application/ApplicateCard'
-import CardHover from '../../../components/CardHover'
-import Cards from '../../../components/Cards/Cards'
-import { properties } from "../../../constants/data";
+import ApplicateCard from '../../components/Application/ApplicateCard'
+import CardHover from '../../components/CardHover'
+import Cards from '../../components/Cards/Cards'
+import { properties } from "../../constants/data";
 // import TabComponent from "../../components/Tabs/TabComponent";
 // import tabs from "../../components/Tabs/tabs";
-import '../../../styles/additional-styles/tab.css'
+import '../../styles/additional-styles/tab.css'
 // import '../../public/images/demo.png'
 
 
