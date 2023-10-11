@@ -1,179 +1,124 @@
-export const metadata = {
-    title: 'Home - Simple',
-    description: 'Page description',
-}
+"use client"
 
-import Tooltip from "../../../components/Tooltip"
-
-import Image from 'next/image'
-import Img01 from '../../../public/images/wix.jpg'
-import Img02 from '../../../public/images/c2.jpg'
-import Hero from '@/components/hero'
-import Features from '@/components/features'
-import FeaturesBlocks from '@/components/features-blocks'
-import Testimonials from '@/components/testimonials'
-import Newsletter from '@/components/newsletter'
-import ApplicateCard from '../../../components/Application/ApplicateCard'
-import CardHover from '../../../components/CardHover'
-import Cards from '../../../components/Cards/Cards'
-import { properties } from "../../../constants/data";
-
-export default async function Home() {
-
-
-    return (
-        <>
-            <div className="outWrap overflow-hidden ">
-
-
-                <Hero />
-                <section className=' px-5  md:px-15 lg:px-20'>
-
-                    <CardHover />
-
-                </section>
+import Link from "next/link";
+// import fetch from "isomorphic-unfetch";
+import { motion } from "framer-motion";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import React from "react";
+import img01 from "../../../public/images/brazil.webp";
 
 
 
 
-                <Features />
-
-                <ApplicateCard />
-                <div className="App">
-                    {/* Section header */}
-                    <div className="section-title flex flex-col w-full py-10 justify-center items-center">
-
-                    </div>
-                    <div className="properties flex flex-wrap   justify-center items-center">
-                        {properties.map((item) => (
-                            <Cards data={item} key={item.id} />
-                        ))}
-                    </div>
-                </div>
-
-                <img src='../../../../public/images/wix.jpg' alt="" className='w-full' />
-
-                <div className="relative flex justify-center mb-8 border" data-aos="zoom-y-out" data-aos-delay="450">
-
-                    <img src="https://www.zensor.com.tw/images/wix.jpg" alt="" />
+let easing = [0.6, -0.05, 0.01, 0.99];
 
 
-                </div>
-                <div className="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-                    <img src="https://www.zensor.com.tw/images/maven.jpg" alt="" />
+const fadeInUp = {
+    initial: {
+        y: 60,
+        opacity: 0,
+        transition: { duration: 0.6, ease: easing }
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.6,
+            ease: easing
+        }
+    }
+};
 
-                    {/* <img src='https://www.zensor.com.tw/images/maven.jpg' className='w-full' alt="" /> */}
+const stagger = {
+    animate: {
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
 
-                </div>
+const Index = props => (
 
-                <FeaturesBlocks />
+    <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
+        <div className='flex flex-col container center'>
+            <motion.div
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                className='title'>
+                <h1 className="text-center">Products List</h1>
+            </motion.div>
+            <motion.div variants={stagger} className='product-row'>
 
-                <div className="section mt-20 px-10">
-                    <div className="row">
-                        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 ">
-                            <div className='border col-span-5 text-6xl'>THE FUTURE OF HEALTH</div>
-                            <div className='border'>e</div>
+                <Link
 
-                            <div className='border col-span-2 flex align-middle'>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br></br> Natus hic sequi i Culpa, aspernatur laudantium?</p>
-                            </div>
-                            <div className='border text-6xl col-span-2'>IS CLEAR</div>
-
+                    href='/product01'
+                >
+                    <motion.div
+                        variants={fadeInUp}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className='card border border-slate-100 shadow-lg'>
+                        <span className='text-5xl  font-medium category text-slate-600'>UP100</span>
+                        <motion.img
+                            initial={{ x: 60, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                            src='https://www.zensor.com.tw/images//Index-Img/Product-Img/EIWP100.webp'
+                            width={250}
+                        />
+                        <div className='product-info'>
+                            <h4></h4>
+                            <span></span>
                         </div>
-                    </div>
-                    <div className="row mt-5">
-                        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 ">
-                            <div className='border'>
-                                <div className="top relative">
-                                    <img className='width-full' src="https://www.ritualzeroproof.com/cdn/shop/files/ritual-zero-proof-ritual-aperitif-ritual-aperitif-alternative-29861815025748_590x.jpg?v=1682951409" alt="" />
-                                    <div className="top-img flex absolute top-1 right-1">
-                                        <div className="circle border border-black rounded-full w-6 h-6 m-1">
+                    </motion.div>
+                </Link>
+                <Link
 
-                                        </div>
-                                        <div className="circle border border-black rounded-full w-6 h-6 m-1">
+                    href=''
+                >
+                    <motion.div
+                        variants={fadeInUp}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className='card'>
+                        <span className='category'>快速幽門螺琁桿菌尿素呼吸檢測組</span>
+                        <motion.img
+                            initial={{ x: 60, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                            src="https://www.ultraehp.com/images/Products-Detail-Img/UP100/家用版產品圖-nav.webp"
 
-                                        </div>
+                            width={250}
 
-
-                                    </div>
-
-                                </div>
-                                <div className="bottom">
-                                    <div className="txt">
-                                        <p>Lorem ipsum dolor sit amet consectetur<b>accusamus asperiores</b>  excepturi </p>
-                                    </div>
-                                    <div className="icons">
-
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                            <div className='border col-span-3 relative'>
-                                <div className="border-white border txt absolute top-5 z-40 text-right text-white rigt-0 w-full ">
-                                    <span className='mr-4 '>Potentiastat</span> <p></p>
-                                    <span className='border border-whites rounded-full px-3 py-1 mt-4 mr-4'>Daily Shak 50+</span>
-
-                                </div>
-                                <div className="too absolute left-1/2 top-1/2">
-                                    <Tooltip />
-                                </div>
-                                <div className="img ">
-                                    <img className='width-full' src="https://www.ritualzeroproof.com/cdn/shop/articles/Ritual_Marg_2048x.jpg?v=1655927776" alt="" />
-
-                                </div>
-
-                            </div>
-                            <div className='border'>333</div>
-
+                        />
+                        <div className='product-info'>
+                            <h4></h4>
+                            <span></span>
                         </div>
-                    </div>
+                    </motion.div>
+                </Link>
 
-                </div>
+            </motion.div>
+            <>
 
-                <section>
-                    <div className="Container">
-                        <div className="row center">
-                            <h2 className="mx-auto text-center w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, sint.</h2>
-                        </div>
-                        <div className="row">
-                            <div className="hero-img border border-black p-5 relative">
-                                <div className="rightTxt">
-                                    <h2 className="text-white text-5xl absolute top-10 left-2/3">OMNEST:YOUR<br></br>JOURNEY TO<br></br>MINDFULNESS</h2>
-                                    {/* <p className="text-white text-normal ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ab asperiores sit aliquam ullam saepe inventore veritatis animi adipisci iure.</p> */}
-                                </div>
-                                <img className="width-full w-full rounded-2xl " src="https://miro.medium.com/v2/resize:fit:1000/format:webp/0*2qOQIQfFefI2PeoK.png" alt="" />
-                            </div>
-                        </div>
-                        <div className="row mt-10">
-                            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                                <div className="border border-black w-full">
-                                    <span className="text-4xl">DISCOVER</span><br></br>
-                                    <span className="text-4xl">MINDFULNESS</span><br></br>
-                                    <span className="text-4xl">THROUGH LESSONS</span>
-                                </div>
-                                <div className="border border-black">
-                                    dddd
-                                </div>
-                                <div className="border border-black">
-                                    dddd
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <Testimonials />
+            </>
+        </div>
 
 
+        <Link href='/en/Products'>iggi</Link>
+    </motion.div>
 
-                <Newsletter />
 
+)
 
+// Index.getInitialProps = async function () {
+//     const res = await fetch(
+//         "https://my-json-server.typicode.com/bob1127/next/products"
+//     );
+//     const data = await res.json();
+//     return {
+//         products: data
+//     };
+// };
 
-            </div>
-        </>
-    )
-}
+export default Index;

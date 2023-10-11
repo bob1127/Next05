@@ -79,37 +79,37 @@ const fadeInUp = {
 const data = [
     {
         image:
-            "https://blenderartists.org/uploads/default/original/4X/5/4/f/54f2cbb9c456be76911967e686ca5898ac6a065d.jpeg",
-        caption: `<div>
-        San Francisco<br/><span>Next line</span>
-      </div>`,
+            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/A26371G61_TD01_V2_2878x.jpg?v=1693993664",
+        //     caption: `<div>
+        //     San Francisco<br/><span>Next line</span>
+        //   </div>`,
     },
     {
         image:
-            "https://cdn.artstation.com/p/thumbnails/001/142/295/thumb.jpg",
-        caption: "<div>San Francisco</div>",
+            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-02_1_2878x.jpg?v=1693993664",
+        // caption: "<div>San Francisco</div>",
     },
     {
         image:
-            "https://t3.ftcdn.net/jpg/05/34/83/84/360_F_534838467_DTE9QWKuWpXXgJMxzcfh6WVfimYWcNdO.jpg",
-        caption: "<div>San Francisco</div>",
+            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-03_1_2878x.jpg?v=1693993664",
+        // caption: "<div>San Francisco</div>",
     },
     {
         image:
-            "https://www.zensor.com.tw/images//Products-Detail-Img/ECWP/carousel-18.webp",
-        caption: "<div>San Francisco</div>",
+            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-04_1_2878x.jpg?v=1693993664",
+        // caption: "<div>San Francisco</div>",
     },
     {
         image:
-            "https://cdn.pixabay.com/photo/2023/04/06/05/33/cute-boy-cartoon-7902892_1280.jpg",
-        caption: "<div>San Francisco</div>",
+            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-05_1_2878x.jpg?v=1693993664",
+        // caption: "<div>San Francisco</div>",
     },
     {
         image:
-            "https://img.freepik.com/premium-psd/psd-cartoon-character-3d-render-illustration_493627-96.jpg?w=2000",
+            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-06_1_2878x.jpg?v=1693993664",
         caption: "Darjeeling",
     },
-  
+
 
 ];
 
@@ -122,12 +122,12 @@ const slideNumberStyle = {
     fontWeight: "bold",
 };
 const Product = props => (
-    <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
+    <motion.div className="dark:bg-black" initial='initial' animate='animate' exit={{ opacity: 0 }}>
         <Navigation />
         <div className='fullscreen'>
 
-            <div className='product  flex-col md:flex-row border py-9'>
-               
+            <div className='product px-10  flex-col md:flex-row border py-9'>
+
                 <Carousel
                     animate={{ x: 0, opacity: 1 }}
                     initial={{ x: 200, opacity: 0 }}
@@ -179,11 +179,11 @@ const Product = props => (
                             </motion.div> */}
                         </Link>
                         <motion.div variants={fadeInUp}>
-                            <span className='category'>Humming Probe UX200</span>
+                            <span className=' '>Humming Probe UX200</span>
                             <Link href='../Products/product01'>CN</Link>
                         </motion.div>
-                        <motion.h1 variants={fadeInUp}>UX200｜Acid/Base Trend Detector</motion.h1>
-                        <motion.p variants={fadeInUp}>
+                        <motion.h1 className="dark:text-white" variants={fadeInUp}>UX200｜Acid/Base Trend Detector</motion.h1>
+                        <motion.p className="dark: text-slate-300 " variants={fadeInUp}>
 
                             ・pH chart <br></br>
                             ・7.0" Color Touch Screen<br></br>
@@ -220,7 +220,7 @@ const Product = props => (
                 </div>
             </div>
         </div>
-        <section className="w-full section-about border border-b-orange-700 ">
+        <section className="w-full section-about border  ">
             <div class="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-3/4">
 
@@ -251,28 +251,28 @@ const Product = props => (
                     <div className="row">
                         <img className="w-full" src="https://cdn.shopify.com/s/files/1/0569/5147/2268/files/sku_11cf0b03-96ed-499a-b4ff-8bc4f13ace87_3838x.jpg?v=1690807720" alt="" />
                     </div>
-                    
+
                 </div>
             </div>
         </section>
         <section>
             <div className="Container px-20 mt-20">
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="row">
                         <div className="" data-aos="fade-up" data-aos-delay="50">
-                        <h3 className="mb-4 text-3xl font-medium leading-none tracking-tight text-pink-600  mt-5 lg:text-4xl dark:text-white text-left">UltraPeace-Instant
-                            Helicobacter pylori urea breath test kit</h3>
+                            <h3 className="mb-4 text-3xl font-medium leading-none tracking-tight text-pink-600  mt-5 lg:text-4xl dark:text-white text-left">UltraPeace-Instant
+                                Helicobacter pylori urea breath test kit</h3>
                         </div>
 
                         <div className="" data-aos="fade-up" data-aos-delay="450">
 
-                        <h4>
-                            Detection Principle
-                        </h4>
+                            <h4>
+                                Detection Principle
+                            </h4>
                         </div>
                         <div className="" data-aos="fade-up" data-aos-delay="650">
-                        <p>When the stomach is infected with Helicobacter pylori. The orally given urea is hydrolysed by the enzyme urease of H. pylori and carbon dioxide and ammonia gas is expired in breath . By analyzing the concentration of ammonia gas expired through breath and comparing it with the baseline value before drinking urea. It can help to determine the presence of Helicobacter pylori infection.</p>
+                            <p>When the stomach is infected with Helicobacter pylori. The orally given urea is hydrolysed by the enzyme urease of H. pylori and carbon dioxide and ammonia gas is expired in breath . By analyzing the concentration of ammonia gas expired through breath and comparing it with the baseline value before drinking urea. It can help to determine the presence of Helicobacter pylori infection.</p>
                         </div>
                     </div>
                     <div className="row">
@@ -282,32 +282,32 @@ const Product = props => (
                 </div>
             </div>
         </section>
-        <section className="w-full section-about border border-b-orange-700 ">
+        <section className="w-full section-about border  ">
             <div class="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
                     {/* Section header */}
                     <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
-                    <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+                        <div className="section-title flex flex-col w-full py-10 justify-center items-center">
                             <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">What is Helicobacter pylori?</h3>
                             <p className="mb-6 text-m font-normal text-gray-800 lg:text-normal  text-left md:text-center   dark:text-gray-400">Helicobacter pylori is a type of tiny Gram-negative bacterium. It has a spiral shape and flagella, which allows it to move around in the gastric mucosa. The adhesive molecules on its surface can bind to receptors on the surface of gastric mucosal cells, helping them to attach to the gastric mucosa and avoid being washed away. These characteristics enable Helicobacter pylori to survive and colonize in the stomach environment, leading to infections and related stomach problems.</p>
 
+                        </div>
                     </div>
-                    </div>
-
-              
 
 
 
-                     
+
+
+
 
 
                 </div>
-             
+
 
 
             </div>
         </section>
-        <section className="w-full section-global border border-b-orange-700 ">
+        <section className="w-full section-global border ">
             <div class="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
 
@@ -319,7 +319,7 @@ const Product = props => (
 
                         </div>
                     </div>
-                
+
 
 
 
@@ -352,12 +352,12 @@ const Product = props => (
 
                     <div class="w-4/5 mx-auto">
                         <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
-                        {/* Section header */}
-                        <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+                            {/* Section header */}
+                            <div className="section-title flex flex-col w-full py-10 justify-center items-center">
                                 <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">Comparison of diagnostic modalities for gastric Helicobacter pylori infection</h3>
-                         
 
-                        </div>
+
+                            </div>
                         </div>
 
 
@@ -522,7 +522,7 @@ const Product = props => (
 
                         </div>
                     </div>
-                  
+
 
                 </div>
 

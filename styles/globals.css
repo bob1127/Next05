@@ -7,6 +7,14 @@
 @import './additional-styles/toggle-switch.css';
 @import './additional-styles/utility-patterns.css';
 
+
+
+body *{
+  transition-delay: .4s;
+  @apply transition-colors duration-500;
+
+  
+}
 .fixed {
     left: 0 !important;
 }

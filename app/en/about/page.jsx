@@ -27,7 +27,7 @@
 //     },
 // }
 
-
+"use client"
 import Tooltip from "../../../components/Tooltip"
 import './ultrae.scss'
 import Image from 'next/image'
@@ -41,6 +41,7 @@ import Newsletter from '@/components/newsletter'
 import ApplicateCard from '../../../components/Application/ApplicateCard'
 import CardHover from '../../../components/CardHover'
 import Cards from '../../../components/Cards/Cards'
+import SwiperCard1 from '../../../components/SwiperCarousel/SwiperCardAbout'
 import { properties } from "../../../constants/data";
 // import TabComponent from "../../components/Tabs/TabComponent";
 // import tabs from "../../components/Tabs/tabs";
@@ -81,6 +82,21 @@ export default async function Home() {
 
                 </div>
             </section>
+            <div className="row mt-20">
+                <div className="grid grid-cols-1  md:grid-cols-2 border border-red">
+                    <div className="px-5  overflow-hidden rounded-3xl p-2">
+                        <div className="bg-center rounded-2xl bg-cover bg-no-repeat marker:border border-black h-full w-full ImgWrap bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_12879972_2878x.png?v=1693466249')]">
+                            
+                        </div>
+                       
+                    </div>
+                    <div>
+
+                         <SwiperCard1 />
+                    </div>
+                
+                </div>
+            </div>
             <section className="">
                 <div className="Container relative border border-white h-full">
                     <div className="row">
