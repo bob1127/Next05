@@ -51,7 +51,7 @@ const Index = props => (
 
                 <Link
 
-                    href='en/Products/product01'
+                    href='/product01'
                 >
                     <motion.div
                         variants={fadeInUp}
