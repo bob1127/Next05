@@ -4,15 +4,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from 'next/image'
 
+import './head'
+
 
 import { Table } from "@nextui-org/react";
 import { useState } from "react";
-import Head from "next/head";
+
 import CarouselThumbs from "../../../components/CarouselThumbs";
 import ProductImage from "../../../components/ProductImage";
 
 
-import { Metadata } from "next";
 import Carousel from "../../../components/Products/ProductCarousel";
 import Navigation from "../../../components/Products/Navigation";
 
@@ -22,8 +23,6 @@ import { projects } from '../../../components/two-colum/data';
 import Double from '../../../components/two-colum/Double';
 import ModalBrn from "../../../components/ModalBtn";
 import { CldVideoPlayer } from "next-cloudinary";
-
-// import type { Metadata } from 'next'
 
 
 
@@ -136,12 +135,31 @@ const slideNumberStyle = {
 };
 
 
-
-// export const Metadata = {
-//     title: 'Home',
+// export const metadata = {
+//     openGraph: {
+//         title: 'Next.js',
+//         description: 'The React Framework for the Web',
+//         url: 'https://nextjs.org',
+//         siteName: 'Next.js',
+//         images: [
+//             {
+//                 url: 'https://nextjs.org/og.png',
+//                 width: 800,
+//                 height: 600,
+//             },
+//         ],
+//         locale: 'en-US',
+//         type: 'website',
+//     },
 // };
 
+
+
 const Product = props => (
+    <>
+    
+
+
     <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
         <Navigation />
         <div className='fullscreen'>
@@ -240,7 +258,7 @@ const Product = props => (
             </div>
         </div>
         <section className="w-full section-about border border-b-orange-700 ">
-            <div class="Container items-center flex justify-center w-full	pt-10">
+            <div className="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-3/4">
 
 
@@ -251,6 +269,7 @@ const Product = props => (
                         transition={{ staggerChildren: 0.3 }}
                     >
 <h1 className=''>關於胃幽門螺旋桿菌</h1>
+                         
 
 
                     </motion.div>
@@ -261,7 +280,7 @@ const Product = props => (
             <div className="row px-4 w-full border border-black mt-10">
                 <div className=" mx-auto txtWrap max-width-screen-md border border-black  py-9 text-center  ">
                     <span className="text-center  py-2 text-xl md:text-2xl border  border-black rounded-full px-5">Introducing the Visual Headless CMS</span><br/>
-                    <div class='mt-5 max-width-screen-md text-center '>Everything digital teams need to build high-performing digital experiences at scale, faster.</div>
+                    <div className='mt-5 max-width-screen-md text-center '>Everything digital teams need to build high-performing digital experiences at scale, faster.</div>
                 </div>
             </div>
             <div className="row px-4 mt-10">
@@ -354,7 +373,7 @@ const Product = props => (
             </div>
         </div>
         <section className="w-full section-about border border-b-orange-700 ">
-            <div class="Container items-center flex justify-center w-full	pt-10">
+            <div className="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
                     {/* Section header */}
                     <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
@@ -384,7 +403,7 @@ const Product = props => (
             </div>
         </section>
         <section className="w-full section-global border border-b-orange-700 ">
-            <div class="Container items-center flex justify-center w-full	pt-10">
+            <div className="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
 
                     {/* Section header */}
@@ -416,7 +435,7 @@ const Product = props => (
             <div className="Container">
                 <div className="border border-white row w-full bg-black h-64">
                    <div className="txt flex flex-col">
-                        <h1 className="text-4xl font-extrabold  text-white text-center">EXPLORE STUNNING <svg class="graphic contentFace" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <h1 className="text-4xl font-extrabold  text-white text-center">EXPLORE STUNNING <svg className="graphic contentFace" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35.0854 70.0004C53.5846 70.0004 68.5811 54.4541 68.5811 35.2767C68.5811 16.0993 53.5846 0.552979 35.0854 0.552979C16.5863 0.552979 1.58984 16.0993 1.58984 35.2767C1.58984 54.4541 16.5863 70.0004 35.0854 70.0004Z" fill="#EF6C41"></path>
                             <path d="M35.0307 70C28.1071 70.0061 21.3371 67.9585 15.5774 64.1164C9.81763 60.2742 5.32684 54.8101 2.67306 48.4152C0.0192846 42.0203 -0.678224 34.982 0.668789 28.1907C2.0158 21.3993 5.3468 15.16 10.2404 10.2621C15.134 5.3642 21.3704 2.02775 28.1606 0.674782C34.9507 -0.678191 41.9897 0.013126 48.3869 2.66129C54.7841 5.30945 60.2521 9.79544 64.0993 15.5518C67.9465 21.3082 70 28.0763 70 35C70 44.2773 66.3167 53.175 59.7596 59.7379C53.2025 66.3008 44.308 69.9919 35.0307 70ZM35.0307 1.43067C28.385 1.42946 21.8882 3.39905 16.3619 7.09033C10.8356 10.7816 6.52804 16.0288 3.98399 22.1683C1.43995 28.3077 0.773674 35.0638 2.06944 41.5819C3.36521 48.1001 6.56483 54.0876 11.2636 58.7873C15.9624 63.487 21.9494 66.6877 28.4673 67.9846C34.9852 69.2816 41.7414 68.6166 47.8813 66.0736C54.0213 63.5307 59.2692 59.2241 62.9615 53.6985C66.6538 48.1729 68.6246 41.6764 68.6246 35.0307C68.6148 26.1235 65.0726 17.5838 58.7748 11.2848C52.477 4.98591 43.9379 1.44205 35.0307 1.43067Z" fill="black"></path>
                             <path d="M36.1767 47.3116C35.9188 47.3116 35.6609 47.3116 35.3968 47.3116C31.0986 47.0782 27.2977 44.966 26.0021 42.0554C25.8775 41.7753 25.8693 41.4572 25.9793 41.171C26.0892 40.8849 26.3084 40.6541 26.5885 40.5296C26.8686 40.405 27.1867 40.3968 27.4729 40.5067C27.759 40.6167 27.9898 40.8358 28.1144 41.1159C29.0354 43.1852 32.1486 44.8002 35.5258 45.0089C37.3126 45.1072 41.7275 44.8984 44.1223 40.8212C44.1924 40.6793 44.2909 40.5532 44.4118 40.451C44.5327 40.3487 44.6734 40.2724 44.825 40.2269C44.9767 40.1813 45.136 40.1674 45.2933 40.186C45.4505 40.2047 45.6022 40.2555 45.739 40.3352C45.8758 40.415 45.9947 40.5221 46.0883 40.6498C46.1819 40.7775 46.2482 40.9231 46.2832 41.0775C46.3182 41.2319 46.321 41.3919 46.2915 41.5474C46.262 41.703 46.2008 41.8508 46.1117 41.9818C44.1223 45.3467 40.4503 47.3116 36.1767 47.3116Z" fill="black"></path>
@@ -436,7 +455,7 @@ const Product = props => (
             <div className="container">
                 <div className="table-wrap border  mt-20">
 
-                    <div class="w-4/5 mx-auto">
+                    <div className="w-4/5 mx-auto">
                         <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
                         {/* Section header */}
                         <div className="section-title flex flex-col w-full py-10 justify-center items-center">
@@ -448,134 +467,134 @@ const Product = props => (
                         </div>
 
 
-                        <div class="flex flex-col">
-                            <div class="overflow-x-auto shadow-md sm:rounded-lg">
-                                <div class="inline-block min-w-full align-middle">
-                                    <div class="overflow-hidden ">
-                                        <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
-                                            <thead class="bg-gray-800 text-gray-100 dark:bg-gray-700">
+                        <div className="flex flex-col">
+                            <div className="overflow-x-auto shadow-md sm:rounded-lg">
+                                <div className="inline-block min-w-full align-middle">
+                                    <div className="overflow-hidden ">
+                                        <table className="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+                                            <thead className="bg-gray-800 text-gray-100 dark:bg-gray-700">
                                                 <tr>
-                                                    <th scope="col" class="p-4">
-                                                        <div class="flex items-center">
+                                                    <th scope="col" className="p-4">
+                                                        <div className="flex items-center">
 
-                                                            <label for="checkbox-all" class="sr-only">checkbox</label>
+                                                            <label for="checkbox-all" className="sr-only">checkbox</label>
                                                         </div>
                                                     </th>
-                                                    <th scope="col" rowSpan={2} class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
+                                                    <th scope="col" rowSpan={2} className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
                                                         侵入式 / 非侵入式
                                                     </th>
-                                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
+                                                    <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
                                                         侵入式
                                                     </th>
-                                                    <th scope="col" colSpan={4} class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-100  uppercase dark:text-gray-400">
+                                                    <th scope="col" colSpan={4} className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-100  uppercase dark:text-gray-400">
                                                         非侵入式
                                                     </th>
-                                                    {/* <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
+                                                    {/* <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
                                                         非侵入式
                                                     </th>
-                                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
+                                                    <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
                                                         非侵入式
                                                     </th>
-                                                    <th scope="col" class="p-4">
-                                                        <span class="sr-only">Edit</span>
+                                                    <th scope="col" className="p-4">
+                                                        <span className="sr-only">Edit</span>
                                                     </th> */}
                                                 </tr>
                                             </thead>
-                                            <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-                                                        <div class="flex items-center">
+                                            <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+                                                        <div className="flex items-center">
 
-                                                            <label for="checkbox-table-1" class="sr-only">checkbox</label>
+                                                            <label for="checkbox-table-1" className="sr-only">checkbox</label>
                                                         </div>
                                                     </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                         <Image />
                                                     </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"> </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"></td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"> </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"></td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
 
                                                     </td>
 
                                                 </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
 
                                                     </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">檢測方法</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">內視鏡</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">糞便抗體檢測</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">血清檢測</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">13C 尿素呼吸法</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                        <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">快速尿素呼吸法-UBT</a>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">檢測方法</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">內視鏡</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">糞便抗體檢測</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">血清檢測</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">13C 尿素呼吸法</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+                                                        <a href="#" className="text-blue-600 dark:text-blue-500 hover:underline">快速尿素呼吸法-UBT</a>
                                                     </td>
 
                                                 </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-                                                        <div class="flex items-center">
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+                                                        <div className="flex items-center">
 
-                                                            <label for="checkbox-table-2" class="sr-only">樣品型態</label>
+                                                            <label for="checkbox-table-2" className="sr-only">樣品型態</label>
                                                         </div>
                                                     </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">樣品型態</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">胃部組織</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">糞便</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">血液</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">呼出氣體</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">呼出氣體</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">樣品型態</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">胃部組織</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">糞便</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">血液</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">呼出氣體</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">呼出氣體</td>
 
                                                 </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
 
                                                     </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">檢測時間</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">1-2 hr</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">3-7 day</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">3-7 day</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">3-7 day</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">⌃ 1 hr </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">檢測時間</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">1-2 hr</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">3-7 day</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">3-7 day</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">3-7 day</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">⌃ 1 hr </td>
 
                                                 </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
 
                                                     </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">費用/NT</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">低</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">中</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">中</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">費用/NT</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">低</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">中</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">中</td>
 
                                                 </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
 
                                                     </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">優缺點</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">不舒服</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">不能評估治療前後的療效，只能判斷是否曾經感染過HP</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">優缺點</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">不舒服</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">不能評估治療前後的療效，只能判斷是否曾經感染過HP</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
 
                                                 </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
 
                                                     </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">準確度</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">低</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">高</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">準確度</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">低</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">高</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
 
                                                 </tr>
                                             </tbody>
@@ -588,9 +607,9 @@ const Product = props => (
 
 
 
-                        <p class="mt-5">This table component is part of a larger, open-source library of Tailwind CSS components. Learn
+                        <p className="mt-5">This table component is part of a larger, open-source library of Tailwind CSS components. Learn
                             more
-                            by going to the official <a class="text-blue-600 hover:underline"
+                            by going to the official <a className="text-blue-600 hover:underline"
                                 href="#" target="_blank">Flowbite Documentation</a>.
                         </p>
 
@@ -600,7 +619,7 @@ const Product = props => (
         </section>
         <a href="/en/index">連結到英文版</a>
         <section className="w-full section-about border border-b-orange-700 ">
-            <div class="Container items-center flex flex-col ">
+            <div className="Container items-center flex flex-col ">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
                     <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
                         {/* Section header */}
@@ -643,7 +662,7 @@ const Product = props => (
      
 
     </motion.div>
-
+    </>
 );
 
 

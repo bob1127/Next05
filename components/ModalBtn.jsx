@@ -31,16 +31,7 @@ export default function App() {
                         <>
                             <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
                             <ModalBody>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Nullam pulvinar risus non risus hendrerit venenatis.
-                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Nullam pulvinar risus non risus hendrerit venenatis.
-                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                </p>
+                                <iframe src="https://www.zensor.com.tw/preOrder.html" loading="lazy" width="448" height="540" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="danger" variant="light" onClick={onClose}>

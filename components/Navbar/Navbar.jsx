@@ -1,15 +1,20 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu } from "@nextui-org/react";
 import { ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale } from "./Icons.jsx";
 import { AcmeLogo } from "./AcmeLogo.jsx";
+import Link from 'next/link'
 // import { ThemeSwitcher } from "./ThemeSwitcher.js";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useTheme } from 'next-themes';
+import Switcher from '../Switcher.js';
 import Image from 'next/image';
-import MobileMenu from './mobile-menu/MobileMenu.jsx';
-import { ThemeSwitcher } from '@/app/ThemeSwitcher';
+// import MobileMenu from './mobile-menu/MobileMenu.jsx';
+// import { ThemeSwitcher } from '@/app/ThemeSwitcher';
+// import Switchers from '../Switcher.js/index.js'
+
+// import MobileMenu from "../../components/Navbar/mobile-menu/MobileMenu.jsx";
 
 export default function App() {
 
@@ -60,17 +65,17 @@ export default function App() {
 
     return (
 
-        <Navbar className='nav'>
+        <Navbar className='nav z-50'>
 
             <header>
-                <div className="menu" onClick={isOpen}>
+                <div className="menu border border-black" onClick={isOpen}>
                     <i className="fa fa-bars"></i>
                 </div>
             </header>
             <AnimatePresence >
                 {
                     open && (
-                        <motion.div className="menu_container  bg-pink-600"
+                        <motion.div className="menu_container  bg-pink-200"
                             variants={item}
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "100vh", opacity: 1 }}
@@ -117,7 +122,7 @@ export default function App() {
                                     }
                                 }}
                             >
-                                <MobileMenu />
+
 
 
                             </motion.a>
@@ -155,12 +160,13 @@ export default function App() {
                 <AcmeLogo />
                 <p className="font-bold text-inherit">ACME</p>
 
+
             </NavbarBrand>
 
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarContent className="hidden sm:flex gap-4 border border-orange-500" justify="center">
 
 
-                <Dropdown className=' max-w-screen-xl py-10 px-16 '>
+                <Dropdown className='  py-10 md:px-10 lg:px-16 h-[90vh] overflow-y-scroll dark:bg-grey-800  border border-gray-400  w-[96vw] lg:w-[98vw]'>
                     <NavbarItem>
                         <DropdownTrigger>
                             <Button
@@ -177,74 +183,99 @@ export default function App() {
                     <DropdownMenu
 
                         aria-label="ACME features"
-                        className="w-[100%] border border-red-600 dropdown data-aos='zoom-y-out'"
+                        className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 w-[100%] dropdown data-aos='zoom-y-out'"
                         itemClasses={{
 
                             base: "gap-4",
                         }}
                     >
 
+
                         <DropdownItem
+                            className='border dark:border-slate-600 border-black p-5'
                             key="autoscaling"
-                            description="ACME scales apps to meet user demand, automagically, based on load."
-                            startContent={icons.scale}
+                        // description="ACME scales apps to meet user demand, automagically, based on load."
+                        // startContent={icons.scale}
                         >
-                            UX100-酸鹼檢測儀
+                            <div className="grid grid-cols-2">
+                                <div className=''>
+                                    <b className='text-lg dark:text-slate-100'>UBT- Professional</b>
+                                    <ul><li className='dark:text-slate-300'>幽門螺旋桿菌快速測試</li><li className='dark:text-slate-300'>適用於醫療機構</li><li className='dark:text-slate-300'>自動獲取結果</li></ul>
+                                </div>
+                                <div className='  '>
+                                    <img src="http://localhost:3000/_next/image?url=%2Fimages%2FUntitled-Camera%E6%8B%B7%E8%B2%9D.png&w=1080&q=75" alt="" className='w-[300px] rounded-lg' />
+
+                                </div>
+                            </div>
+
 
 
                         </DropdownItem>
                         <DropdownItem
-                            key="usage_metrics"
-                            description="pH chart 曲線圖"
-                            startContent={icons.activity}
-                        >
-                            UX200-酸鹼趨勢檢測儀
-                        </DropdownItem>
-                        <DropdownItem
-                            key="production_ready"
-                            description="ACME runs on ACME, join us and others serving requests at web scale."
-                            startContent={icons.flash}
-                        >
-                            磁石變頻攪拌器
-                        </DropdownItem>
-
-                        <DropdownItem
+                            className='border dark:border-slate-600 border-black p-5'
                             key="autoscaling"
-                            description="ACME scales apps to meet user demand, automagically, based on load."
-                            startContent={icons.scale}
+                        // description="ACME scales apps to meet user demand, automagically, based on load."
+                        // startContent={icons.scale}
                         >
-                            UX100-酸鹼檢測儀
+                            <Link href='/en/Products/product01'>
+                                <div className="grid grid-cols-2">
+                                    <div className=''>
+                                        <b className='text-lg dark:text-slate-100'>UBT- Professional</b>
+                                        <ul><li className='dark:text-slate-300'>幽門螺旋桿菌快速測試</li><li className='dark:text-slate-300'>適用於醫療機構</li><li className='dark:text-slate-300'>自動獲取結果</li></ul>
+                                    </div>
+                                    <div className='  '>
+                                        <img src="https://ultraehp.com/images/Black-03_f9884945-38e0-49fe-91b5-dba4449b9152_3078x.jpg.png" alt="" className='w-[300px] rounded-lg' />
+
+                                    </div>
+                                </div>
+
+                            </Link>
+
                         </DropdownItem>
                         <DropdownItem
-                            key="usage_metrics"
-                            description="pH chart 曲線圖"
-                            startContent={icons.activity}
+                            className='border dark:border-slate-600 border-black p-5'
+                            key="autoscaling"
+                        // description="ACME scales apps to meet user demand, automagically, based on load."
+                        // startContent={icons.scale}
                         >
-                            UX200-酸鹼趨勢檢測儀
-                        </DropdownItem>
-                        <DropdownItem
-                            key="production_ready"
-                            description="ACME runs on ACME, join us and others serving requests at web scale."
-                            startContent={icons.flash}
-                        >
-                            磁石變頻攪拌器
-                        </DropdownItem>
-                        <DropdownItem
-                            key="99_uptime"
-                            description="Applications stay on the grid with high availability and high uptime guarantees."
-                            startContent={icons.server}
-                        >
-                            +99% Uptime
-                        </DropdownItem>
-                        <DropdownItem
-                            key="supreme_support"
-                            description="Overcome any challenge with a supporting team ready to respond."
-                            startContent={icons.user}
-                        >
-                            +Supreme Support
-                        </DropdownItem>
+                            <a href="https://zensor.com.tw/ECWP100C.html">
+                                <div className="grid grid-cols-2">
+                                    <div className=''>
+                                        <b className='font-extrabold text-normal break-all dark:text-slate-100 '>業界最小的⌜無線⌟<br></br>電化學分析儀<br></br>
+                                            (恒電位儀/電化學工作站)</b>
+                                        <ul><li className='dark:text-slate-300'>只有手指大小</li><li className='dark:text-slate-300'>無線連接，即插即用</li><li className='dark:text-slate-300'>可擴增到8通道</li></ul>
+                                    </div>
+                                    <div className='  '>
+                                        <img src="https://www.zensor.com.tw/images//Products-Detail-Img/ECWP/業界最小的_無線_電化學分析儀-實擬功能.webp" alt="" className='w-[300px] rounded-lg' />
+
+                                    </div>
+                                </div>
+                            </a>
 
 
+                        </DropdownItem>
+
+                        <DropdownItem
+                            className='border dark:border-slate-600 border-black p-5'
+                            key="autoscaling"
+                        // description="ACME scales apps to meet user demand, automagically, based on load."
+                        // startContent={icons.scale}
+                        >
+                            <a href='https://www.ultrae.com.tw/UX200.html '>
+                                <div className="grid grid-cols-2">
+                                    <div className=''>
+                                        <b className='text-lg dark:text-slate-100'>免校正酸鹼檢測儀</b>
+                                        <ul><li className='dark:text-slate-300'>pH chart 曲線圖</li><li className='dark:text-slate-300'>7.0”彩色觸控屏幕</li><li className='dark:text-slate-300'>演算法自動終點判斷</li></ul>
+                                    </div>
+                                    <div className='  '>
+                                        <img src="https://www.ultraehp.com/images/Products-Detail-Img/UX200/UX200.png" alt="" className='w-[300px] rounded-lg' />
+
+                                    </div>
+                                </div>
+                            </a>
+
+
+                        </DropdownItem>
 
 
 
@@ -256,7 +287,7 @@ export default function App() {
 
                 </Dropdown>
                 <NavbarItem>
-                    <Link color="foreground" href="/Products.html">
+                    <Link color="foreground" href="/UltraE">
                         關於我們
                     </Link>
                 </NavbarItem>
@@ -270,8 +301,11 @@ export default function App() {
                         聯絡我們
                     </Link>
                 </NavbarItem>
+
             </NavbarContent>
-            <ThemeSwitcher />
+
+            <Switcher />
+            {/* <ThemeSwitcher /> */}
             {/* <NavbarContent justify="end">
                 <div className="flex justify-center">
                     {currentTheme === 'dark' ? (

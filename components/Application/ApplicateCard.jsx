@@ -5,14 +5,10 @@ import { Card, CardHeader, CardBody, Image, Chip } from "@nextui-org/react";
 
 export default function App() {
     return (
-        <div className="flex flex-col flex-wrap w-full justify-center items-center mt-20 px-20">
+        <div className="flex flex-col flex-wrap w-full justify-center items-center ">
 
             {/* Section header */}
-            <div className="section-title flex flex-col w-full py-10 justify-center items-center">
-                <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900  lg:text-4xl dark:text-white text-center">專利技術建構的生態系健康檢測平台</h1>
-                <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">多領域應用</p>
-
-            </div>
+          
             {/* <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
                 <h1 className=" mb-4">專利技術建構的生態系健康檢測平台</h1>
                 <p className="text-xl text-gray-600">多領域應用</p>

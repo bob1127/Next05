@@ -4,17 +4,17 @@ export const countries = [
 
 
 
-        image: "/images/carousel02.jpg",
+        image: "/images/Untitled-Camera.png",
         title: "超越感測界線，極致健康生活",
         url: 'https://www.ultraehp.com'
     },
     {
-        image: "/images/carousel01.jpg",
-        title: "China",
+        // image: "/images/c1.png",
+        title: "UP100",
     },
     {
-        image: "/images/carousel.jpg",
-        title: "France",
+        // image: "/images/c1.png",
+        title: "CS200",
     },
     // {
     //     image: "./images/brazil.webp",

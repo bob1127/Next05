@@ -6,13 +6,27 @@
 @import './additional-styles/theme.css';
 @import './additional-styles/toggle-switch.css';
 @import './additional-styles/utility-patterns.css';
-
-
-
+/* *{ outline: none !important;
+      box-shadow:none !important;}
+      .group[data-selected=true] .group-data-\[selected\=true\]\:text-default-foreground {
+        color: white !important;
+      } */
+.inset-0{
+  background-color: orangered;
+}
+/* a{
+  opacity: 0 !important;
+} */
+/* 
 body *{
   transition-delay: .4s;
   @apply transition-colors duration-500;
 
+  
+} */
+
+iframe .cover{
+  display: none !important;
   
 }
 .fixed {

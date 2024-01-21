@@ -38,7 +38,7 @@ export default function App() {
             radial-gradient(
               650px circle at ${mouseX}px ${mouseY}px,
               rgba(14, 165, 233, 0.15),
-              transparent 90%
+              transparent 90%d
             )
           `,
                 }}
@@ -59,7 +59,7 @@ export default function App() {
                     </p>
                 </div>
                 <div className=" h-80 overflow-hidden ">
-                    <iframe className="h-80 w-full scale-150" src="https://my.spline.design/planetearthdaycopy-2333a6dda7fecbc7779226b36abe6285/" frameborder="0"></iframe>
+                    {/* <iframe className="h-80 w-full scale-150" src="https://my.spline.design/planetearthdaycopy-2333a6dda7fecbc7779226b36abe6285/" frameborder="0"></iframe> */}
 
                 </div>
             </div>

@@ -11,9 +11,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+
+
       colors: {
+        'yellow': '#f6f5f8',
         'DBlue': '#526c96',
         'LBlue':'#7787a5',
+        'indexCard':'#f6f6f6',
+        'FluorescentGreen':'#DFFC21',
         gray: {
           100: '#FBFBFB',
           200: '#EAEAEA',

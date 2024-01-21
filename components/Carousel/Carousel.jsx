@@ -44,7 +44,7 @@ function Carousel({ images}) {
     console.log(current);
     return (
         <div
-            className="carousel border border-black relative"
+            className="carousel px-20 border border-black relative"
             onMouseEnter={() => {
                 setAutoPlay(false);
                 clearTimeout(timeOut);

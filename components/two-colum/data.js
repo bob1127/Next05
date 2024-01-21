@@ -3,7 +3,7 @@ export const projects = [
         name: "Google Pixel Creator Labs",
         client: "Grow",
         description: "A partnership between Google & SN37.",
-        src: "google.jpg",
+        src: "Black-03_f9884945-38e0-49fe-91b5-dba4449b9152_3078x.jpg.png",
         year: 2023,
     },
     {
@@ -14,17 +14,17 @@ export const projects = [
         year: 2023,
     },
     {
-        name: "一鍵自動檢測",
+        name: "Our lower step-in frame",
         client: "analogueagency",
-        description: "New web design for the blockchain investment fund Maven 11.",
-        src: "maven.jpg",
+        description: "VanMoof A5VanMoof",
+        src: "",
         year: 2022,
     },
     {
-        name: "專利整合試片無需meter",
+        name: "Our remastered straight frame",
         client: "Wix Playground",
-        description: "New web design for the blockchain investment fund Maven 11.",
-        src: "wix.jpg",
+        description: "New web design for  ",
+        src: "",
      
     },
     {

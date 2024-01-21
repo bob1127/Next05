@@ -2,6 +2,7 @@
 import styles from './two.module.scss';
 import Image from 'next/image';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 export default function Index({ projects, reversed }) {
 
@@ -45,35 +46,51 @@ export default function Index({ projects, reversed }) {
     return (
         <div onMouseMove={(e) => { manageMouseMove(e) }} className={styles.double}>
 
-            <div ref={firstImage} className={styles.imageContainer}>
-                <div className={styles.stretchyWrapper}>
+          
 
+            <div ref={firstImage} className={styles.imageContainer}>
+                <div className={styles.body}>
+                    <p>{projects[0].description}</p>
+
+                    <h3 className='text-black dark:text-slate-2g00'>{projects[0].name}</h3>
+
+                    <p>{projects[0].year}</p>
+                    <a href="" className='border-2  border-gray-400 w-[200px] py-2 rounded-full hover:bg-gray-400 px-2'>Learn More</a>
+                </div>
+                <div className={styles.stretchyWrapper}>
+  <Link className='w-full border border-white' href="/UltraE">
                     <Image
                         src={`/images/${projects[0].src}`}
                         fill={true}
                         alt={"image"}
                     />
+                        </Link>
                 </div>
-                <div className={styles.body}>
-                    <h3>{projects[0].name}</h3>
-                    <p>{projects[0].description}</p>
-                    <p>{projects[0].year}</p>
-                </div>
+                
             </div>
+        
 
             <div ref={secondImage} className={styles.imageContainer}>
+                <div className={styles.body}>
+                    <p>{projects[1].description}</p>
+
+                    <h3 className='text-black dark:text-slate-2g00'>{projects[1].name}</h3>
+                  
+                    <p>{projects[1].year}</p>
+                    <a href="" className='border-2  border-gray-400 w-[200px] py-2 rounded-full hover:bg-gray-500  px-2'>Learn More</a>
+                </div>
                 <div className={styles.stretchyWrapper}>
+                    <Link className='w-full border border-white' href="/UltraE">
+                    <p></p>
+
                     <Image
                         src={`/images/${projects[1].src}`}
                         fill={true}
                         alt={"image"}
                     />
+                    </Link>
                 </div>
-                <div className={styles.body}>
-                    <h3>{projects[1].name}</h3>
-                    <p>{projects[1].description}</p>
-                    <p>{projects[1].year}</p>
-                </div>
+              
             </div>
 
         </div>

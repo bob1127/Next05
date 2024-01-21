@@ -2,12 +2,21 @@
 // import fetch from "isomorphic-unfetch";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from 'next/image';
+// import img05 from 'https://www.ultraehp.com/images/Products-Detail-Img/UP100/up111111.png'
+import { CldVideoPlayer } from 'next-cloudinary';
+import TextScroll from '../../../../components/textScroll/TextScroll.jsx';
+import { Card, CardHeader, CardBody ,Tooltip, Button } from "@nextui-org/react";
+
+
+import 'cloudinary-video-player/cld-video-player.min.css';
+
+import MobileMenu from '../../../../components/mobileMenu/index.jsx' 
 
 
 import { Table } from "@nextui-org/react";
 import { useState } from "react";
-import Head from "next/head";
+// import Head from "next/head";
 import CarouselThumbs from "../../../../components/CarouselThumbs";
 import ProductImage from "../../../../components/ProductImage";
 
@@ -34,6 +43,148 @@ const textAnimate = {
             type: "FadeUp",
             bounce: 0.4,
             duration: 1
+        }
+    }
+
+}
+const title01 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: 1.4,
+            delay: 0,
+        }
+    }
+
+}
+const title02 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: 1.4,
+            delay: .3,
+        }
+    }
+
+}
+const title03 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: 1,
+            delay: .9,
+        }
+    }
+
+}
+
+const card01
+ = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: .8,
+            delay: 0 ,
+        }
+    }
+
+}
+const card02 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: .8,
+            delay: .3,
+        }
+    }
+
+}
+const card03 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: .8,
+            delay: .6,
+        }
+    }
+
+}
+const card04 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: .8,
+            delay: .9,
+        }
+    }
+
+}
+const card05 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: .8,
+            delay: 1.2,
+        }
+    }
+
+}
+const card06 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: .8,
+            delay: 1.5,
+        }
+    }
+
+}
+const ImageAnimate = {
+    offscreen: { y: 200, opacity: 0 },
+    onscreen: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "FadeUp",
+            bounce: 0.4,
+            duration: 1.4,
+            delay: 0.5 ,
         }
     }
 
@@ -79,40 +230,39 @@ const fadeInUp = {
 const data = [
     {
         image:
-            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/A26371G61_TD01_V2_2878x.jpg?v=1693993664",
+            "https://www.zensor.com.tw/images//Products-Detail-Img/ECWP/業界最小的_無線_電化學分析儀-實擬功能.webp",
         //     caption: `<div>
         //     San Francisco<br/><span>Next line</span>
         //   </div>`,
     },
     {
         image:
-            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-02_1_2878x.jpg?v=1693993664",
+            "https://www.zensor.com.tw/images//Products-Detail-Img/ECWP/carousel-18.webp",
         // caption: "<div>San Francisco</div>",
     },
     {
         image:
-            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-03_1_2878x.jpg?v=1693993664",
+            "https://www.zensor.com.tw/images/Products-Detail-Img/GTE100/突破性的玻碳膜材質.webp",
         // caption: "<div>San Francisco</div>",
     },
     {
         image:
-            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-04_1_2878x.jpg?v=1693993664",
+            "https://www.zensor.com.tw/images/Products-Detail-Img/FSPE/IMG/柔性_可撓式網版印刷拋棄式電極-可彎曲性.webp",
         // caption: "<div>San Francisco</div>",
     },
     {
         image:
-            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-05_1_2878x.jpg?v=1693993664",
+            "https://www.zensor.com.tw/images/Products-Detail-Img/FSPE/IMG/柔性_可撓式網版印刷拋棄式電極-產品介紹.webp",
         // caption: "<div>San Francisco</div>",
     },
     {
         image:
-            "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/ArcticWhite-06_1_2878x.jpg?v=1693993664",
+            "https://www.zensor.com.tw/images//Products-Detail-Img/ECAS100/電化學分析儀-模擬器-防滑材質.webp",
         caption: "Darjeeling",
     },
 
 
 ];
-
 const captionStyle = {
     fontSize: "2em",
     fontWeight: "bold",
@@ -122,11 +272,14 @@ const slideNumberStyle = {
     fontWeight: "bold",
 };
 const Product = props => (
-    <motion.div className="dark:bg-black" initial='initial' animate='animate' exit={{ opacity: 0 }}>
+
+
+
+    <motion.div className="dark:bg-black bg-gray-100" initial='initial' animate='animate' exit={{ opacity: 0 }}>
         <Navigation />
         <div className='fullscreen'>
 
-            <div className='product px-10  flex-col md:flex-row border py-9'>
+            <div className='product px-3 md:px-10  flex-col md:flex-row border py-9'>
 
                 <Carousel
                     animate={{ x: 0, opacity: 1 }}
@@ -171,8 +324,12 @@ const Product = props => (
                     
                     
                 </motion.div> */}
-                <div className='product-details'>
-                    <motion.div variants={stagger} className='inner w-full pl-5 pr-2'>
+
+
+
+
+                <div className='product-details md:px-10 px-4 w-full'>
+                    <motion.div variants={stagger} className='inner w-full pr-2'>
                         <Link href='../products'>
                             {/* <motion.div variants={fadeInUp}>
                                 Back to products
@@ -185,10 +342,16 @@ const Product = props => (
                         <motion.h1 className="dark:text-white" variants={fadeInUp}>UX200｜Acid/Base Trend Detector</motion.h1>
                         <motion.p className="dark: text-slate-300 " variants={fadeInUp}>
 
-                            ・pH chart <br></br>
-                            ・7.0" Color Touch Screen<br></br>
-                            ・Automatic Terminal Determination by Algorithm<br></br>
-                            ・Waterproof and dustproof grade
+
+                                <ul>
+                                    <li className="text-m font-normal dark:text-white"> ・pH chart</li>
+                                    <li className="text-m font-normal dark:text-white"> ・7.0" Color Touch Screen</li>
+                                    <li className="text-m font-normal dark:text-white"> ・Automatic Terminal Determination by Algorithm</li>
+                             <li className="text-m font-normal dark:text-white">   ・Waterproof and dustproof grade</li>
+                                </ul>
+
+                       
+                         
 
 
 
@@ -221,7 +384,8 @@ const Product = props => (
             </div>
         </div>
         <section className="w-full section-about border  ">
-            <div class="Container items-center flex justify-center w-full	pt-10">
+            <TextScroll/>
+            <div className="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-3/4">
 
 
@@ -243,20 +407,374 @@ const Product = props => (
             </div>
         </section>
         <section>
-            <div className="Container px-20">
+            <div className="Container px-5 md:px-20">
                 <div className="grid grid-cols-1">
-                    <div className="row">
-                        <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  mt-5 lg:text-4xl dark:text-white text-center">What's in the Box</h3>
+                    <div className="row mt-20 flex items-center flex-col  justify-center">
+                        {/* <motion.div className="card"
+                            initial={"offscreen"}
+                            whileInView={"onscreen"}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ staggerChildren: 0.3 }}
+                        >
+
+                            <motion.h2
+                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                variants={textAnimate}
+                            > About Helicobacter pylori</motion.h2>
+
+
+                        </motion.div> */}
+
+
+                        <motion.div className="card"
+                            initial={"offscreen"}
+                            whileInView={"onscreen"}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ staggerChildren: 0.3 }}
+                        >
+
+                            <motion.h2
+                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                variants={title01}
+                            >
+
+                                <h2 className="mb-4 dark:text-white text-center text-5xl leading-none r">Smart Technology in your home </h2>
+                              
+                            </motion.h2>
+
+
+
+                            <motion.p
+                                className="text-m "
+                                variants={title02}
+                            >
+
+                                <h2 className="text-base dark:text-white  w-1/2 mx-auto text-center font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ipsum eos adipisci. Incidunt nulla, hic a deserunt ipsam facilis, veniam perspiciatis eum voluptatem possimus nobis amet accusamus dolorem sit fugit. </h2>
+                                <div className="order mt-10 mx-auto py-1 px-5 text-center w-[150px] bg-black rounded-full text-slate-200 border">
+                                    UP100
+                                </div>
+
+                               <div className="w-full border flex justify-center">
+                                    <a href="https://www.ultraehp.com/ultrapeace" className="text-grey-400 text-center mx-auto">read more → </a>
+                               </div>
+
+
+                            </motion.p>
+
+
+                        </motion.div>
+
+
+                        <motion.p
+                            className="text-m "
+                            variants={title03}
+                        >
+                           
+                        </motion.p>
+                   
+                     
                     </div>
                     <div className="row">
-                        <img className="w-full" src="https://cdn.shopify.com/s/files/1/0569/5147/2268/files/sku_11cf0b03-96ed-499a-b4ff-8bc4f13ace87_3838x.jpg?v=1690807720" alt="" />
+                        <motion.div className="card"
+                            initial={"offscreen"}
+                            whileInView={"onscreen"}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ staggerChildren: 0.3 }}
+                        >
+
+                            <motion.h2
+                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                variants={ImageAnimate}
+                            > 
+
+                            <div className="relative w-full border">
+                                    <img className="w-[1000px] mx-auto rotate-[-1.5deg]" src="https://www.ultraehp.com/images/Products-Detail-Img/UP100/up100-12.png" alt="" />
+                                    <div className="tooltip-wrap h-[100%] hidden lg:block w-[100%]">
+                                        <div className="absolute left-[50%] top-[30%] ">
+                                            <Tooltip
+
+                                                content={
+                                                    <div className="px-1 py-2">
+                                                        <div className="text-small font-bold">3.5 寸液晶顯示螢幕</div>
+                                                        <div className="w-[30px] h-[30px] bg-black  rounded-full border "></div>
+                                                    </div>
+                                                }
+                                            >
+                                                <Button className="btn-tooltip" variant="bordered">
+                                                    Hover me
+                                                </Button>
+                                            </Tooltip>
+
+                                        </div>
+                                        <div className="absolute left-[30%] top-[24%] ">
+                                            <Tooltip
+
+                                                content={
+                                                    <div className="px-1 py-2">
+                                                        <div className="text-small font-bold">電源顯示燈</div>
+                                                        <div className="w-[30px] h-[30px] bg-black  rounded-full border "></div>
+                                                    </div>
+                                                }
+                                            >
+                                                <Button className="btn-tooltip" variant="bordered">
+                                                    Hover me
+                                                </Button>
+                                            </Tooltip>
+
+                                        </div>
+                                        <div className="absolute left-[30%] top-[40%] ">
+                                            <Tooltip
+
+                                                content={
+                                                    <div className="px-1 py-2">
+                                                        <div className="text-small font-bold">開機按鈕</div>
+                                                        <div className="w-[30px] h-[30px] bg-black  rounded-full border "></div>
+                                                    </div>
+                                                }
+                                            >
+                                                <Button className="btn-tooltip" variant="bordered">
+                                                    Hover me
+                                                </Button>
+                                            </Tooltip>
+
+                                        </div>
+
+                                        <div className="absolute left-[10%] top-[46%] ">
+                                            <Tooltip
+
+                                                content={
+                                                    <div className="px-1 py-2">
+                                                        <div className="text-small font-bold">試片插入口ＳＰＥ</div>
+                                                        <div className="w-[30px] h-[30px] bg-black  rounded-full border "></div>
+                                                    </div>
+                                                }
+                                            >
+                                                <Button className="btn-tooltip" variant="bordered">
+                                                    Hover me
+                                                </Button>
+                                            </Tooltip>
+
+                                        </div>
+                                    </div>
+                            </div>
+
+                             
+                            
+                            
+                            </motion.h2>
+
+
+                        </motion.div>
+
+
+             
+                    </div>
+
+
+                    <div className="row replacement mt-20">
+                        <h2 className="text-5xl dark:text-slate-300 text-center  mx-auto font-extralight">Our replacement</h2>
+                        <h2 className="text-5xl text-center dark:text-slate-200  mx-auto font-bold">Products</h2>
+                        <div className="Container mt-10">
+                            <div className="">
+                              
+
+                                <motion.div className="card grid gap-4  grid-cols-1    md:grid-cols-2 xl:grid-cols-3 "
+                                    initial={"offscreen"}
+                                    whileInView={"onscreen"}
+                                    viewport={{ once: true, amount: 0.5 }}
+                                    transition={{ staggerChildren: 0.3 }}
+                                >
+                              
+                                    <motion.h2
+                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                        variants={card01}
+                                    >
+                                <div>
+                                    
+                                            <Card className="py-4 border border-white">
+                                        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                            <p className="text-tiny uppercase font-bold">產品配件</p>
+                                            <h3 className="text-default-500">UP100 機器</h3>
+                                         
+                                                
+                                        </CardHeader>
+                                        <CardBody className="overflow-visible py-2">
+                                            <Image
+                                                alt="Card background"
+                                                className="object-cover rounded-xl"
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                width={370}
+                                                height={260}
+                                            />
+                                        </CardBody>
+                                    </Card>
+                                </div>
+                                </motion.h2>
+
+                                    <motion.h2
+                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                        variants={card02}
+                                    >
+
+
+                                <div>
+                                            <Card className="py-4 border border-white">
+                                        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                            <p className="text-tiny uppercase font-bold">產品配件</p>
+                                            <h3 className="text-default-500">吹氣袋*2</h3>
+                                                   
+                                        </CardHeader>
+                                        <CardBody className="overflow-visible py-2">
+                                                    <Image
+                                                        alt="Card background"
+                                                        className="object-cover rounded-xl"
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                        width={370}
+                                                        height={260}
+                                                    />
+                                        </CardBody>
+                                    </Card>
+                                </div>
+                                </motion.h2>
+                                    <motion.h2
+                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                        variants={card03}
+                                    >
+                                <div>
+                                            <Card className="py-4 border border-white">
+                                        <CardHeader className=" pb-0 pt-2 px-4 flex-col items-start">
+                                            <p className="text-tiny uppercase font-bold">產品配件</p>
+                                            <h3 className="text-default-500">I Pad 連接設備 </h3>
+                                        
+                                        </CardHeader>
+                                        <CardBody className="overflow-visible py-2">
+                                              <Image
+                                                alt="Card background"
+                                                className="object-cover rounded-xl"
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                width={370}
+                                                height={260}
+                                            />
+                                        </CardBody>
+                                    </Card>
+                                </div>
+                                </motion.h2>
+                                    <motion.h2
+                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                        variants={card04}
+                                    >
+                                <div>
+                                            <Card className="py-4 border border-white">
+                                        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                            <p className="text-tiny uppercase font-bold">產品配件</p>
+                                            <h3 className="text-default-500">尿素罐</h3>
+                                         
+                                        </CardHeader>
+                                        <CardBody className="overflow-visible py-2">
+                                                    <Image
+                                                        alt="Card background"
+                                                        className="object-cover rounded-xl"
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                        width={370}
+                                                        height={260}
+                                                    />
+                                        </CardBody>
+                                    </Card>
+                                </div>
+                                </motion.h2>
+                                    <motion.h2
+                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                        variants={card05}
+                                    >
+                                <div>
+                                            <Card className="py-4 border border-white">
+                                        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                            <p className="text-tiny uppercase font-bold">產品配件</p>
+                                            <h3 className="text-default-500">手機</h3>
+                                           
+                                        </CardHeader>
+                                        <CardBody className="overflow-visible py-2">
+                                              <Image
+                                                alt="Card background"
+                                                className="object-cover rounded-xl"
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                width={370}
+                                                height={260}
+                                            />
+                                        </CardBody>
+                                    </Card>
+                                </div>
+                                </motion.h2>
+                                    <motion.h2
+                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                        variants={card06}
+                                    >
+                                <div>
+                                            <Card className="py-4 border border-white">
+                                        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                            <p className="text-tiny uppercase font-bold">產品配件</p>
+                                            <h3 className="text-default-500">手機</h3>
+                                         
+                                        </CardHeader>
+                                        <CardBody className="overflow-visible py-2">
+                                              <Image
+                                                alt="Card background"
+                                                className="object-cover rounded-xl"
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                width={370}
+                                                height={260}
+                                            />
+                                        </CardBody>
+                                    </Card>
+                                </div>
+                                </motion.h2>
+
+                                </motion.div>
+
+                                
+                                
+                            </div>
+                            
+                          
+                        </div>
                     </div>
 
                 </div>
             </div>
         </section>
+        <section className="section_spline my-20">
+            <div className="Container">
+                <div className="row">
+                    <div className="grid grid-cols-1 md:grid-cols-2">
+                        <div className="border border-black">
+                            {/* <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.506/build/spline-viewer.js"></script>
+                            <spline-viewer url="https://prod.spline.design/YmgwJaoyizLFPZFq/scene.splinecode"></spline-viewer> */}
+                            <div className="txt p-10 pl-20">
+                                <h2 className="dark:text-white  text-4xl font-medium">
+                                    TITLE TEST
+                                </h2>
+                                <h3 className="text-3xl dark:text-white  font-normal">Lorem ipsum dolor sit amet.</h3>
+                                <p className="dark:text-slate-200 text-normal font-normal w-3/4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus neque perferendis debitis nihil quo animi nesciunt sequi eum, magnam quam deleniti repellendus minima a expedita ipsa numquam ipsum deserunt explicabo.</p>
+                                <Button radius="full" className=" bg-rose-500  text-white w-[200px] shadow-lg">
+                                    Button
+                                </Button>
+
+                            </div>
+
+
+                        </div>
+                        <div className="overflow-hidden">
+                            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
+                            <spline-viewer url="https://prod.spline.design/cPZDRSw-YP7AuzNs/scene.splinecode"></spline-viewer>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section>
-            <div className="Container px-20 mt-20">
+            <div className="Container px-5 md:px-20 mt-10 md:mt-20">
 
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="row">
@@ -272,24 +790,67 @@ const Product = props => (
                             </h4>
                         </div>
                         <div className="" data-aos="fade-up" data-aos-delay="650">
-                            <p>When the stomach is infected with Helicobacter pylori. The orally given urea is hydrolysed by the enzyme urease of H. pylori and carbon dioxide and ammonia gas is expired in breath . By analyzing the concentration of ammonia gas expired through breath and comparing it with the baseline value before drinking urea. It can help to determine the presence of Helicobacter pylori infection.</p>
+                            <p className="dark:text-slate-300">When the stomach is infected with Helicobacter pylori. The orally given urea is hydrolysed by the enzyme urease of H. pylori and carbon dioxide and ammonia gas is expired in breath . By analyzing the concentration of ammonia gas expired through breath and comparing it with the baseline value before drinking urea. It can help to determine the presence of Helicobacter pylori infection.</p>
                         </div>
+                      
                     </div>
-                    <div className="row">
-                        <img className="w-full" src="https://www.handz.design/assets/images/image12.jpg?v=30d56a76" alt="" />
+                    <div className="row p-9">
+                        <img className="w-full rounded-2xl" src="https://ultraehp.com/ultrapeace/images/Products-Detail-Img/UP100/SG01-Camera.png" alt="" />
 
                     </div>
                 </div>
             </div>
         </section>
+
+
+
+
+        <div className="video-1-section flex flex-col align-middle items-center justify-center my-20 border border-black ">
+            <div className="txt w-1/2 my-10 flex justify-center flex-col items-center">
+                <h3 className="text-grey-800 text-4xl  dark:text-white ">
+                    Video Tile 01 
+                </h3>
+                <p className='text-grey-500 text-center dark:text-slate-300 '>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quidem sed alias numquam laboriosam sapiente in assumenda quas similique. Repellat?</p>
+            </div>
+            <CldVideoPlayer
+
+                width={1080}
+                height={607}
+                src='https://res.cloudinary.com/drmonozsf/video/upload/v1700535393/samples/mut4mlfncdywuj8eyza2.mp4'
+
+
+            /> </div>
+    
+        <section className="section_video">
+            <div className="Container">
+                <div className="row">
+                    {/* <MobileMenu /> */}
+                </div>
+            </div>
+            
+        </section>
         <section className="w-full section-about border  ">
-            <div class="Container items-center flex justify-center w-full	pt-10">
+            <div className="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
                     {/* Section header */}
                     <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
                         <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+
+
                             <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">What is Helicobacter pylori?</h3>
+
+
                             <p className="mb-6 text-m font-normal text-gray-800 lg:text-normal  text-left md:text-center   dark:text-gray-400">Helicobacter pylori is a type of tiny Gram-negative bacterium. It has a spiral shape and flagella, which allows it to move around in the gastric mucosa. The adhesive molecules on its surface can bind to receptors on the surface of gastric mucosal cells, helping them to attach to the gastric mucosa and avoid being washed away. These characteristics enable Helicobacter pylori to survive and colonize in the stomach environment, leading to infections and related stomach problems.</p>
+
+                            <CldVideoPlayer
+                               className="rounded-2xl border border-2 border-black"
+
+                                width={1080}
+                                height={607}
+                                src='https://res.cloudinary.com/drmonozsf/video/upload/v1700538066/sb0gaw2mljmng0lu9scv.mp4'
+
+
+                            /> 
 
                         </div>
                     </div>
@@ -308,7 +869,7 @@ const Product = props => (
             </div>
         </section>
         <section className="w-full section-global border ">
-            <div class="Container items-center flex justify-center w-full	pt-10">
+            <div className="Container items-center flex justify-center w-full	pt-10">
                 <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
 
                     {/* Section header */}
@@ -316,6 +877,15 @@ const Product = props => (
                         <div className="section-title flex flex-col w-full py-10 justify-center items-center">
                             <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">Almost half of the world's population is infected with Helicobacter pylori.</h3>
                             <p className="mb-6 text-m font-normal text-gray-800 lg:text-normal text-left md:text-center   dark:text-gray-400">The primary modes of transmission for Helicobacter pylori infection are through diet and oral contact. This bacterium can be present in the saliva, oral cavity, vomit, or feces of infected individuals. It can spread through direct contact, sharing utensils, consuming contaminated food or water, and more. Additionally, infection can occur through contact with the vomit or feces of an infected person.</p>
+                            <CldVideoPlayer
+                                className="rounded-2xl border border-2 border-black"
+
+                                width={1080}
+                                height={607}
+                                src='https://res.cloudinary.com/drmonozsf/video/upload/v1700538541/s6ongmhmy6fzltwenq74.mp4'
+
+
+                            /> 
 
                         </div>
                     </div>
@@ -344,180 +914,34 @@ const Product = props => (
         /> */}
 
 
-
-
-        <section className="section-table">
-            <div className="container">
-                <div className="table-wrap border  mt-20">
-
-                    <div class="w-4/5 mx-auto">
-                        <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
-                            {/* Section header */}
-                            <div className="section-title flex flex-col w-full py-10 justify-center items-center">
-                                <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">Comparison of diagnostic modalities for gastric Helicobacter pylori infection</h3>
-
-
-                            </div>
-                        </div>
-
-
-                        <div class="flex flex-col">
-                            <div class="overflow-x-auto shadow-md sm:rounded-lg">
-                                <div class="inline-block min-w-full align-middle">
-                                    <div class="overflow-hidden ">
-                                        <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
-                                            <thead class="bg-gray-800 text-gray-100 dark:bg-gray-700">
-                                                <tr>
-                                                    <th scope="col" class="p-4">
-                                                        <div class="flex items-center">
-
-                                                            <label for="checkbox-all" class="sr-only">checkbox</label>
-                                                        </div>
-                                                    </th>
-                                                    <th scope="col" rowSpan={2} class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
-                                                        Intrusive / Non-Invasive
-                                                    </th>
-                                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
-                                                        intrusive
-                                                    </th>
-                                                    <th scope="col" colSpan={4} class="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-100  uppercase dark:text-gray-400">
-                                                        non-intrusive
-                                                    </th>
-                                                    {/* <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
-                                                        非侵入式
-                                                    </th>
-                                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
-                                                        非侵入式
-                                                    </th>
-                                                    <th scope="col" class="p-4">
-                                                        <span class="sr-only">Edit</span>
-                                                    </th> */}
-                                                </tr>
-                                            </thead>
-                                            <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-                                                        <div class="flex items-center">
-
-                                                            <label for="checkbox-table-1" class="sr-only">checkbox</label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        <Image />
-                                                    </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"> </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"></td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-
-                                                    </td>
-
-                                                </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-
-                                                    </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">Detection Methods</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">Gastroscopy	</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">Stool Antigen Test	</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">Serologic test</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">13C Urea breath test	</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                        <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">快速尿素呼吸法-UBT</a>
-                                                    </td>
-
-                                                </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-                                                        <div class="flex items-center">
-
-                                                            <label for="checkbox-table-2" class="sr-only">樣品型態</label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">樣品型態</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">胃部組織</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">糞便</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">血液</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">呼出氣體</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">呼出氣體</td>
-
-                                                </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-
-                                                    </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">檢測時間</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">1-2 hr</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">3-7 day</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">3-7 day</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">3-7 day</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">⌃ 1 hr </td>
-
-                                                </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-
-                                                    </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">費用/NT</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">低</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">中</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">中</td>
-
-                                                </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-
-                                                    </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">優缺點</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">不舒服</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">不能評估治療前後的療效，只能判斷是否曾經感染過HP</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
-
-                                                </tr>
-                                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                                    <td class="p-4 w-4">
-
-                                                    </td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">準確度</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">低</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">高</td>
-                                                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <p class="mt-5">This table component is part of a larger, open-source library of Tailwind CSS components. Learn
-                            more
-                            by going to the official <a class="text-blue-600 hover:underline"
-                                href="#" target="_blank">Flowbite Documentation</a>.
-                        </p>
-
+   
+        <section className="section_video border border-green-500">
+             <div className="Container w-full">
+                <div className="left flex flex-col w-2/5">
+                    <div className="top">
+                        <h4 className="text-4xl">
+                            Our Service
+                        </h4>
+                        
                     </div>
+                    <div className="bottom">
+                        
+                    </div>
+
+                    
                 </div>
-            </div>
+                <div className="right w-3/5">
+                    
+                </div>
+             </div>
         </section>
-        <section className="w-full section-about border border-b-orange-700 ">
-            <div class="Container items-center flex flex-col ">
-                <div className="wrap flex flex-col justify-center items-center w-4/5 md:w-3/5">
+        <section className="w-full mt-10 md:px-20 px-5 section-about border border-b-orange-700 ">
+            <div className="Container items-center flex flex-col ">
+                <div className="wrap flex flex-col justify-center items-center w-full ">
                     <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
                         {/* Section header */}
-                        <div className="section-title flex flex-col w-full py-10 justify-center items-center">
-                            <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">Two versions of the Quick BUT Inspection Kit to meet different user needs.</h3>
+                        <div className="section-title flex flex-col w-full py-2 justify-center items-center">
+                            <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">Two versions of the Quick BUT </h3>
 
 
                         </div>
@@ -540,6 +964,170 @@ const Product = props => (
 
             </div>
         </section>
+        <section className="section-table">
+            <div className="container">
+                <div className="table-wrap overflow-scroll px-10 w-full border  mt-20">
+
+                    <div className=" w-full lg:w-4/5 mx-0 md:mx-auto">
+                        <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
+                            {/* Section header */}
+                            <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+                                <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  lg:text-4xl dark:text-white text-center">Comparison of diagnostic modalities for gastric Helicobacter pylori infection</h3>
+
+
+                            </div>
+                        </div>
+
+                        <MobileMenu />
+                        <div className="flex flex-col">
+                            <div className="overflow-x-auto shadow-md sm:rounded-lg">
+                                <div className="inline-block min-w-full align-middle">
+                                    <div className="overflow-hidden ">
+                                        <table className="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+                                            <thead className="bg-gray-800 text-gray-100 dark:bg-gray-700">
+                                                <tr>
+                                                    <th scope="col" className="p-4">
+                                                        <div className="flex items-center">
+
+                                                            <label for="checkbox-all" className="sr-only">checkbox</label>
+                                                        </div>
+                                                    </th>
+                                                    <th scope="col" rowSpan={2} className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
+                                                        Intrusive / Non-Invasive
+                                                    </th>
+                                                    <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
+                                                        侵入式
+                                                    </th>
+                                                    <th scope="col" colSpan={4} className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-100  uppercase dark:text-gray-400">
+                                                        非侵入式
+                                                    </th>
+                                                    {/* <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
+                                                        非侵入式
+                                                    </th>
+                                                    <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-100  uppercase dark:text-gray-400">
+                                                        非侵入式
+                                                    </th>
+                                                    <th scope="col" className="p-4">
+                                                        <span className="sr-only">Edit</span>
+                                                    </th> */}
+                                                </tr>
+                                            </thead>
+                                            <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+                                                        <div className="flex items-center">
+
+                                                            <label for="checkbox-table-1" className="sr-only">checkbox</label>
+                                                        </div>
+                                                    </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        <Image />
+                                                    </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"> </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white"></td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+
+                                                    </td>
+
+                                                </tr>
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+
+                                                    </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">檢測方法</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">	內視鏡</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">	糞便抗體檢測</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"> 血清檢測</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">	 13C 尿素呼吸法</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">快速尿素呼吸法-UBT</td>
+                                                  
+
+                                                </tr>
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+                                                        <div className="flex items-center">
+
+                                                            <label for="checkbox-table-2" className="sr-only">樣品型態</label>
+                                                        </div>
+                                                    </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">樣品型態</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">胃部組織</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900  whitespace-nowrap dark:text-white">糞便</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">血液</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900  whitespace-nowrap dark:text-white">呼出氣體</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">呼出氣體</td>
+
+                                                </tr>
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+
+                                                    </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">檢測時間</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">1-2 hr</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900  whitespace-nowrap dark:text-white">3-7 day</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">3-7 day</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">3-7 day</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">⌃ 1 hr </td>
+
+                                                </tr>
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+
+                                                    </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">費用/NT</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900  whitespace-nowrap dark:text-white">低</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900  whitespace-nowrap dark:text-white">中</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">中</td>
+
+                                                </tr>
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+
+                                                    </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">優缺點</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">不舒服</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">不能評估治療前後的療效，<br/>只能判斷是否曾經感染過HP</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">可評估治療前後的療效</td>
+
+                                                </tr>
+                                                <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                    <td className="p-4 w-4">
+
+                                                    </td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">準確度</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">低</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
+                                                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">高</td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <p className="mt-5">This table component is part of a larger, open-source library of Tailwind CSS components. Learn
+                            more
+                            by going to the official
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+       
 
 
     </motion.div>

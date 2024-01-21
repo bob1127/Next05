@@ -1,5 +1,9 @@
-"use client"
+// export const metadata = {
+//     title: 'Home - Simple',
+//     description: 'Page description',
+// }
 
+"use client"
 import Link from "next/link";
 // import fetch from "isomorphic-unfetch";
 import { motion } from "framer-motion";
@@ -46,6 +50,7 @@ const Index = props => (
                 initial={{ opacity: 0 }}
                 className='title'>
                 <h1>Select a protein</h1>
+                <p className="text-4xl ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, repellendus quis. Consequatur doloribus eaque blanditiis dolorum sunt, vero itaque. Dolorum, officiis! Dolore nulla eaque eveniet exercitationem voluptates explicabo amet enim!</p>
             </motion.div>
             <motion.div variants={stagger} className='product-row'>
 
@@ -76,6 +81,8 @@ const Index = props => (
 
                     href=''
                 >
+
+                    
                     <motion.div
                         variants={fadeInUp}
                         whileHover={{ scale: 1.05 }}

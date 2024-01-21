@@ -3,8 +3,10 @@
 import Link from "next/link";
 // import fetch from "isomorphic-unfetch";
 import { motion } from "framer-motion";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import React from "react";
+import { Card, CardFooter, Image, Button } from "@nextui-org/react";
+
 import img01 from "../../../public/images/brazil.webp";
 
 

@@ -1,6 +1,5 @@
 
 "use client"
-
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
@@ -14,29 +13,27 @@ import 'swiper/css/scrollbar';
 
 export default () => {
     return (
-        <div className='flex flex-col'>
-            <div className="row grid grid-cols-2">
-                <div>
-                    <div className="txt pr-4 py-5">
-                        <h3 className='text-black text-3xl font-extrabold'>
-                            Product-01
+        <div>
+            <div className="row ">
+                <div className="Container m-4 grid grid-cols-2">
 
-                        </h3>
-                        <p className='font-medium text-xs text-slate-900 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facilis fuga minima veniam totam. Ullam error quos provident beatae numquam esse sunt fugit, vero, veritatis, aperiam voluptate excepturi quod cumque.</p>
+                    <div className="txt">
+                        <h3 className='dark text-4xl text-black '>TITLE </h3>
+                        <a className='bg-black  dark:text-black rounded-xl w-[140px] px-4' href="">others</a>
+                        <p className='  text-xs font-normal'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum eos voluptatem amet excepturi tempore exercitationem eaque saepe enim, quas a sint quae vero dolores, sapiente corrupti quod doloribus ullam aperiam.</p>
+                    </div>
+                    <div>
+                        
                     </div>
                 </div>
-                <div>
-                    <img src="" alt="" />
-                </div>
-               
             </div>
             <Swiper
-                 className='border border-black w-full'
+               
                 // install Swiper modules
                 breakpoints={{
                     0: {
-                        width: 0,
-                        slidesPerView: 2,
+                      
+                        slidesPerView: 1,
                     },
                     768: {
                         width: 768,
@@ -49,7 +46,7 @@ export default () => {
                 }}
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={10}
-                // slidesPerView={2}
+
                 navigation
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}
@@ -57,27 +54,23 @@ export default () => {
                 onSlideChange={() => console.log('slide change')}
             >
 
-                <SwiperSlide>
+                <SwiperSlide >
 
-                    
+
                     <li
-                        className="h-[400px] p-4 border border-stone-200 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Golden-02_3078x.jpg?v=1692327357')] bg-cover bg-no-repeat bg-center"
+                        className="border border-stone-200 bg-cover bg-no-repeat  bg-[url('https://www.ultraehp.com/images/Products-Detail-Img/UP100/UP100-08.png')] bg-cover bg-no-repeat  bg-[url('https://www.ultraehp.com/images/Products-Detail-Img/UP100/UP100-08.png')] bg-cover bg-no-repeat p-5 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none h-[400px]"
                         style={{
                             boxShadow:
                                 "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
                         }}
                     >
-                        <div className="flex flex-1 flex-col   ">
-                            <div className=" relative h-full border boder-white content flex flex-col shrink-0">
+                        <div className="flex flex-1 flex-col pb-[50px]  ">
+                            <div className="content flex flex-col shrink-0">
 
+                                <h2 className="text-xl  text-gray-12">
 
-                                <div className="absolute bottom-[15px] button w-full bg-white rounded-full border p-3 border-slate-300">
-                                    <a href='#' className="txt text-center ">
-                                        BUTTON CLICK
+                                </h2>
 
-                                    </a>
-
-                                </div>
                             </div>
 
                         </div>
@@ -85,153 +78,147 @@ export default () => {
                     </li>
 
                 </SwiperSlide>
-                <SwiperSlide>
-                    
-                    <li
-                        className="h-[400px] p-4 border border-stone-200 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Golden-02_3078x.jpg?v=1692327357')] bg-cover bg-no-repeat bg-center"
+                <SwiperSlide><li
+                    className="border border-stone-200 bg-cover bg-no-repeat  bg-[url('https://www.ultraehp.com/images/Products-Detail-Img/UP100/SG01-Camera.png')] h-[400px] bg-cover bg-no-repeat  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1340011_TD05_V1_3078x.jpg?v=1690893726')]  f p-5 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none "
                     style={{
                         boxShadow:
                             "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
                     }}
                 >
-                    <div className="flex flex-1 flex-col   ">
-                        <div className=" relative h-full border boder-white content flex flex-col shrink-0">
+                    <div className="flex flex-1 flex-col pb-[50px]  ">
+                        <div className="content flex flex-col shrink-0">
 
-                           
-                            <a className="absolute bottom-[15px] button w-full bg-white rounded-full border p-3 border-slate-300">
-                                    <a href='#' className="txt text-center ">
-                                    BUTTON CLICK
-                                    
-                                </a>
-                              
-                            </a>
-                        </div>
+                            <h2 className="text-xl  text-gray-12">
 
-                    </div>
-                   
-                </li>
-                </SwiperSlide>
-                <SwiperSlide> <li
-                    className="h-[400px] p-4 border border-stone-200 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Golden-02_3078x.jpg?v=1692327357')] bg-cover bg-no-repeat bg-center"
-                    style={{
-                        boxShadow:
-                            "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
-                    }}
-                >
-                    <div className="flex flex-1 flex-col   ">
-                        <div className=" relative h-full border boder-white content flex flex-col shrink-0">
+                            </h2>
 
-
-                            <a className="absolute bottom-[15px] button w-full bg-white rounded-full border p-3 border-slate-300">
-                                <a href='#' className="txt text-center ">
-                                    BUTTON CLICK
-
-                                </a>
-
-                            </a>
                         </div>
 
                     </div>
 
                 </li>
                 </SwiperSlide>
-                <SwiperSlide> <li
-                    className="h-[400px] p-4 border border-stone-200 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Golden-02_3078x.jpg?v=1692327357')] bg-cover bg-no-repeat bg-center"
+                <SwiperSlide><li
+                    className="border border-stone-200 bg-cover bg-no-repeat  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1340011_TD05_V1_3078x.jpg?v=1690893726')] h-[400px] p-5 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none "
                     style={{
                         boxShadow:
                             "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
                     }}
                 >
-                    <div className="flex flex-1 flex-col   ">
-                        <div className=" relative h-full border boder-white content flex flex-col shrink-0">
+                    <div className="flex flex-1 flex-col pb-[50px]  ">
+                        <div className="content flex flex-col shrink-0">
 
+                            <h2 className="text-xl  text-gray-12">
 
-                            <a className="absolute bottom-[15px] button w-full bg-white rounded-full border p-3 border-slate-300">
-                                <a href='#' className="txt text-center ">
-                                    BUTTON CLICK
+                            </h2>
 
-                                </a>
-
-                            </a>
                         </div>
 
                     </div>
 
                 </li>
                 </SwiperSlide>
-                <SwiperSlide> <li
-                    className="h-[400px] p-4 border border-stone-200 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Golden-05_2878x.jpg?v=1692327357')] bg-cover bg-no-repeat bg-center"
+                <SwiperSlide><li
+                    className="border border-stone-200 bg-cover bg-no-repeat  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1340011_TD05_V1_3078x.jpg?v=1690893726')] h-[400px] p-5 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none "
                     style={{
                         boxShadow:
                             "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
                     }}
                 >
-                    <div className="flex flex-1 flex-col   ">
-                        <div className=" relative h-full border boder-white content flex flex-col shrink-0">
+                    <div className="flex flex-1 flex-col pb-[50px]  ">
+                        <div className="content flex flex-col shrink-0">
 
+                            <h2 className="text-xl  text-gray-12">
 
-                            <a className="absolute bottom-[15px] button w-full bg-white rounded-full border p-3 border-slate-300">
-                                <a href='#' className="txt text-center ">
-                                    BUTTON CLICK
+                            </h2>
 
-                                </a>
-
-                            </a>
                         </div>
 
                     </div>
 
                 </li>
                 </SwiperSlide>
-                <SwiperSlide> <li
-                    className="h-[400px] p-4 border border-stone-200 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Golden-06_2878x.jpg?v=1692327357')] bg-cover bg-no-repeat bg-center"
+                <SwiperSlide><li
+                    className="border border-stone-200 bg-cover bg-no-repeat  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1340011_TD05_V1_3078x.jpg?v=1690893726')] h-[400px] p-5 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none "
                     style={{
                         boxShadow:
                             "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
                     }}
                 >
-                    <div className="flex flex-1 flex-col   ">
-                        <div className=" relative h-full border boder-white content flex flex-col shrink-0">
+                    <div className="flex flex-1 flex-col pb-[50px]  ">
+                        <div className="content flex flex-col shrink-0">
 
+                            <h2 className="text-xl  text-gray-12">
 
-                            <a className="absolute bottom-[15px] button w-full bg-white rounded-full border p-3 border-slate-300">
-                                <a href='#' className="txt text-center ">
-                                    BUTTON CLICK
+                            </h2>
 
-                                </a>
-
-                            </a>
                         </div>
 
                     </div>
 
                 </li>
                 </SwiperSlide>
-                <SwiperSlide> <li
-                    className="h-[400px] p-4 border border-stone-200 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Golden-04_2878x.jpg?v=1692327357')] bg-cover bg-no-repeat bg-center"
+                <SwiperSlide><li
+                    className="border border-stone-200 bg-cover bg-no-repeat  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1340011_TD05_V1_3078x.jpg?v=1690893726')] h-[400px] p-5 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none "
                     style={{
                         boxShadow:
                             "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
                     }}
                 >
-                    <div className="flex flex-1 flex-col   ">
-                        <div className=" relative h-full border boder-white content flex flex-col shrink-0">
+                    <div className="flex flex-1 flex-col pb-[50px] ">
+                        <div className="content flex flex-col shrink-0">
 
+                            <h2 className="text-xl  text-gray-12">
 
-                            <a className="absolute bottom-[15px] button w-full bg-white rounded-full border p-3 border-slate-300">
-                                <a href='#' className="txt text-center ">
-                                    BUTTON CLICK
+                            </h2>
 
-                                </a>
-
-                            </a>
                         </div>
 
                     </div>
 
                 </li>
                 </SwiperSlide>
-                
+                <SwiperSlide><li
+                    className="border border-stone-200 bg-cover bg-no-repeat  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1340011_TD05_V1_3078x.jpg?v=1690893726')] h-[400px] p-5 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none "
+                    style={{
+                        boxShadow:
+                            "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
+                    }}
+                >
+                    <div className="flex flex-1 flex-col pb-[50px]  ">
+                        <div className="content flex flex-col shrink-0">
+
+                            <h2 className="text-xl  text-gray-12">
+
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                </li>
+                </SwiperSlide>
+                <SwiperSlide><li
+                    className="border border-stone-200 bg-cover bg-no-repeat  bg-[url('https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1340011_TD05_V1_3078x.jpg?v=1690893726')] h-[400px] p-5 flex flex-1 flex-col lg:flex-row overflow-hidden bg-white rounded-[28px] cursor-grab select-none "
+                    style={{
+                        boxShadow:
+                            "rgba(194, 194, 194, 0.01) 0px 168px 67px, rgba(194, 194, 194, 0.05) 0px 94px 57px, rgba(194, 194, 194, 0.09) 0px 42px 42px, rgba(194, 194, 194, 0.1) 0px 10px 23px, rgba(194, 194, 194, 0.1) 0px 0px 0px"
+                    }}
+                >
+                    <div className="flex flex-1 flex-col pb-[50px]  ">
+                        <div className="content flex flex-col shrink-0">
+
+                            <h2 className="text-xl  text-gray-12">
+
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                </li>
+                </SwiperSlide>
+                ...
             </Swiper>
         </div>
 

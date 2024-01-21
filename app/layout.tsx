@@ -46,7 +46,7 @@ export default function RootLayout({
       <body className={` font-inter antialiased bg-white text-gray-900 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           <div className="fix bg-neutral-800	 py-4 w-full text-white text-center ">
-             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis repellat consequuntur officia 
+           我們讓試片長出了自己的電路系統
           </div>
 
             <NextUIProvider>
