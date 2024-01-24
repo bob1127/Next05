@@ -40,7 +40,7 @@ export default function Hero() {
               <p className="dark:text-slate-300 text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">我們針對食品與水質檢測發展與日常生活息息相關之感測器，以減少有害物質之攝取與接觸，達到守護人類健康的願景</p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
                 <Button radius="full" className="bg-gradient-to-tr from-cyan-600 to-sky-400 text-white shadow-lg">
-                  <Link href="/en/Products">產品列表</Link>
+                  <Link href="/en/Products.html">產品列表</Link>
                 </Button>
                 {/* <div>
                   <a className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="/UltraE">Start free trial</a>

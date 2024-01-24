@@ -96,7 +96,7 @@ export default async function Home() {
             <a className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">Detail Info </a>
           </div>
         </section>
-        {/* <Hero /> */}
+        <Hero />
         <section className=' px-5  md:px-15 lg:px-20'>
 
 
