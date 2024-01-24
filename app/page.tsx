@@ -85,8 +85,8 @@ export default async function Home() {
 
         <section className="section_HeroVideo p-0 relative" >
 
-          <video className="w-full" src="https://www.ultraehp.com/video/hero-video%20-%20HD%201080p.mov" >
-          </video>
+          {/* <video className="w-full" src="https://www.ultraehp.com/video/hero-video%20-%20HD%201080p.mov" >
+          </video> */}
           <div className="HeroTitle top-[18%] md:top-[22%] lg:top-[31%] w-[45%] left-[6%] absolute  border  z-50">
             <span className="text-sm text-white ">Watch this space.
 
@@ -96,7 +96,7 @@ export default async function Home() {
             <a className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">Detail Info </a>
           </div>
         </section>
-        <Hero />
+        {/* <Hero /> */}
         <section className=' px-5  md:px-15 lg:px-20'>
 
 
@@ -158,7 +158,7 @@ export default async function Home() {
           <source src="https://cdn.builder.io/o/assets%2FYJIGb4i01jvw0SRdL5Bt%2Faebcdc568ab9443e8b5282e52d49a586%2Fcompressed?apiKey=YJIGb4i01jvw0SRdL5Bt&amp;token=aebcdc568ab9443e8b5282e52d49a586&amp;alt=media" />
         </video>
         {/* <SlickCard /> */}
-        <section>
+        <section className="hidden">
           <div className="container ">
 
             <div className="row center">
@@ -208,7 +208,7 @@ export default async function Home() {
                       </h2>
                       <p className="w-1/2 mb-10 dark:text-white">UitraPeace-Instant H. Pylori Urea Breath Test kit-Pro</p>
                     </div>
-                    <Accordion />
+                    {/* <Accordion /> */}
                   </div>
 
                 </div>
@@ -425,7 +425,7 @@ export default async function Home() {
           </div>
         </section>
         <div className="iframe my-20  relative h-[700px]">
-          <iframe src='https://my.spline.design/colorbox3copy-b9ae1f11adddd2efac996b55c0dc7ca9/' width='100%' height='700px'></iframe>
+          {/* <iframe src='https://my.spline.design/colorbox3copy-b9ae1f11adddd2efac996b55c0dc7ca9/' width='100%' height='700px'></iframe> */}
           <div className="txt-wrap flex flex-col justify-center items-center absolute left-[10%]  top-[20%] rounded-2xl w-3/4 h-[450px] bg-white z-20">
             <p className="text-normal ">我們透過 Webflow + NoCode 幫助企業發展和啟動品牌業務或是打造產品</p>
             <b className="text-5xl w-3/4 text-center">胃幽門螺旋桿菌的快速尿素呼吸檢測法法</b>
