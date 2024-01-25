@@ -34,11 +34,15 @@ import Image from 'next/image'
 import Img01 from '../../public/images/wix.jpg'
 import Img02 from '../../public/images/c2.jpg'
 import UP100 from '../public/images/UP100.png'
-import UP10001 from '../public/images/up100-10-PhotoRoom.png-PhotoRoom.png'
+import UP10001 from '../public/images/carousel01.jpg'
 import airbag from '../public/images/bag.png'
 import Hero from '@/components/hero'
+import Link from "next/link";
 // import Features from '@/components/features'
 // import FeaturesBlocks from '@/components/features-blocks'
+
+
+
 import Testimonials from '@/components/testimonials'
 import Newsletter from '@/components/newsletter'
 import ApplicateCard from '../components/Application/ApplicateCard'
@@ -83,20 +87,36 @@ export default async function Home() {
 
       <div className="outWrap overflow-hidden ">
 
-        <section className="section_HeroVideo p-0 relative" >
+        <section className="section_HeroVideo p-0 relative h-[75vh] mb-[200px]" >
 
           {/* <video className="w-full" src="https://www.ultraehp.com/video/hero-video%20-%20HD%201080p.mov" >
           </video> */}
+          <Image
+            className="absolute top-[0px] left-[0px]"
+            src={UP10001}
+            width={1920}
+            height={800}
+
+
+            alt="Picture of the author"
+          />
           <div className="HeroTitle top-[18%] md:top-[22%] lg:top-[31%] w-[45%] left-[6%] absolute  border  z-50">
             <span className="text-sm text-white ">Watch this space.
 
             </span>
             <h1 className="text-white dark:text-black  leading-7.5">UitraPeace-Instant H. Pylori Urea Breath Test kit-Pro</h1>
             <p className="text-white">Helicobacter pylori is a type of tiny Gram-negative bacterium. It has a spiral shape and flagella, which allows it to move around in the gastric mucosa. The adhesive molecules on its surface can bind to receptors on the surface of gastric mucosal cells, helping them to attach to the gastric mucosa and avoid being washed away. </p>
-            <a className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">Detail Info </a>
+            <a href='../Products.html' className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">Detail Info </a>
+            <Link href='../Products.html' className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">
+              Detail Info
+            </Link>
+
+          
           </div>
+         
         </section>
         <Hero />
+       
         <section className=' px-5  md:px-15 lg:px-20'>
 
 
