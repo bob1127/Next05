@@ -2,6 +2,9 @@
 import '../styles/globals.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+
+
+
 import { useEffect } from 'react'
 import Footer from '@/components/ui/footer'
 import Banner from '@/components/banner'
@@ -42,8 +45,8 @@ export default function RootLayout({
   return (
     <>
  
-    <html lang="en">
-      <body className={` font-inter antialiased bg-white text-gray-900 tracking-tight`}>
+      <html lang="en  flex justify-center w-[100vw]">
+        <body className={` relative  font-inter mx-auto max-w-[1920px] border border-red-500 outer-wrapper antialiased bg-white text-gray-900 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           <div className="fix bg-neutral-800	 py-4 w-full text-white text-center ">
            我們讓試片長出了自己的電路系統

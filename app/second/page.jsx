@@ -1,7 +1,33 @@
-export const metadata = {
-    title: 'Home - Simple',
-    description: 'Page description',
-}
+// export const metadata = {
+//     title: 'Home - Simple',
+//     description: 'Page description',
+// }
+<DefaultSeo
+    title="Manage SEO in NextJS with Next SEO"
+    description="Next SEO packages simplifies the SEO management in Next Apps with less configurations"
+    canonical="www.example.com/next-seo-blog"
+    openGraph={{
+        type: 'article',
+        article: {
+            publishedTime: '2022-06-21T23:04:13Z',
+            modifiedTime: '2022-01-21T18:04:43Z',
+            authors: [
+                'https://www.example.com/authors/@firstnameA-lastnameA',
+                'https://www.example.com/authors/@firstnameB-lastnameB',
+            ],
+            tags: ['Tag A', 'Tag B', 'Tag C'],
+        },
+        url: 'www.example.com/next-seo-blog',
+        images: {
+            url: 'https://www.test.ie/images/cover.jpg',
+            width: 850,
+            height: 650,
+            alt: 'Photo of text',
+        },
+        site_name: 'Next Blog'
+    }}
+/>
+import { DefaultSeo } from 'next-seo';
 
 import Hero from '@/components/hero'
 
@@ -17,47 +43,6 @@ export default function Home() {
         <>
             
             <>
-                {/* This site was created in Webflow. https://www.webflow.com */}
-                {/* Last Published: Thu Sep 22 2022 15:59:07 GMT+0000 (Coordinated Universal Time) */}
-                <meta charSet="utf-8" />
-                <title>Home | GOCLASS Webflow Template</title>
-                <meta content="Home | GOCLASS Webflow Template" property="og:title" />
-                <meta
-                    content="https://assets.website-files.com/6244d2405b33580e60d2e9a3/625ed871c984b442786c2432_OPEN-WEBFLOW.png"
-                    property="og:image"
-                />
-                <meta content="Home | GOCLASS Webflow Template" property="twitter:title" />
-                <meta
-                    content="https://assets.website-files.com/6244d2405b33580e60d2e9a3/625ed871c984b442786c2432_OPEN-WEBFLOW.png"
-                    property="twitter:image"
-                />
-                <meta content="width=device-width, initial-scale=1" name="viewport" />
-                <meta content="Webflow" name="generator" />
-                <link
-                    href="https://assets.website-files.com/6244d2405b33580e60d2e9a3/css/goclass.webflow.628bda8ba.css"
-                    rel="stylesheet"
-                    type="text/css"
-                />
-                <link
-                    href="https://assets.website-files.com/6244d2405b33580e60d2e9a3/625edbbec1be9155a894b8c4_goclass-fav-icon.png"
-                    rel="shortcut icon"
-                    type="image/x-icon"
-                />
-                <link
-                    href="https://assets.website-files.com/6244d2405b33580e60d2e9a3/625edb837e0fc90990dc9652_goclass-icon-web.png"
-                    rel="apple-touch-icon"
-                />
-            
-                <Script
-                    src="  https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6244d2405b33580e60d2e9a3"
-                    strategy="lazyOnload"
-                    
-                />
-                <Script
-                    src="https://assets.website-files.com/6244d2405b33580e60d2e9a3/js/webflow.6cc066667.js"
-                    strategy="lazyOnload"
-                    
-                />
 
                 {/* Please keep this css code to improve the font quality*/}
                 {/* <style>

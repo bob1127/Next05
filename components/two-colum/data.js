@@ -3,28 +3,29 @@ export const projects = [
         name: "Google Pixel Creator Labs",
         client: "Grow",
         description: "A partnership between Google & SN37.",
-        src: "Black-03_f9884945-38e0-49fe-91b5-dba4449b9152_3078x.jpg.png",
+        src: "截圖 2024-01-10 下午2.22.59.jpg",
         year: 2023,
     },
     {
         name: "Decimal",
         client: "Decimal",
         description: "Portfolio site for Decimal.",
-        src: "decimal.jpg",
+        src: "截圖 2024-01-10 下午2.22.59.jpg",
         year: 2023,
     },
     {
-        name: "Our lower step-in frame",
-        client: "analogueagency",
-        description: "VanMoof A5VanMoof",
-        src: "",
+        name: "專業使用版本",
+        client: "analogueagencyanalogueagencyanalogueagencyanalogueagency",
+        description: "VanMoof A5VanMoofMoof A5VanMoofMoof A5VanMoof",
+        src: "banner05.png",
         year: 2022,
+        
     },
     {
-        name: "Our remastered straight frame",
+        name: "自我檢測版本",
         client: "Wix Playground",
-        description: "New web design for  ",
-        src: "",
+        description: "New web design for   web design for  web design for  web ",
+        src: "截圖 2024-01-10 下午2.22.59.jpg",
      
     },
     {
