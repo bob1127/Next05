@@ -17,7 +17,7 @@ export const projects = [
         name: "專業使用版本",
         client: "analogueagencyanalogueagencyanalogueagencyanalogueagency",
         description: "VanMoof A5VanMoofMoof A5VanMoofMoof A5VanMoof",
-        src: "banner05.png",
+        src: "banner05.webp",
         year: 2022,
         
     },
@@ -25,7 +25,7 @@ export const projects = [
         name: "自我檢測版本",
         client: "Wix Playground",
         description: "New web design for   web design for  web design for  web ",
-        src: "截圖 2024-01-10 下午2.22.59.jpg",
+        src: "截圖 2024-01-10 下午2.22.59.webp",
      
     },
     {

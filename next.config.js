@@ -3,18 +3,44 @@
 /**
  * @type {import('next').NextConfig}
  */
+
+
+
+
 const nextConfig = {
+
+ module: {
+      rules: [
+        {
+          test: /\.json$/,
+          use: 'json-loader',
+        },
+      ],
+    },
   theme: {
     extend: {
+      fontSize:{
+        'h1':'26px',
+        'h2':'26px',
+        'base':'16px'
+
+      },
       backgroundImage: {
-        'y-card': "url('./public/images/yellow-card.png')",
-        
       
-      }
+          
+        
+        },
+        colors: {
+        'orange-pink': '#fb8c8a',
+      },
     }
   },
    assetPrefix: ".",
-  output:'export'
+  output:'export',
+   images: {
+    loader: 'custom',
+    loaderFile: './my-loader.ts',
+  },
 }
  
 module.exports = nextConfig

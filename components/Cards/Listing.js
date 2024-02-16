@@ -1,5 +1,6 @@
 import React from "react";
 import Feature from "./Feature";
+import Image from "next/image";
 
 import Style from "../../styles/Listing.css";
 import { motion } from "framer-motion";
@@ -12,7 +13,9 @@ const Listing = ({ data, open }) => {
         <motion.div className="listing" onClick={open} whileHover={{ scale: 1.1 }}>
             <div className="listing__content">
                 <div className="listing__image-container">
-                    <img
+                    <Image
+                        width={600}
+                        height={400}
                         className="listing__image"
                         alt="real estate mansion"
                         src={imageUrl}

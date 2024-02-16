@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Swipe from "react-easy-swipe";
 import "./index.css";
+import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
+
 // import fetch from "isomorphic-unfetch";
 
 function Carousel({
@@ -105,6 +108,7 @@ function Carousel({
     }, [slide, isPaused]);
 
     return (
+        
         <div style={style} className="px-5 w-full  box overflow-hidden  xl:w-3/5 xl:pl-20">
             <div
 
@@ -132,7 +136,7 @@ function Carousel({
                         {data.map((item, index) => {
                             return (
                                 <div
-                                    className="carousel-item fade"
+                                    className="carousel-item fade "
                                     // style={{
                                     //     maxWidth: width ? width : "600px",
                                     //     maxHeight: height ? height : "400px",
@@ -159,15 +163,14 @@ function Carousel({
                                             {index + 1} / {data.length}
                                         </div>
                                     )}
-                                    <img
-                                        src={item.image}
-                                        alt={item.caption}
-                                        className="carousel-image"
-                                        style={{
-                                            borderRadius: radius,
-                                            objectFit: slideImageFit ? slideImageFit : "cover",
-                                        }}
-                                    />
+
+                                    <Image priority fetchpriority='high' alt={item.caption}  src={item.image} width={400} height={400} style={{
+                                        borderRadius: radius,
+                                        objectFit: slideImageFit ? slideImageFit : "cover",
+                                    }} className="carousel-image" />
+
+
+                                  
                                     {isPaused && (
                                         <div
                                             className="pause-icon pause"
@@ -197,7 +200,10 @@ function Carousel({
                                     setChange(!change);
                                 }}
                             >
-                                <img className='w-10' src="https://www.zensor.com.tw/images/Icon-Img/right-arrow-2-2.png" alt="" />
+
+                                <Image  placeholder="empty" priority='true' alt="running people" src='/right-arrow-2-2_vjn2tt.webp' width={60} height={60} className="hidden md;block" />
+
+                          
                             </a>
                         )}
                         {showNavBtn && (
@@ -208,7 +214,8 @@ function Carousel({
                                     setChange(!change);
                                 }}
                             >
-                                <img className='w-10' src="https://www.zensor.com.tw/images/Icon-Img/right-arrow-2-2.png" alt="" />
+                                <Image  placeholder="empty" priority='true' alt="running people" src='/right-arrow-2-2_vjn2tt.webp' width={60} height={60} className="hidden md;block" />
+
                             </a>
                         )}
                         {dots && (
@@ -238,8 +245,19 @@ function Carousel({
                 >
                     {data.map((item, index) => {
                         return (
-                            <img
-                                width={thumbnailWidth ? thumbnailWidth : "100px"}
+
+
+
+                            // <Image  property="true" alt={item.caption} loading="lazy" src={item.image} width={100} height={100} style={{
+                            //             borderRadius: radius,
+                            //             objectFit: slideImageFit ? slideImageFit : "cover",
+                            //         }} className="carousel-image" />
+                            <Image
+                            
+                            height={100}
+                           
+                           
+                                width={100}
                                 src={item.image}
                                 alt={item.caption}
                                 className="thumbnail"
@@ -249,6 +267,8 @@ function Carousel({
                                     setSlide(index);
                                     setChange(!change);
                                 }}
+                                priority='true'
+                                
                             />
                         );
                     })}

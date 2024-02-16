@@ -115,6 +115,16 @@
   animation-name: bounce-in-right;
   animation-duration: 0.7s;
 }
+@media screen and (max-width:550px) {
+.fade {
+  -webkit-animation-name: bounce-in-right;
+  -webkit-animation-duration: 0.7s;
+  animation-name: bounce-in-right;
+  animation-duration: 0s;
+}
+
+  
+}
 .pause-icon {
   position: absolute;
   /* top: 38%; */

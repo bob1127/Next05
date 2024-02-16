@@ -52,7 +52,7 @@ import scan from '../../public/images/scan.png'
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 import Link from 'next/link'
 import CardPage from '../../components/CardParallax/CardPage'
-
+import Carousel from '../../components/Carousel/index.tsx'
 
 
 
@@ -69,7 +69,9 @@ export default async function Home() {
     return (
         <div className="dark:bg-black bg-slate-100 border border-blue-500 mx-auto ">
            
-
+            <section className="h-[100vh]">
+                <Carousel />
+            </section>
 
             <section className="Bg-img w-full h-[80vh] bg-cover  bg-center bg-no-repeat  ">
                 {/* <CardParallax /> */}
@@ -212,6 +214,11 @@ export default async function Home() {
                 </div>
 
             </section>
+
+
+        
+
+           
 
 
             <section className="">

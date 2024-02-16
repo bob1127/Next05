@@ -31,16 +31,10 @@ export default function App() {
                         <>
                             <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
                             <ModalBody>
-                                <iframe src="https://www.zensor.com.tw/preOrder.html" loading="lazy" width="448" height="540" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                                <iframe src="https://www.ultraehp.com/customized-iframe-tw.html" loading="lazy" width="398" height="540" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                               
                             </ModalBody>
-                            <ModalFooter>
-                                <Button color="danger" variant="light" onClick={onClose}>
-                                    Close
-                                </Button>
-                                <Button color="primary" onPress={onClose}>
-                                    Action
-                                </Button>
-                            </ModalFooter>
+                            
                         </>
                     )}
                 </ModalContent>

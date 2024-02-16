@@ -286,7 +286,21 @@ const Product = props => (
                      
                     </div>
                     <div className="row p-9">
-                        <img className="w-full rounded-2xl" src="https://ultraehp.com/ultrapeace/images/Products-Detail-Img/UP100/SG01-Camera.png" alt="" />
+
+                        {/* <img className="w-full rounded-2xl" src="https://ultraehp.com/ultrapeace/images/Products-Detail-Img/UP100/SG01-Camera.png" alt="" /> */}
+                        <Image
+                            alt="running people"
+
+                            width={1200}
+                            height={1500}
+                            quality={100}
+
+                            placeholder="empty"
+                            src='/images/SG01-Camera.webp'
+                            loading="lazy"
+
+
+                        />
 
                     </div>
                 </div>

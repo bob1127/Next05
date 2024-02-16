@@ -23,7 +23,7 @@ export default function Footer() {
                 <b className='text-white text-sm'>Need help? We're here for you
                
 </b>
-                <a className='text-gray-500 text-sm'>   Contact us</a>
+                {/* <a className='text-gray-500 text-sm'>   Contact us</a> */}
               </div>
             </li>
             <li className='flex pl-5'>
@@ -32,7 +32,7 @@ export default function Footer() {
               </div>
               <div className="txt flex flex-col pl-0 md:pl-2">
                 <b className='text-white text-sm'>"The S4 is the one to buy" - The Verge</b>
-                <a className='text-gray-500 text-sm'>Read article</a>
+                {/* <a className='text-gray-500 text-sm'>Read article</a> */}
               </div>
             </li>
           </ul>
@@ -46,8 +46,9 @@ export default function Footer() {
           <div className="left md:w-1/4 w-full">
             <div className="txt">
               <h3 className='text-white text-3xl font-normal'>
-                Stay Update
+                訂閱且關注我們的最新動態
               </h3>
+              
               <p className='text-gray-500  text-sm'>Sign up for our newsletter to get updates straight to your inbox</p>
               <div className="submit-wrap border border-white">
                 <input type="text" className='bg-[#3f4246] w-full mt-5 p-5 rounded-full' placeholder='name@email.com' />

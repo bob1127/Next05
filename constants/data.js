@@ -2,7 +2,9 @@ export const properties = [
   {
     id: 1,
     imageUrl:
-      "https://www.zensor.com.tw/images//Products-Detail-Img/ECWP/業界最小的_無線_電化學分析儀-實擬功能.webp",
+      "",
+          imageUrl01:
+      "",
     price: "",
     address: "",
     description:
@@ -15,7 +17,9 @@ export const properties = [
   {
     id: 2,
     imageUrl:
-      "https://www.zensor.com.tw/images/Products-Detail-Img/GTE100/突破性的玻碳膜材質.webp",
+      "/UX100-02-手拿方便-02-720x540_zqds8e.webp",
+       imageUrl01:
+      "https://www.ultraehp.com/images/Products-Detail-Img/UX100/UX100-02-手拿方便-02-720x540.webp",
     price: "",
     address: "玻碳拋棄式網版電極",
     description:
@@ -28,7 +32,9 @@ export const properties = [
   {
     id: 3,
     imageUrl:
-      "",
+       "/UX100-10-手持拍照-720x540-2_tgcgm8.webp",
+       imageUrl01:
+      "https://www.ultraehp.com/images/Products-Detail-Img/UX100/UX100-10-手持拍照-720x540.webp",
     price: "ECWP100",
     address: "業界最小的⌜無線⌟電化學分析儀 ",
     description:

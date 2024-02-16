@@ -59,11 +59,15 @@ export default function Index({ projects, reversed }) {
                 </div>
                 <div className={styles.stretchyWrapper}>
   <Link className='w-full border border-white' href="/UltraE">
-                    <Image
+                    {/* <Image
+                        loading='lazy'
                         src={`/images/${projects[0].src}`}
                         fill={true}
                         alt={"image"}
-                    />
+                    /> */}
+
+                        <Image quality={100} placeholder="empty" loading="lazy" alt="running people" src='/SG01-Camera.e6e78f0d_rq2gaf.webp' width={500} height={400} className="" />
+
                         </Link>
                 </div>
                 
@@ -83,11 +87,7 @@ export default function Index({ projects, reversed }) {
                     <Link className='w-full border border-white' href="/UltraE">
                     <p></p>
 
-                    <Image
-                        src={`/images/${projects[1].src}`}
-                        fill={true}
-                        alt={"image"}
-                    />
+                        <Image quality={100} placeholder="empty" loading="lazy" alt="running people" src='/Untitled-Camera-2_unyaan.webp' width={500} height={400} className="" />
                     </Link>
                 </div>
               

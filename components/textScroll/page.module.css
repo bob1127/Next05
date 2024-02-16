@@ -4,6 +4,9 @@
 
   justify-content: center;
 align-items: center;
+overflow: hidden;
+
+
 
 }
 
@@ -12,14 +15,16 @@ align-items: center;
 } */
 
 .sliderContainer{
+  position: relative;
+
     width: 95%;
     overflow: hidden;
     border-radius: 40px;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-size: cover ;
-    background-position: center center;
-    background-image: url('https://www.ultraehp.com/images/Products-Detail-Img/UP100/A2343211_TD03_V1_3078x.png');
-    height: 80vh;
+    background-position: center center; */
+    /* background-image: url('https://www.ultraehp.com/images/Products-Detail-Img/UP100/A2343211_TD03_V1_3078x-2.webp'); */
+    height: 100%;
     border:solid 1px rgb(56, 255, 56);
     /* padding: 10vmin 0; */
 
@@ -41,11 +46,15 @@ align-items: center;
   white-space: nowrap;
   background-color: rgba(255,255,255,.3);
   overflow: hidden;
+  top:10%;
+  position: absolute;
+  display: block;
 
 }
 @media screen and (max-width:600px) {
     .slider{
         width: 300%;
+        display: none;
       
        
 

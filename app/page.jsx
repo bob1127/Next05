@@ -34,11 +34,12 @@ import Image from 'next/image'
 // import Img01 from '../../public/images/wix.jpg'
 // import Img02 from '../../public/images/c2.jpg'
 // import UP100 from '../public/images/UP100.png'
-import UP10001 from '../public/images/carousel01.jpg'
+import UP10001 from '../public/images/zensor__jogging__black_background_style--v_6.0_728c5804-1334-4d8f-b6de-fabeefed4b4f.png'
 import airbag from '../public/images/bag.png'
 import Hero from '@/components/hero'
 import Link from "next/link";
-
+import { motion } from "framer-motion";
+import ReactSlick from '../components/reactSlick.jsx'
 
 
 import Head from "next/head";
@@ -79,6 +80,43 @@ export default async function Home() {
 
 
 
+  const textAnimate = {
+    offscreen: { y: 100, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: 1
+      }
+    }
+
+  }
+  let easing = [0.6, -0.05, 0.01, 0.99];
+
+  const fadeInUp = {
+    initial: {
+      y: 100,
+      opacity: 0,
+      transition: { duration: 0.6, ease:easing }
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 2.6,
+        ease:easing
+      }
+    }
+  };
+  const stagger = {
+    animate: {
+      transition: {
+        staggerChildren: 0.05
+      }
+    }
+  };
   // const fadeInUp = {
   //   initial:{
   //     y:60,
@@ -91,14 +129,16 @@ export default async function Home() {
 
   return (
 
-    <div className='dark:bg-black'>
-      <title>dfnodfoijgiojdfo</title>
+    <div className='dark:bg-black group delay-500 duration-500'  id='#top'>
+      {/* <head>
+        <title>UitraPeace-Instant H. Pylori Urea Breath Test kit-Pro</title>
+      </head> */}
 
       {/*       
-      <Head>
+      <head>
         <title key="title">jfifjifjififjifji</title>
         <meta key="description" name="description" content="DESCRIPTION" />
-      </Head>
+      </head>
      */}
 
 
@@ -108,28 +148,49 @@ export default async function Home() {
         <section className="section_HeroVideo p-0 relative h-[75vh] mb-[200px]" >
 
 
-          {/* <video className="w-full" src="https://www.ultraehp.com/video/hero-video%20-%20HD%201080p.mov" >
-          </video> */}
-          <Image
-            className="absolute top-[0px] left-[0px]"
-            src={UP10001}
-            width={1920}
-            height={800}
+{/* 
+          <Image quality={100} placeholder="empty" priority='true' alt="running people" src='/zensor__jogging__black_background_style--v_6.0_728c5804-1334-4d8f-b6de-fabeefed4b4f_btkzo6.webp' width={1920} height={600} className="hidden md:block" />
 
 
-            alt="Picture of the author"
-          />
-          <div className="HeroTitle top-[18%] md:top-[22%] lg:top-[31%] w-[45%] left-[6%] absolute  border  z-50">
-            <span className="text-sm text-white ">Watch this space.
+          <div className="relative w-[500px] h-[500px] block md:hidden  border border-green-500 ">
+            <Image style={{ objectFit: "cover" }} quality={100} fill placeholder="empty" priority='true' alt="running people" src='/zensor__jogging__black_background_style--v_6.0_728c5804-1334-4d8f-b6de-fabeefed4b4f_btkzo6.webp' className="" />
+          </div>
+          */}
+          <div className="HeroTitle top-[15%] md:top-[22%] lg:top-[31%] w-[90%] md:w-[50%] left-[6%] absolute  border  ">
+          
+            <motion.div className="" initial='initial' animate='animate' exit={{ opacity: 0 }}>
+            <motion.div variants={stagger} className='inner w-full pr-2'>
+             
+              <motion.div variants={fadeInUp}>
+                <span className=' '>Humming Probe UX200</span>
+                <Link href='../Products/product01'>CN</Link>
+              </motion.div>
+                <motion.h1 className="text-white text-xl md:text-2xl lg:text-4xl" variants={fadeInUp}>超越感測界線，極致健康生活</motion.h1>
+              <motion.p className=" text-slate-300 mt-4 " variants={fadeInUp}>
 
-            </span>
-            <h1 className="text-white dark:text-black  leading-7.5">UitraPeace-Instant H. Pylori Urea Breath Test kit-Pro</h1>
-            <p className="text-white">Helicobacter pylori is a type of tiny Gram-negative bacterium. It has a spiral shape and flagella, which allows it to move around in the gastric mucosa. The adhesive molecules on its surface can bind to receptors on the surface of gastric mucosal cells, helping them to attach to the gastric mucosa and avoid being washed away. </p>
-            <a href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">Detail Info </a>
-            <Link href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">
-              Detail Info
-            </Link>
+                  我們針對食品與水質檢測發展與日常生活息息相關之感測器，以減少有害物質攝取與接觸，達到守護 人類健康的願景
 
+
+
+              </motion.p>
+             
+              <motion.div variants={fadeInUp} className='btn-row'>
+
+                  <div className="mt-10">
+                    <a href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center  mr-5 py-2  bg-rose-500 text-white rounded-full mt-4">Detail Info </a>
+                    <Link href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center py-2  bg-rose-500 text-white rounded-full mt-4">
+                      Detail Info
+                    </Link>
+                  </div>
+
+             
+              </motion.div>
+
+            </motion.div>
+</motion.div>
+
+        
+      
 
           </div>
 
@@ -151,7 +212,15 @@ export default async function Home() {
         <div className="App">
           {/* Section header */}
           <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+            <div className="txt  flex items-center flex-col  justify-center">
 
+              <div className="relative flex-col flex justify-center mb-8 pl-5" data-aos="fade-up" data-aos-delay="450">
+                <h2 className="text-black dark:text-rose-500  text-4xl ">Instant Helicobacter pylori</h2>
+                <p data-aos="fade-up" data-aos-delay="600" className="text-2xl text-center text-zinc-900">main Producys </p>
+              
+
+              </div>
+            </div>
           </div>
           <div className="properties flex flex-wrap   justify-center items-center">
             {properties.map((item) => (
@@ -197,6 +266,20 @@ export default async function Home() {
           <source src="https://cdn.builder.io/o/assets%2FYJIGb4i01jvw0SRdL5Bt%2Faebcdc568ab9443e8b5282e52d49a586%2Fcompressed?apiKey=YJIGb4i01jvw0SRdL5Bt&amp;token=aebcdc568ab9443e8b5282e52d49a586&amp;alt=media" />
         </video>
         {/* <SlickCard /> */}
+        <section>
+          <div className="section_banner02">
+       
+              <div className=" flex items-center justify-center">
+                <div className="border border-white">
+                  
+                </div>
+              
+
+              </div>
+   
+          </div>
+        </section>
+
         <section className="hidden">
           <div className="container ">
 
@@ -457,17 +540,49 @@ export default async function Home() {
           </div>
         </section>
         <section className="section_Cardhover">
-          <div className="container">
-            <div className="row">
+         
+            <div className="row px-[20px] md:px-20">
               <CardHover />
             </div>
-          </div>
+       
         </section>
-        <div className="iframe my-20  relative h-[700px]">
-          {/* <iframe src='https://my.spline.design/colorbox3copy-b9ae1f11adddd2efac996b55c0dc7ca9/' width='100%' height='700px'></iframe> */}
-          <div className="txt-wrap flex flex-col justify-center items-center absolute left-[10%]  top-[20%] rounded-2xl w-3/4 h-[450px] bg-white z-20">
-            <p className="text-normal ">我們透過 Webflow + NoCode 幫助企業發展和啟動品牌業務或是打造產品</p>
-            <b className="text-5xl w-3/4 text-center">胃幽門螺旋桿菌的快速尿素呼吸檢測法法</b>
+        <div className="iframe my-20  relative h-[900px]">
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
+          <spline-viewer url="https://prod.spline.design/iLKNk0ig4Z5QEzkf/scene.splinecode"></spline-viewer>
+
+          <div className="txt-wrap flex flex-col justify-center items-center absolute left-[10%]  bg-white  top-[20%] rounded-2xl w-3/4 h-[450px] z-20">
+
+
+            <div className="relative flex-col w-2/3 flex justify-center mb-8 pl-5" data-aos="fade-up" data-aos-delay="450">
+              <h2 className="text-black  text-center dark:text-rose-500  text-5xl ">胃幽門螺旋桿菌的快速尿素呼吸檢測法法</h2>
+              <ul>
+                <li className="text-black  text-center text-normal ">・      我們透過 Webflow + NoCode 幫助企業發展和啟動品牌業務或是打造產品
+                </li>
+                <li className="text-black  text-center text-normal ">Obtain results within 30 minutes</li>
+                <li className="text-black  text-center text-normal ">Assess treatment effect before and after</li>
+              </ul>
+
+
+            </div>
+{/* 
+            <motion.div className="w-2/3" initial='initial' animate='animate' exit={{ opacity: 0 }}>
+              <motion.div variants={stagger} className='inner w-full pr-2'>
+
+             
+                <motion.p className=" text-gray-600 mt-4 text-center" variants={fadeInUp}>
+            
+
+
+                </motion.p>
+                <motion.h1 className="text-black text-center" variants={fadeInUp}></motion.h1>
+             
+
+            
+
+              </motion.div>
+            </motion.div> */}
+
+
           </div>
         </div>
 
@@ -600,8 +715,8 @@ export default async function Home() {
         </section> */}
 
         <section>
-          <div className="container">
-            <div className="colorwrap flex py-40  justify-center rounded-2xl bg-black dark:bg-gray-100">
+          <div className="px-[25px] md:px-20">
+            <div className="colorwrap flex py-20 md:py-40  justify-center rounded-2xl bg-black dark:bg-gray-100">
               <div className="txt w-full md:w-2/3 flex flex-col justify-center items-center">
                 <h2 className="text-5xl text-center text-white dark:text-black">極安檢測-<br></br>
                   胃幽門螺旋桿菌的快速尿素呼吸檢測法法</h2>
@@ -616,25 +731,23 @@ export default async function Home() {
           </div>
         </section>
         <section className="mt-20">
-          <div className="container">
-            <div className="row">
+          <div className="px-[25px] md:px-20">
+            <div className="">
 
               <div className="txt w-full  md:w-1/2">
 
-                <p className="text-gray-700  dark:text-white">What's your biggest business challenge right now?</p>
+               
                 <h2 className="text-black dark:text-white text-5xl">
-                  專利技術建構的生態系健康檢測平台
-
-                  your name
+                  多領域應用
 
                 </h2>
 
 
-                <p className="text-xl font-medium">Webflow 將設計和程式碼的世界無縫地融為一體，使您能夠創建一個100%可定製的網站，其內容的類型與您的願景相匹配。Webflow還提供自己的內容管理系統，使開發時間更加精簡，從而涵蓋每一個細節!</p>
+                <p className="text-xl font-medium">專利技術建構的生態系健康檢測平台</p>
               </div>
 
             </div>
-            <div className="row">
+            <div className="">
               <ApplicateCard />
             </div>
             {/* <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
@@ -698,21 +811,17 @@ export default async function Home() {
         /> */}
 
         <section>
-          <div className="section_banner02">
-            <div className="row border border-black  bg-cover bg-no-repeat bg-right md:bg-center bg-[url('https://www.zensor.com.tw/images/nextTest/up100-banner01.png')] h-[500px] w-full">
+          <div className="section_banner02 overflow-hidden ">
+            <div className="row border border-black   bg-cover bg-no-repeat bg-right md:bg-center bg-[url('https://www.zensor.com.tw/images/nextTest/up100-banner01.png')] h-[500px] w-full px-10">
               <div className="grid grid-cols-2 h-full flex items-center justify-center">
                 <div className="border border-white">
                   <div className="txt  flex items-center flex-col  justify-center">
 
                     <div className="relative flex-col flex justify-center mb-8 pl-5" data-aos="fade-up" data-aos-delay="450">
-                      <h2 className="text-white dark:text-rose-500  text-5xl ">Instant Helicobacter pylori</h2>
-                      <ul>
-                        <li className="text-white text-normal ">・Non-invasive testing method
-                        </li>
-                        <li className="text-white text-normal ">Obtain results within 30 minutes</li>
-                        <li className="text-white text-normal ">Assess treatment effect before and after</li>
-                      </ul>
-
+                      <h2 className="text-white dark:text-rose-500  text-5xl ">胃幽門桿菌快速檢測
+</h2>
+                      <p className="text-gray-100">30分鐘立即獲得尿素呼吸測試結果</p>
+                      <a href="" className="btn bg-rose-600 mt-3 text-gray-200 rounded-full px-4 py-2 w-[150px] text-center">關於極安檢測</a>
 
                     </div>
                   </div>

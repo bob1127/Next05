@@ -3,7 +3,9 @@ import styles from './style.module.scss';
 
 export default function Button({ isActive, toggleMenu }) {
     return (
-        <div className={styles.button}>
+        <div className='flex border flex-row flex-nowrap'>
+
+             <div className={styles.button}>
             <motion.div
                 className={styles.slider}
                 animate={{ top: isActive ? "-100%" : "0%" }}
@@ -14,7 +16,9 @@ export default function Button({ isActive, toggleMenu }) {
                     onClick={() => { toggleMenu() }}
                 >
                     <PerspectiveText label="Buy Now" />
+                   
                 </div>
+               
                 <div
                     className={styles.el}
                     onClick={() => { toggleMenu() }}
@@ -23,6 +27,12 @@ export default function Button({ isActive, toggleMenu }) {
                 </div>
             </motion.div>
         </div>
+            <div className='bg-pink-500 absolute flex top-[0] right-[-40px] justify-center p-5 items-center w-[40px] rounded-full h-[40px]'>
+                <a href="#top" className='text-white text-xs delay-500 duration-500' >GoTop</a>
+            </div>
+        </div>
+       
+        
     )
 }
 

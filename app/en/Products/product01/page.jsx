@@ -602,7 +602,8 @@ const Product = props => (
                                             <Image
                                                 alt="Card background"
                                                 className="object-cover rounded-xl"
-                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.webp'
+                                                loading="lazy"
                                                 width={370}
                                                 height={260}
                                             />
@@ -628,7 +629,8 @@ const Product = props => (
                                                     <Image
                                                         alt="Card background"
                                                         className="object-cover rounded-xl"
-                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.webp'
+                                                loading="lazy"
                                                         width={370}
                                                         height={260}
                                                     />
@@ -651,7 +653,8 @@ const Product = props => (
                                               <Image
                                                 alt="Card background"
                                                 className="object-cover rounded-xl"
-                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.webp'
+                                                loading="lazy"
                                                 width={370}
                                                 height={260}
                                             />
@@ -674,7 +677,8 @@ const Product = props => (
                                                     <Image
                                                         alt="Card background"
                                                         className="object-cover rounded-xl"
-                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.webp'
+                                                loading="lazy"
                                                         width={370}
                                                         height={260}
                                                     />
@@ -697,7 +701,8 @@ const Product = props => (
                                               <Image
                                                 alt="Card background"
                                                 className="object-cover rounded-xl"
-                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.webp'
+                                                loading="lazy"
                                                 width={370}
                                                 height={260}
                                             />
@@ -720,7 +725,8 @@ const Product = props => (
                                               <Image
                                                 alt="Card background"
                                                 className="object-cover rounded-xl"
-                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.png'
+                                                        src='/images/UP100/acessories/up100-10-PhotoRoom.png-PhotoRoom.webp'
+                                                loading="lazy"
                                                 width={370}
                                                 height={260}
                                             />

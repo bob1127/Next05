@@ -43,16 +43,29 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
-            <Image
+            {/* <Image
                 src="/images/background.jpg"
                 fill={true}
                 alt="background"
-            />
+                
+            /> */}
             <div className={styles.sliderContainer}>
+
+
+                
+                <Image
+                 
+                    src="/A2343211_TD03_V1_3078x-2_dvhoa5.webp"
+                    width={1400}
+                  
+                    height={560}
+                    loading='lazy'
+                />
+              
                 <div ref={slider} className={styles.slider}>
-                    <p className='text-rose-400 dark:text-slate-100 text-xl lg:text-2xl ' ref={firstText}>Instant Helicobacter  Kit -
+                    <p className='text-rose-400 dark:text-slate-100 text-xl lg:text-2xl hidden md:block' ref={firstText}>Instant Helicobacter  Kit -
 </p>
-                    <p className='text-rose-400 dark:text-slate-100  hidden lg:block' ref={secondText}>Non-invasiveNon-invasive
+                    <p className='text-rose-400 hidden md:block dark:text-slate-100  hidden lg:block' ref={secondText}>Non-invasiveNon-invasive
 </p>
 
                  

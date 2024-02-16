@@ -2,8 +2,8 @@
 "use client"
 // import VideoThumb from '@/public/images/hero-image.png'
 import ModalVideo from '@/components/modal-video'
-import Carousel from '../components/Carousel/Carousel'
-import { countries } from "../components/Carousel/Data";
+import Carousel from './CarouselSlider/Carousel'
+import { countries } from "./CarouselSlider/Data";
 import React from "react";
 import Link from 'next/link'
 import { Button } from "@nextui-org/react";
@@ -35,12 +35,12 @@ export default function Hero() {
 
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16">
-            <h1 className="dark:text-white  text-4xl md:text-5xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">超越感測界線 <span className="  bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">極致健康生活</span></h1>
+            <h1 className="dark:text-white  text-4xl md:text-5xl font-black leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">我們的核心技術-<span className="  bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">PotentioStrip </span></h1>
             <div className="max-w-3xl mx-auto">
-              <p className="dark:text-slate-300 text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">我們針對食品與水質檢測發展與日常生活息息相關之感測器，以減少有害物質之攝取與接觸，達到守護人類健康的願景</p>
+              <p className="dark:text-slate-300  text-gray-700 text-xl mb-8" data-aos="zoom-y-out" data-aos-delay="150">我們讓試片長出自己的電路系統</p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
                 <Button radius="full" className="bg-gradient-to-tr from-cyan-600 to-sky-400 text-white shadow-lg">
-                  <Link href="/en/Products">產品列表</Link>
+                  <Link href="/en/Products">關於極安檢測</Link>
                 </Button>
                 {/* <div>
                   <a className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="/UltraE">Start free trial</a>

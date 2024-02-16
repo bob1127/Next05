@@ -616,16 +616,14 @@ export default async function Home() {
 
                             <div className="txt w-full  md:w-1/2">
 
-                                <p className="text-gray-700  dark:text-white">What's your biggest business challenge right now?</p>
-                                <h2 className="text-black dark:text-white text-5xl">
-                                    專利技術建構的生態系健康檢測平台
+                  <p className="text-gray-700  dark:text-white">What's your biggest business challenge right now?</p>
+                  <h2 className="text-black dark:text-white text-5xl">
+                    多領域應用
 
-                                    your name
-
-                                </h2>
+                  </h2>
 
 
-                                <p className="text-xl font-medium">Webflow 將設計和程式碼的世界無縫地融為一體，使您能夠創建一個100%可定製的網站，其內容的類型與您的願景相匹配。Webflow還提供自己的內容管理系統，使開發時間更加精簡，從而涵蓋每一個細節!</p>
+                  <p className="text-xl font-medium">專利技術建構的生態系健康檢測平台</p>
                             </div>
 
                         </div>

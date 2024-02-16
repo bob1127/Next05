@@ -6,7 +6,8 @@ import { motion } from "framer-motion";
 
 const Modal = ({ data, close }) => {
     const {
-        imageUrl,
+     
+        imageUrl01,
         price,
         address,
         description,
@@ -49,7 +50,7 @@ const Modal = ({ data, close }) => {
                 <motion.img
                     className="modal__image"
                     alt="real estate mansion"
-                    src={imageUrl}
+                    src={imageUrl01}
                     variants={imageVariants}
                 ></motion.img>
                 <motion.div className="modal__info" variants={modalInfoVariants}>
