@@ -1,5 +1,6 @@
 .cardContainer {
     height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,11 +70,12 @@
             }
 
             .imageContainer {
-                position: relative;
-                width: 60%;
-                height: 100%;
-                border-radius: 25px;
-                overflow: hidden;
+                // position: relative;
+    // width: 60%;
+    // height: 100%;
+
+    // border-radius: 25px;
+    // overflow: hidden;
 
                 .inner {
                     width: 100%;
@@ -107,3 +109,12 @@
 
 
 }
+
+// @media screen and(min-width:600px) {
+
+
+    //     .cardContainer {
+    //         display: none;
+    //     }
+
+    // }

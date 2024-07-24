@@ -148,7 +148,7 @@ const slideNumberStyle = {
 //                 height: 600,
 //             },
 //         ],
-//         locale: 'en-US',
+//         locale: 'en',
 //         type: 'website',
 //     },
 // };

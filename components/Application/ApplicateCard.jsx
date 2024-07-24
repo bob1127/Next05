@@ -36,7 +36,7 @@ export default function App() {
                         <Image
                             alt="Card background"
                             className="object-cover rounded-xl"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_Q-_5-BStaeoVizbqLPNmMqn73E2FaKV3WquuMbrkWll8oZMKBnqaAlCZckFGgwKXxQ&usqp=CAU"
+                            src=""
                             width={270}
                         />
                     </CardBody>

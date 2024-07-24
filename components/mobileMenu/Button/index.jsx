@@ -1,3 +1,4 @@
+"use client"
 import { motion } from 'framer-motion';
 import styles from './style.module.scss';
 
@@ -15,7 +16,7 @@ export default function Button({ isActive, toggleMenu }) {
                     className={styles.el}
                     onClick={() => { toggleMenu() }}
                 >
-                    <PerspectiveText label="Buy Now" />
+                    <PerspectiveText label="Menu" />
                    
                 </div>
                
@@ -27,9 +28,7 @@ export default function Button({ isActive, toggleMenu }) {
                 </div>
             </motion.div>
         </div>
-            <div className='bg-pink-500 absolute flex top-[0] right-[-40px] justify-center p-5 items-center w-[40px] rounded-full h-[40px]'>
-                <a href="#top" className='text-white text-xs delay-500 duration-500' >GoTop</a>
-            </div>
+      
         </div>
        
         
@@ -39,8 +38,12 @@ export default function Button({ isActive, toggleMenu }) {
 function PerspectiveText({ label }) {
     return (
         <div className={styles.perspectiveText}>
-            <p>{label}</p>
-            <p>{label}</p>
+          
+                  <p>{label}  ◎</p>
+            <p>{label}  ◎</p>
+            
+          
+          
         </div>
     )
 }

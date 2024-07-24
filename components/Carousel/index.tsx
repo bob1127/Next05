@@ -11,10 +11,10 @@ import card3 from '../../public/card3.svg';
 import card4 from '../../public/card4.svg';
 
 const imagesItems = [
-    <Image width={700} height={550} src='/A2343211_TD03_V1_3078x-2_dvhoa5.webp' alt="teste" />,
-    <Image width={700} height={550} src='/banner01_hox7to.png' alt="teste" />,
-    <Image width={700} height={550} src='/A2343211_TD03_V1_3078x-2_dvhoa5.webp' alt="teste" />,
-    <Image width={700} height={550} src='/banner01_hox7to.png' alt="teste" />,
+    <Image width={700} height={550} src='/業界最小的_無線_電化學分析儀-實擬功能_lofyp6' alt="teste" />,
+    <Image width={700} height={550} src='/業界最小的_無線_電化學分析儀-實擬功能_lofyp6' alt="teste" />,
+    <Image width={700} height={550} src='/業界最小的_無線_電化學分析儀-實擬功能_lofyp6' alt="teste" />,
+    <Image width={700} height={550} src='/' alt="teste" />,
 ];
 
 
@@ -22,16 +22,17 @@ const imagesItems = [
 const Home: NextPage = () => {
     return (
         <div className="h-screen w-screen overflow-hidden bg-bg text-white">
+            <section className='mt-[100px]'>
+                <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+                    <div className="mb-10 flex justify-center flex-col  items-center space-y-6">
+                        <h1 className="text-4xl font-bold md:text-5xl w-1/2 leading-none ">超極生技以專利技術開發的免校正拋棄式 pH meter 酸鹼度計</h1>
+                       
+                    </div>
+                    <Carousel items={imagesItems} />
+                </main>
+            </section>
            
-            <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-                <div className="mb-10 flex flex-col  justify-center space-y-6">
-                    <h1 className="text-4xl font-bold md:text-5xl">Beautiful animated gradients</h1>
-                    <p className="text-center text-xs opacity-75">
-                        Explore, generate and use seamless animation gradients for your next projects
-                    </p>
-                </div>
-                <Carousel items={imagesItems} />
-            </main>
+            
         </div>
     );
 };

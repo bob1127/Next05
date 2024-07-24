@@ -35,7 +35,7 @@ import Img01 from '../../public/images/wix.jpg'
 import Img02 from '../../public/images/c2.jpg'
 import UP100 from '../public/images/UP100.png'
 import UP10001 from '../public/images/carousel01.jpg'
-import airbag from '../public/images/bag.png'
+
 import Hero from '@/components/hero'
 import Link from "next/link";
 
@@ -118,10 +118,10 @@ export default async function Home() {
                         <span className="text-sm text-white ">Watch this space.
 
                         </span>
-                        <h1 className="text-white dark:text-black  leading-7.5">UitraPeace-Instant H. Pylori Urea Breath Test kit-Pro</h1>
+                        <h1 className="text-white dark:text-black  leading-7.5">UltraPeace-Instant H. Pylori Urea Breath Test kit-Pro</h1>
                         <p className="text-white">Helicobacter pylori is a type of tiny Gram-negative bacterium. It has a spiral shape and flagella, which allows it to move around in the gastric mucosa. The adhesive molecules on its surface can bind to receptors on the surface of gastric mucosal cells, helping them to attach to the gastric mucosa and avoid being washed away. </p>
-                        <a href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">Detail Info </a>
-                        <Link href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-rose-500 text-white rounded-full mt-4">
+                        <a href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-orange-500 text-white rounded-full mt-4">Detail Info </a>
+                        <Link href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center text-xl py-2  bg-orange-500 text-white rounded-full mt-4">
                             Detail Info
                         </Link>
 
@@ -200,11 +200,11 @@ export default async function Home() {
 
 
                             {/* <video autoplay=""  playsinline="" className="cvqchck"><source type="video/mp4" src="https://cdn.builder.io/o/assets%2FYJIGb4i01jvw0SRdL5Bt%2Faebcdc568ab9443e8b5282e52d49a586%2Fcompressed?apiKey=YJIGb4i01jvw0SRdL5Bt&amp;token=aebcdc568ab9443e8b5282e52d49a586&amp;alt=media"></video> */}
-                            <div className="section-title flex flex-col w-full py-10 justify-center items-center">
+                            {/* <div className="section-title flex flex-col w-full py-10 justify-center items-center">
                                 <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900  lg:text-4xl dark:text-white dark:text-rose-500  text-center"> Operation(專業使用版本kkkkkkkk)</h1>
                                 <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique aperiam dolore nostrum, officia ipsam, in ullam vitae pariatur voluptates, incidunt porro saepe dolorem natus mollitia. Voluptatem reiciendis pariatur quae impedit. </p>
 
-                            </div>
+                            </div> */}
 
 
                         </div>
@@ -240,7 +240,7 @@ export default async function Home() {
                                             <h2 className="text-4xl font-normal dark:text-rose-500 ">
                                                 UP100
                                             </h2>
-                                            <p className="w-1/2 mb-10 dark:text-white">UitraPeace-Instant H. Pylori Urea Breath Test kit-Pro</p>
+                                            <p className="w-1/2 mb-10 dark:text-white">UltraPeace-Instant H. Pylori Urea Breath Test kit-Pro</p>
                                         </div>
                                         {/* <Accordion /> */}
                                     </div>
@@ -268,7 +268,7 @@ export default async function Home() {
                                                 <p className='font-extralight dark:text-slate-200'>from Ind / Month</p>
                                             </div>
                                             <div className="imgWrap overflow-hidden rounded-full w-[280px] h-[280px] border border-black">
-                                                <img src="https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_427322551_2878x.png?v=1695786640" className="w-auto h-[400px]" alt="" />
+                                                {/* <img src="https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_427322551_2878x.png?v=1695786640" className="w-auto h-[400px]" alt="" /> */}
                                             </div>
                                         </div>
                                         <div className="bottom-wrap">
@@ -329,7 +329,7 @@ export default async function Home() {
                                                 <p className='font-extralight dark:text-slate-200'>from Ind / Month</p>
                                             </div>
                                             <div className="imgWrap overflow-hidden rounded-full w-[280px] h-[280px] border border-black">
-                                                <img src="https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_427322551_2878x.png?v=1695786640" className="w-auto h-[400px]" alt="" />
+                                                {/* <img src="https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_427322551_2878x.png?v=1695786640" className="w-auto h-[400px]" alt="" /> */}
                                             </div>
                                         </div>
                                         <div className="bottom-wrap">
@@ -602,7 +602,7 @@ export default async function Home() {
                                     胃幽門螺旋桿菌的快速尿素呼吸檢測法法</h2>
                                 <p className="text-gray-300 w-2/3 text-center dark:text-gray-800">胃部感染胃幽門螺旋桿菌時，當我們服用尿素溶液後，胃幽門螺旋桿菌上的尿素酶會將尿素分解成二氧化碳和氨氣。</p>
 
-                                <a href="" className="bg-rose-500 text-center mt-6 rounded-full w-[150px] text-white py-2 ">GO to Product</a>
+                                <a href="" className="bg-orange-500 text-center mt-6 rounded-full w-[150px] text-white py-2 ">GO to Product</a>
 
                             </div>
                         </div>

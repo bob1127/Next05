@@ -3,7 +3,7 @@ export const projects = [
         name: "Google Pixel Creator Labs",
         client: "Grow",
         description: "A partnership between Google & SN37.",
-        src: "截圖 2024-01-10 下午2.22.59.jpg",
+        src: "/hand.png",
         year: 2023,
     },
     {

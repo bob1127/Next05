@@ -55,7 +55,7 @@ const Modal = ({ data, close }) => {
                 ></motion.img>
                 <motion.div className="modal__info" variants={modalInfoVariants}>
                     <motion.div className="modal__row" variants={modalRowVariants}>
-                        <span className="modal__price">{price}</span>
+                        <span className="modal__price font-bold text-[20px]">{price}</span>
                     </motion.div>
                     <motion.div className="modal__row" variants={modalRowVariants}>
                         <span className="modal__address mb-2">{address}</span>
@@ -71,8 +71,8 @@ const Modal = ({ data, close }) => {
                     >
                         <p className="modal__description  text-xs">{description}</p>
                     </motion.div>
-                    <motion.div className="modal__row" variants={modalRowVariants}>
-                        <a href={Link} className="modal__link mb-2 text-xs ">產品連結</a>
+                    <motion.div className="modal__row py-2 rounded-full flex justify-center items-center" variants={modalRowVariants}>
+                        <a href={Link} className="modal__link flex justify-center items-center  mb-2 h-[50px]   text-[16px]">Product Link</a>
                     </motion.div>
                     
                     <motion.button

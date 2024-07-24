@@ -9,22 +9,61 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
      "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
+  
+    
     extend: {
-
-
+      animation: {
+      marquee: 'marquee 25s linear infinite',
+      marquee2: 'marquee2 25s linear infinite',
+    },
+    keyframes: {
+      marquee: {
+        '0%': { transform: 'translateX(0%)' },
+        '100%': { transform: 'translateX(-100%)' },
+      },
+      marquee2: {
+        '0%': { transform: 'translateX(100%)' },
+        '100%': { transform: 'translateX(0%)' },
+      },
+    },
       colors: {
+        't-color-1': '#bfbfbf',
+        't-color-2': '#d9d9d9',
+        't-color-3': '#FDF3C6',
+        't-color-4': '#CADFB8 ',
+         't-color-5': '#A8D4D5 ',
+           't-color-6': '#2E90D1 ',
+           't-color-7': '#D0ADAA ',
+        'NavBlue':'#4b9dfc',
         'yellow': '#f6f5f8',
+      
         'DBlue': '#526c96',
         'LBlue':'#7787a5',
         'indexCard':'#f6f6f6',
         'FluorescentGreen':'#DFFC21',
+        NavBlue:{
+          100:'#F0F1F7',
+          500:'#3b92d5',
+          600:'#2794B6',
+
+
+
+        },
+        TitleText:{
+
+          500:'#be605a'
+
+
+        },
+        
         orange:{
           100: '',
           200: '',
           300: '',
           400: '',
-          500: '#e78b15',
+          500: '#F78C26	',
           600: '',
           700: '',
           800: '',

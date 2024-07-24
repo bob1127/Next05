@@ -1,47 +1,56 @@
 export const properties = [
   {
     id: 1,
+    imageUrl02: "/UX200-07-手持拍照-720x540.webp",
     imageUrl:
-      "",
+      "/ECWP100-88.webp",
           imageUrl01:
-      "",
-    price: "",
-    address: "",
+      "https://www.ultraehp.com/images/Products-Detail-Img/UX200/UX200-07-手持拍照-720x540.webp",
+    price: "Humming Probe UX200",
+    address: "pH meter/pH Measurement system",
+    immageAlt:'ffffff',
     description:
-      "UX200 除了具備UX100的全部功能，更增加了pH/電位趨勢記錄曲線，電位解析度更提高至0.1 mV。可以更精確判定酸鹼滴定終點。滿足連續或頻繁記錄pH變化的需求。使用者不需一直待在機器旁邊記錄數據，可以隨時回溯實驗階段每個時間點的pH變化。",
-    numBedroom: '非侵入檢測方式',
-    numWashrooms:'30分鐘立即獲得檢測成果',
-    livingSpace: "自動判讀檢測成果",
-    Link:'https://www.zensor.com.tw'
-  },
-  {
-    id: 2,
-    imageUrl:
-      "/UX100-02-手拿方便-02-720x540_zqds8e.webp",
-       imageUrl01:
-      "https://www.ultraehp.com/images/Products-Detail-Img/UX100/UX100-02-手拿方便-02-720x540.webp",
-    price: "",
-    address: "玻碳拋棄式網版電極",
-    description:
-      "玻碳( Glassy carbon, GC) 是電化學傳感器研究中使用的一種常用重要材料，玻碳電極具有強耐腐蝕性，化學惰性，熱穩定，以及具有寬電化學電位窗口，良好的導電性和生物相容等特性。我們通過高溫化學氣相沉積的專利技術製造出高純度，具有良好電化學性能的純玻碳薄膜。突破性的將傳統玻碳電極材質應用在拋棄式電化學傳感器的產品開發。",
+      "The Humming Probe contains built-in simulate electrodes for self-checking and validating and will conduct comprehensive self-checking every time it is turned on to eliminate the possibility of system errors.",
     numBedroom: 4,
     numWashrooms: 3,
     livingSpace: "2,410 sq.ft.",
-    Link:'https://www.zensor.com.tw'
+    Link:'https://www.ultraehp.com/hummingprobe/en/UX100.html'
+  },
+  {
+    id: 2,
+     imageUrl02: "/UX100-02-手拿方便-03-720x540.webp",
+    imageUrl:
+      "/ECWP100-88.webp",
+       imageUrl01:
+      "https://www.ultraehp.com/images/Products-Detail-Img/UX100/UX100-02-手拿方便-03-720x540.webp",
+       imageAlt:'Humming Probe UX200-免校正酸鹼檢測儀',
+   price: "Humming Probe UH1",
+    address: "Accurate, calibration-free ready-to-use  "
+,
+    immageAlt:'pH-test paper/ pH test strip/ pH measurement/ pH strip electrode/ single use pH sensor',
+    description:
+      "Biological samples such as blood, saliva, medullary fluid, tissue fluid, etc. cannot be sampled in large quantities. Often these small samples require the purchase of expensive, ultra-compact glass pH electrodes, and the UH1 provides the perfect solution by sampling dropwise or dipwise. *The UH2 offers sample volumes as low as 1 microliter.",
+    numBedroom: 4,
+    numWashrooms: 3,
+    livingSpace: "2,410 sq.ft.",
+    Link:'https://www.ultraehp.com/hummingprobe/en/UH1.html'
   },
   {
     id: 3,
+     imageUrl02: "/banner055.webp",
     imageUrl:
-       "/UX100-10-手持拍照-720x540-2_tgcgm8.webp",
+       "/ECWP100-88.webp",
        imageUrl01:
-      "https://www.ultraehp.com/images/Products-Detail-Img/UX100/UX100-10-手持拍照-720x540.webp",
-    price: "ECWP100",
-    address: "業界最小的⌜無線⌟電化學分析儀 ",
+      "https://www.ultraehp.com/images/Products-Detail-Img/UX200/banner055.webp",
+    price: "UP100",
+     immageAlt:'極安簡測-胃幽門桿菌尿素呼氣檢測系統',
+    address: " UltraPeace-Instant H. Pylori Urea Breath Test kit-Pro",
     description:
-      "Beautiful house! Offers you 4 bedrooms, 3 full bathrooms with separate showers. Lots of windows and natural light. The finished basement includes a bedroom, a large family room and a full bathroom. Great location! Close to daycares, schools and accessible by public transport. 5 minutes by car from the downtown area. Quick access to highway and subway. On the second floor: The master bedroom is spacious. It has a balcony, a large walk-in closet, and its own en-suite bathroom. The other three bedrooms are of good size and each has its own walk-in closet. The basement is fully finished and offers a family room, as well as a game room. The basement bedroom is convenient with a full bathroom.",
+      "Helicobacter pylori is a type of tiny Gram-negative bacterium. It has a spiral shape and flagella, which allows it to move around in the gastric mucosa. The adhesive molecules on its surface can bind to receptors on the surface of gastric mucosal cells, helping them to attach to the gastric mucosa and avoid being washed away. These characteristics enable Helicobacter pylori to survive and colonize in the stomach environment, leading to infections and related stomach problems.",
     numBedroom: 4,
     numWashrooms: 3,
     livingSpace: "4,450 sq.ft.",
-    Link:'https://www.zensor.com.tw'
+    Link:'https://www.ultraehp.com/ultrapeace/en/'
   },
+  
 ];

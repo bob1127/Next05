@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Listing from "./Listing";
 import Overlay from "./Overlay";
 import Modal from "./Modal";
-// import { Style } from "../styles/Card.css";
+// import { Style } from "../../styles/";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -19,7 +19,7 @@ const Card = ({ data }) => {
     };
 
     return (
-        <div className="card-wrap">
+        <div className="card-wrap h-[100vh] border">
             
             <Listing data={data} open={openModal} />
             <AnimatePresence>

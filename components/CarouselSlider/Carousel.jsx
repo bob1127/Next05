@@ -6,7 +6,13 @@ import './Carousel.css'
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import  Image  from "next/image";
+const myLoader03 = ({ src, width, quality, placeholder }) => {
+    return `https://new-design.jp/imgs/index/${src}?w=${width}?p=${placeholder}`
+}
 
+const myLoader01 = ({ src, width, quality, placeholder }) => {
+    return `https://www.dot-st.com/static/docs/nikoand/pages/2022_city_creek_v2/assets/images/${src}?w=${width}?p=${placeholder}`
+}
 
 const textAnimate = {
     offscreen: { y: 100, opacity: 0 },
@@ -44,7 +50,7 @@ function Carousel({ images}) {
     console.log(current);
     return (
         <div
-            className="carousel px-20 border border-black relative"
+            className="carousel w-full  h-[310px] md:h-[800px] 2xl:h-[868px] relative"
             onMouseEnter={() => {
                 setAutoPlay(false);
                 clearTimeout(timeOut);
@@ -57,13 +63,13 @@ function Carousel({ images}) {
                 
             </div>
            
-            <div className="carousel_wrapper  border border-r-emerald-400">
+            <div className="carousel_wrapper  ">
               
                 
                 {images.map((image, index) => {
                     return (
 
-                        <a href={image.url}>
+                        <a href={image.url} className="">
                             <div
                                 key={index}
                                 className={
@@ -80,10 +86,10 @@ function Carousel({ images}) {
 
                             
 
-                                <Image quality={100} placeholder="empty" priority='true' alt="running people" src={image.image} width={1000} height={500} className="card_image" />
+                                <Image loader={myLoader01} placeholder="empty" loading="lazy" alt={image.alt} src={image.image} width={1820} height={700} className="HeroImg" />
 
 
-                                <div className="card_overlay">
+                                <div className="card_overlay absolute z-[99] b-[15%] l-[40%]">
                                     <h2 className="card_title">{image.title}</h2>
 
 

@@ -12,7 +12,7 @@ export default function App() {
 
     return (
         <div className="flex flex-wrap gap-4">
-            <div className="wrap  bg-amber-100 rounded-full	opacity-60 px-7 py-1 flex">
+            {/* <div className="wrap  bg-amber-100 rounded-full	opacity-60 px-7 py-1 flex">
                 <Link href='../Products'>
 
                     <p className="text-black">Back to products</p>
@@ -24,7 +24,7 @@ export default function App() {
                     <p className="text-black">Back to products</p>
 
                 </Link>
-            </div>
+            </div> */}
         </div>
     );
 }

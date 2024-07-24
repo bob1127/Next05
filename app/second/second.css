@@ -12825,7 +12825,7 @@ figcaption {
     grid-row-end: 3;
   }
 }
-@font-face {
+/* @font-face {
   font-family: 'Cabinetgrotesk';
   src: url('https://assets.website-files.com/6244d2405b33580e60d2e9a3/6245c9c26a534713a4d64616_CabinetGrotesk-Bold.eot') format('embedded-opentype'), url('https://assets.website-files.com/6244d2405b33580e60d2e9a3/6245c9c2349953e5090954b3_CabinetGrotesk-Extrabold.eot') format('embedded-opentype'), url('https://assets.website-files.com/6244d2405b33580e60d2e9a3/6245c9c2ac31b2627201b7d9_CabinetGrotesk-Bold.woff') format('woff'), url('https://assets.website-files.com/6244d2405b33580e60d2e9a3/6245c9c282046f4ba3edf14d_CabinetGrotesk-Extrabold.woff') format('woff'), url('https://assets.website-files.com/6244d2405b33580e60d2e9a3/6245c9c2954db70b7335fa84_CabinetGrotesk-Bold.ttf') format('truetype'), url('https://assets.website-files.com/6244d2405b33580e60d2e9a3/6245c9c2b71f0c500c84ad2e_CabinetGrotesk-Extrabold.ttf') format('truetype');
   font-weight: 700;
@@ -12908,4 +12908,4 @@ figcaption {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-}
+} */

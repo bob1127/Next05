@@ -1,11 +1,11 @@
 
 
 /**
- * @type {import('next').NextConfig}
+ *@type {import('next').NextConfig}
  */
 
 
-
+// const withImages = require("next-images")
 
 const nextConfig = {
 
@@ -35,12 +35,19 @@ const nextConfig = {
       },
     }
   },
+
+  
    assetPrefix: ".",
   output:'export',
-   images: {
+
+ images: {
     loader: 'custom',
     loaderFile: './my-loader.ts',
   },
 }
  
 module.exports = nextConfig
+
+
+
+

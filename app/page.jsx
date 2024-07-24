@@ -1,63 +1,45 @@
+
 "use client"
-
-
-// export const metadata = {
-//   title: 'UltraeHP-HommingProbe',
-//   description: 'This is our description',
-//   openGraph: {
-//     title: 'Next.js',
-//     description: 'The React Framework for the Web',
-//     url: 'https://nextjs.org',
-//     siteName: 'Next.js',
-//     images: [
-//       {
-//         url: 'https://nextjs.org/og.png',
-//         width: 800,
-//         height: 600,
-//       },
-//       {
-//         url: 'https://nextjs.org/og-alt.png',
-//         width: 1800,
-//         height: 1600,
-//         alt: 'My custom alt',
-//       },
-//     ],
-//     locale: 'en_US',
-//     type: 'website',
-//   },
-// }
-
 
 import Tooltip from "../components/Tooltip"
 import { CldImage } from 'next-cloudinary';
 import Image from 'next/image'
-// import Img01 from '../../public/images/wix.jpg'
-// import Img02 from '../../public/images/c2.jpg'
-// import UP100 from '../public/images/UP100.png'
-import UP10001 from '../public/images/zensor__jogging__black_background_style--v_6.0_728c5804-1334-4d8f-b6de-fabeefed4b4f.png'
-import airbag from '../public/images/bag.png'
+import { AdvancedVideo, lazyload, accessibility, responsive, placeholder } from "@cloudinary/react";
+
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+import JsonLd from '../components/JsonLd.jsx';
+import FooterScroll from '../components/FooterScroll/index.jsx'
+import TWO from '../components/two-colum/Double.jsx'
+import TextScroll from '../components/textScroll/TextScroll.jsx'
+import AroundImg from '../components/AroundImg/index.jsx'
+
 import Hero from '@/components/hero'
 import Link from "next/link";
+// import PageFramer from '../components/PageFramer/index'
 import { motion } from "framer-motion";
-import ReactSlick from '../components/reactSlick.jsx'
-
-
+import MailchimpSubscribe from 'react-mailchimp-subscribe'
+import MailchimpForm  from '../components/MailchimpForm.jsx'
 import Head from "next/head";
-
+import ReactSlick from '../components/ReactSlick/ImageSlider.jsx'
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
+import ModalBtn from "../components/ModalBtn-6.jsx"
+import Carousel from '../components/Carousel';
+import SlickCard from '../components/SlickCarousel/SlickCarousel.jsx'
+// import DragImg from '../components/DragImg/index.jsx'
 // import Features from '@/components/features'
 // import FeaturesBlocks from '@/components/features-blocks'
+// import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
+// import Features from '../components/features'
 
-
-
-import Testimonials from '@/components/testimonials'
-import Newsletter from '@/components/newsletter'
+// import Testimonials from '@/components/testimonials'
+// import Newsletter from '@/components/newsletter'
 import ApplicateCard from '../components/Application/ApplicateCard'
-import CardHover from '../components/CardHover'
-import Cards from '../components/Cards/Cards'
-import { properties } from "../constants/data";
-import Accordion from "../components/Accordion/Accordion"
+// import CardHover from '../components/CardHover'
+// import Cards from '../components/Cards/Cards.js'
+// import { properties } from "../constants/data";
+// import Accordion from "../components/Accordion/Accordion"
 import SwiperCard from "../components/SwiperCarousel/SwiperCard"
-import { CldVideoPlayer } from 'next-cloudinary';
+// import { CldVideoPlayer } from 'next-cloudinary';
 
 
 
@@ -74,12 +56,224 @@ import 'cloudinary-video-player/cld-video-player.min.css';
 // import tabs from "../components/Tabs/tabs";
 import '../styles/additional-styles/tab.css'
 
+import {Cloudinary} from '@cloudinary/url-gen'
+const cld = new Cloudinary ({
+  cloud:{
+    cloudName: 'dc9veqqhp'
+  }
+})
 
 
+//carousel slider
+const slides = [
+  { image: '/slide1.jpg', alt: 'Slide 1' },
+  { image: '/slide2.jpg', alt: 'Slide 2' },
+  { image: '/slide3.jpg', alt: 'Slide 3' },
+  // Add more slides as needed
+];
+
+
+
+const myLoader = ({ src, width, quality, placeholder }) => {
+  return `https://www.nikoand.jp/wp-content/themes/theme-nikoand2024/assets/img/top//${src}?w=${width}?p=${placeholder}`
+}
+const myLoader00 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/Products-Detail-Img/UX200/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader06 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/Products-Detail-Img/UP100/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader01 = ({ src, width, quality, placeholder }) => {
+  return `https://www.zensor.com.tw/images//Products-Detail-Img/ECWP100S/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader02 = ({ src, width, quality, placeholder }) => {
+  return `https://www.zensor.com.tw/images//Products-Detail-Img/ECWP100S/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader03 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/index/${src}?w=${width}?p=${placeholder}`
+}
+
+const myLoader04 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/index/carousel-img/640x640/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader10 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/index/carousel-img/1024x576/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader05 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/index/carousel-img/1920x768/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader07 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/index/icon/${src}?w=${width}?p=${placeholder}`
+}
+
+const myLoader001 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/Products-Detail-Img/UP100/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader09 = ({ src, width, quality, placeholder }) => {
+  return `https://www.ultraehp.com/images/${src}?w=${width}?p=${placeholder}`
+}
 export default async function Home() {
 
+  const url = "//us14.admin.mailchimp.com/subscribe/post?u=zefzefzef&id=fnfgn";
+  const SimpleForm = () => <MailchimpSubscribe url={url} />
+  const CustomForm = () => (
+    <MailchimpSubscribe
+      url={url}
+      render={({ subscribe, status, message }) => (
+        <div>
+          <SimpleForm onSubmitted={formData => subscribe(formData)} />
+          {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
+          {status === "error" && <div style={{ color: "red" }} dangerouslySetInnerHTML={{ __html: message }} />}
+          {status === "success" && <div style={{ color: "green" }}>Subscribed !</div>}
+        </div>
+      )}
+    />
+  )
 
 
+
+  const title01 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: 1.4,
+        delay: 0,
+      }
+    }
+
+  }
+  const title02 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: 1.4,
+        delay: .3,
+      }
+    }
+
+  }
+  const title03 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: 1,
+        delay: .9,
+      }
+    }
+
+  }
+
+  const card01
+    = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: .8,
+        delay: 0,
+      }
+    }
+
+  }
+  const card02 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: .8,
+        delay: .3,
+      }
+    }
+
+  }
+  const card03 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: .8,
+        delay: .6,
+      }
+    }
+
+  }
+  const card04 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: .8,
+        delay: .9,
+      }
+    }
+
+  }
+  const card05 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: .8,
+        delay: 1.2,
+      }
+    }
+
+  }
+  const card06 = {
+    offscreen: { y: 150, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: .8,
+        delay: 1.5,
+      }
+    }
+
+  }
+  const ImageAnimate = {
+    offscreen: { y: 200, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "FadeUp",
+        bounce: 0.4,
+        duration: 1.4,
+        delay: 0.5,
+      }
+    }
+
+  }
   const textAnimate = {
     offscreen: { y: 100, opacity: 0 },
     onscreen: {
@@ -99,14 +293,14 @@ export default async function Home() {
     initial: {
       y: 100,
       opacity: 0,
-      transition: { duration: 0.6, ease:easing }
+      transition: { duration: 0.6, ease: easing }
     },
     animate: {
       y: 0,
       opacity: 1,
       transition: {
         duration: 2.6,
-        ease:easing
+        ease: easing
       }
     }
   };
@@ -127,724 +321,446 @@ export default async function Home() {
   //   }
   // }
 
+
+
+  const ProductPost = {
+    title: 'UltraE ｜ Instant H.pylori BUT test, Disposable calibration-free pH meter ｜UltraPeace & hunmming probe',
+    description: "Ultra Micro-electrode,Ultra Healty-life. Our proud PotentioStrip patented technology brings you two major brands. The first is Ultrapeace, designed for medical and health care-Instant BUT for H.pylori. The second is the Disposable Calibration-free pH Testing Series, designed to enhance the testing experience.",
+    image: "https://www.ultraehp.com/images/index/carousel-img/1920x768/UltraP%E5%B9%BD%E9%96%80%E6%A1%BF%E8%8F%8C%E4%BA%BA%E9%AB%94%E8%83%83%E7%97%9B%E8%A6%96%E8%A6%BA%E5%9C%96-%E7%84%A1%E5%AD%971920X768.webp?w=1920?p=undefined%201x,%20https://www.ultraehp.com/images/index/carousel-img/1920x768/UltraP%E5%B9%BD%E9%96%80%E6%A1%BF%E8%8F%8C%E4%BA%BA%E9%AB%94%E8%83%83%E7%97%9B%E8%A6%96%E8%A6%BA%E5%9C%96-%E7%84%A1%E5%AD%971920X768.webp",
+    positive01: "7” Color Touchscreen",
+    positive02: "Algorithm automatic end point judgment",
+    positive03: "Waterproof: IP54",
+    LogoImg: "https://www.ultraehp.com/images/Products-Detail-Img/UP100/Ultrae-logo.png",
+    BrandName: "UltraE",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": ""
+    }
+  };
+
+
+
+
   return (
 
-    <div className='dark:bg-black group delay-500 duration-500'  id='#top'>
-      {/* <head>
-        <title>UitraPeace-Instant H. Pylori Urea Breath Test kit-Pro</title>
-      </head> */}
 
-      {/*       
-      <head>
-        <title key="title">jfifjifjififjifji</title>
-        <meta key="description" name="description" content="DESCRIPTION" />
-      </head>
-     */}
+    <div className=''>
+
+
+
+      <link rel="alternate" href="https://www.ultraehp.com/index.html" hreflang="zh-Hant" />
+      <link rel="alternate" href="https://www.ultraehp.com/en/index.html" hreflang="en" />
+
+
+      {/* metadata */}
+      <title>Next | Shopify</title>
+      <meta key="description" name="description" content="Ultra Micro-electrode,Ultra Healty-life. Our proud PotentioStrip patented technology brings you two major brands. The first is Ultrapeace, designed for medical and health care-Instant BUT for H.pylori. The second is the Disposable Calibration-free pH Testing Series, designed to enhance the testing experience.   " />
+      <meta name="keywords" content="" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+      {/* OG metadata */}
+      <meta property="og:url" content="https://www.ultraehp.com" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="UltraE ｜ Instant H.pylori BUT test, Disposable calibration-free pH meter ｜UltraPeace & hunmming probe" />
+      <meta property="og:description" content="Ultra Micro-electrode,Ultra Healty-life. Our proud PotentioStrip patented technology brings you two major brands. The first is Ultrapeace, designed for medical and health care-Instant BUT for H.pylori. The second is the Disposable Calibration-free pH Testing Series, designed to enhance the testing experience.  " />
+      <meta property="og:image" content="https://www.ultraehp/images/nav/UX200.web" />
+
 
 
       <div className="outWrap overflow-hidden ">
 
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "HummingProbe",
+          "headline": ProductPost.title,
+          "description": ProductPost.description,
+          "datePublished": ProductPost.datePublished,
+          "author": {
+            "@type": "Person",
+            "name": "HummingProbe"
+          },
+          "image": [ProductPost.image],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "5"
+          },
 
-        <section className="section_HeroVideo p-0 relative h-[75vh] mb-[200px]" >
+          "brand": {
+            "@type": "Brand",
+            "name": ProductPost.BrandName,
+            "logo": ProductPost.LogoImg,
+          },
+          "positiveNotes": {
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": ProductPost.positive01
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": ProductPost.positive02
+              }, {
+                "@type": "ListItem",
+                "position": 3,
+                "name": ProductPost.positive03
+              }
+            ]
+          },
 
 
-{/* 
-          <Image quality={100} placeholder="empty" priority='true' alt="running people" src='/zensor__jogging__black_background_style--v_6.0_728c5804-1334-4d8f-b6de-fabeefed4b4f_btkzo6.webp' width={1920} height={600} className="hidden md:block" />
+          "mainEntityOfPage": ProductPost.mainEntityOfPage
+        }} />
 
 
-          <div className="relative w-[500px] h-[500px] block md:hidden  border border-green-500 ">
-            <Image style={{ objectFit: "cover" }} quality={100} fill placeholder="empty" priority='true' alt="running people" src='/zensor__jogging__black_background_style--v_6.0_728c5804-1334-4d8f-b6de-fabeefed4b4f_btkzo6.webp' className="" />
-          </div>
-          */}
-          <div className="HeroTitle top-[15%] md:top-[22%] lg:top-[31%] w-[90%] md:w-[50%] left-[6%] absolute  border  ">
-          
-            <motion.div className="" initial='initial' animate='animate' exit={{ opacity: 0 }}>
-            <motion.div variants={stagger} className='inner w-full pr-2'>
-             
-              <motion.div variants={fadeInUp}>
-                <span className=' '>Humming Probe UX200</span>
-                <Link href='../Products/product01'>CN</Link>
-              </motion.div>
-                <motion.h1 className="text-white text-xl md:text-2xl lg:text-4xl" variants={fadeInUp}>超越感測界線，極致健康生活</motion.h1>
-              <motion.p className=" text-slate-300 mt-4 " variants={fadeInUp}>
-
-                  我們針對食品與水質檢測發展與日常生活息息相關之感測器，以減少有害物質攝取與接觸，達到守護 人類健康的願景
-
-
-
-              </motion.p>
-             
-              <motion.div variants={fadeInUp} className='btn-row'>
-
-                  <div className="mt-10">
-                    <a href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center  mr-5 py-2  bg-rose-500 text-white rounded-full mt-4">Detail Info </a>
-                    <Link href='../next/Products.html' className="  w-[200px] mt-4 px-3 text-center py-2  bg-rose-500 text-white rounded-full mt-4">
-                      Detail Info
-                    </Link>
-                  </div>
-
-             
-              </motion.div>
-
-            </motion.div>
-</motion.div>
-
-        
       
-
-          </div>
-
-        </section>
-        <Hero />
-
-        <section className=' px-5  md:px-15 lg:px-20'>
-
-
-
-        </section>
-
-
-
-
-        {/* <Features /> */}
-
-
-        <div className="App">
-          {/* Section header */}
-          <div className="section-title flex flex-col w-full py-10 justify-center items-center">
-            <div className="txt  flex items-center flex-col  justify-center">
-
-              <div className="relative flex-col flex justify-center mb-8 pl-5" data-aos="fade-up" data-aos-delay="450">
-                <h2 className="text-black dark:text-rose-500  text-4xl ">Instant Helicobacter pylori</h2>
-                <p data-aos="fade-up" data-aos-delay="600" className="text-2xl text-center text-zinc-900">main Producys </p>
+   <div className=" my-[150px]">
+    <Hero/>
+    <section className="section_HotProducts">
+      <div className="wrapper flex flex-col md:flex-row justify-center items-center px-[35px] w-full">
+         <div className="w-full md:w-[45%] flex flex-col justify-center items-center">
+            <div className="top hover:scale-90 flex  justify-center items-center border-1 border-gray-900 duration-200  duration-200 p-1">
+              <img src="https://www.nikoand.jp/wp-content/uploads/2024/07/UP_main_-W1226%C3%97H1226.jpg" className="w-full md:w-full" alt="" />
               
-
-              </div>
             </div>
-          </div>
-          <div className="properties flex flex-wrap   justify-center items-center">
-            {properties.map((item) => (
-              <Cards data={item} key={item.id} />
-            ))}
-          </div>
-        </div>
+            <div className="bottom">
+              <img src="" alt="" />
 
-        {/* <img src='../../../../public/images/wix.jpg' alt="" className='w-full' /> */}
+            </div>
+          
+         </div>
+        <div className="w-full md:w-[55%] flex flex-col md:flex-col p-[20px]">
+           <div className="top border flex-col border-black w-full flex md:flex-row">
+              <div className="left m-2 duration-200 hover:scale-90 p-5 w-full md :w-1/2 border-1 border-black">
+                
+                <img src="https://www.nikoand.jp/wp-content/uploads/2024/07/mu_thumbnail.jpg" className=" w-[500px] md:w-[300px] h-[300px]" alt="" /> 
+                
+              </div>
+            
 
-        {/* <div className="relative flex justify-center mb-8 border" data-aos="zoom-y-out" data-aos-delay="450">
+ <div className="left m-2 p-5 duration-200 hover:scale-90 w-full md:w-1/2 border-1 border-black">
 
-          <img src="https://www.zensor.com.tw/images/wix.jpg" alt="" />
+                    {/* <img src="https://www.nikoand.jp/wp-content/uploads/2024/07/MAIN_VISUAL-1024x1024.jpg" className="w-[300px] h-[300px]" alt="" /> */}
+                    {/* <PageFramer/> */}
+              </div>
 
-
-        </div> */}
-        <div className="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-          {/* <img src="https://www.zensor.com.tw/images/maven.jpg" alt="" /> */}
-
-          {/* <img src='https://www.zensor.com.tw/images/maven.jpg' className='w-full' alt="" /> */}
-
-        </div>
-        {/* <section className="w-full border border-black bg-black">
-          <div className="row">
-            <div className="container">
            
-            </div>
-          </div>
-        </section> */}
-
-
-        {/* 
-        <FeaturesBlocks /> */}
-
-
-
-
-
-
-
-
-        <video className="mt-20 mx-auto w-36 h-24" autoPlay muted loop >
-          <source src="https://cdn.builder.io/o/assets%2FYJIGb4i01jvw0SRdL5Bt%2Faebcdc568ab9443e8b5282e52d49a586%2Fcompressed?apiKey=YJIGb4i01jvw0SRdL5Bt&amp;token=aebcdc568ab9443e8b5282e52d49a586&amp;alt=media" />
-        </video>
-        {/* <SlickCard /> */}
-        <section>
-          <div className="section_banner02">
-       
-              <div className=" flex items-center justify-center">
-                <div className="border border-white">
-                  
-                </div>
-              
-
+             
+            
+           </div>
+           <div className="bottom p-2">
+            <div className="wrap p-8 bg-[#2b72e5] rounded-[10px]">
+              <div className="top border-b-2 flex justify-start items-center border-black py-4">
+                <p className="text-[20px] text-white">Hot Sales</p><b className="ml-2 text-[12px]">人気の記事</b>
               </div>
-   
+              <div className="bottom">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum impedit accusantium iusto vel? Laboriosam sequi optio consequuntur, distinctio eveniet consequatur cum sapiente cumque odit officiis fugit quod rerum totam illo.</p>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum impedit accusantium iusto vel? Laboriosam sequi optio consequuntur, distinctio eveniet consequatur cum sapiente cumque odit officiis fugit quod rerum totam illo.</p>
+              </div>
+            </div>
+            
+           </div>
+          
+         </div>
+         
+      </div>
+       
+    </section>
+       <h1>Hellow </h1>
+        <section className="section_SharpImg">
+          <div className="gird grid-cols-3">
+            <div className="relative">
+              <Image className="absolute" src='fish-frame.png' loader={myLoader} width={350} height={350}/>
+               <Image className="absolute" src='fish1.png' loader={myLoader} width={300} height={300}/>
+                <Image className="absolute left-[]" src='fish2.png' loader={myLoader} width={150} height={150}/>
+                 <Image className="absolute" src='fish4.png' loader={myLoader} width={150} height={150}/>
+
+            </div>
+            <div></div>
+            <div></div>
+             
           </div>
+           <div className="gird grid-cols-2">
+            <div>
+              
+            </div>
+            <div></div>
+          
+             
+          </div>
+
         </section>
 
         <section className="hidden">
-          <div className="container ">
+          <TextScroll/>
+        </section>
 
-            <div className="row center">
-
-
-
-              {/* <video autoplay=""  playsinline="" className="cvqchck"><source type="video/mp4" src="https://cdn.builder.io/o/assets%2FYJIGb4i01jvw0SRdL5Bt%2Faebcdc568ab9443e8b5282e52d49a586%2Fcompressed?apiKey=YJIGb4i01jvw0SRdL5Bt&amp;token=aebcdc568ab9443e8b5282e52d49a586&amp;alt=media"></video> */}
-              <div className="section-title flex flex-col w-full py-10 justify-center items-center">
-                <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900  lg:text-4xl dark:text-white dark:text-rose-500  text-center"> Operation(專業使用版本kkkkkkkk)</h1>
-                <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique aperiam dolore nostrum, officia ipsam, in ullam vitae pariatur voluptates, incidunt porro saepe dolorem natus mollitia. Voluptatem reiciendis pariatur quae impedit. </p>
-
-              </div>
+        <section className="hidden">
+           <TWO/>
+        </section>
 
 
-            </div>
+        <section>
+          <h4 className="text-center">spline</h4>
 
+          <div className="w-[80%] mx-auto">
+            <div className="left"></div>
+      
 
-            <div className="row">
-              <div className="container">
-                <div className="grid grid-cols-1 lg:grid-cols-2">
+          </div>
+        
 
+        </section>
+        <section className="section_ScrollPallax px-[20px] sm:px-[30px] w-full flex flex-col md:flex-row justify-center items-start">
+          <div className="left w-[40%] relative">
+            
+             <SlickCard/>
+            
+          </div>
+          <div className="middle relative w-full md:w-[30%] overflow-y-scroll bg-[#ECECEC] h-[97.5vh] pb-[30px]">
 
-
-
-                  <div className='flex justify-start  px-9 border border-black'>
-                    <Image
-                      src="/images/Untitled-Camera拷貝.png"
-                      width={500}
-                      height={600}
-                      style={{ borderRadius: "15px" }}
-
-                      alt="Picture of the author"
-                    />
-
-
-
-
-                    {/* <iframe src="https://app.vectary.com/p/71Qomf7OQ746namGkE3YRq" width="100%" height="480"></iframe> */}
-
-
-
-                  </div>
-                  <div className="flex flex-col items-end">
-                    <div className="text flex flex-col  w-full">
-                      <h2 className="text-4xl font-normal dark:text-rose-500 ">
-                        UP100
-                      </h2>
-                      <p className="w-1/2 mb-10 dark:text-white">UitraPeace-Instant H. Pylori Urea Breath Test kit-Pro</p>
-                    </div>
-                    {/* <Accordion /> */}
-                  </div>
-
-                </div>
+            <div className="sideBar absolute h-full right-0 top-0 ">
+              <div className="items  flexed right-0 left-3 top-3 ">
+                <a href="" className=" block w-[60px] border-black border-2 rounded-[30px] my-6 bg-white rotate-[-90deg] text-center transform origin-center">
+                  MEN
+                </a>
+                 <a href="" className=" block w-[60px] border-black border-2 rounded-[30px]   my-6 bg-white rotate-[-90deg] text-center transform origin-center">
+                  KIDS
+                </a>
+                  <a href="" className=" block w-[60px] border-black border-2 rounded-[30px]  my-6 bg-white rotate-[-90deg] text-center transform origin-center">
+                  WOMEM
+                </a>
               </div>
             </div>
-            <div className="row my-10 ">
-
-              <div className="container">
-                <div className="grid">
-                  <h5 className="text-4xl dark:text-rose-500 text-center py-4">
-                    胃幽門螺旋桿菌的快速尿素呼吸檢測法
-                  </h5>
-                  {/* <p className=" dark:text-rose-500 text-center py-4">
-                    
-                  </p> */}
+            <div className="inner h-auto flex flex-col justify-center items-center">
+             <div className="bg-[#c0c67f] py-6">
+               <img src="https://www.globalwork.jp//static/pages/women/2023aw_lightwarm_outerseries/assets/images/pic_menu_about.gif" alt="" className="w-[80%] mx-auto"/>
+              <h3 className="text-[32px] text-white text-center mt-4">LIGHT WARM 保暖衣</h3>
+              <p className="text-white  mt-2 text-[13px] text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi natus eaque, tempora et minus inventore totam quod accusantium excepturi consequuntur repudiandae. Iste delectus totam quibusdam soluta asperiores dicta exercitationem vitae!</p>
+             </div>
+             <div className="w-full flex flex-row px-3">
+                <div className="p-2 w-1/3">
+                   <img src="https://ace-industry.co.jp/danikuru/img/detail1.png" alt="" className="" />
                 </div>
-                <div className="grid gap-4 grid-cols-1  md:grid-cols-2 flex justify-center items-center lg:grid-cols-3">
-                  <div className="border border-black dark:bg-slate-900  bg-[indexCard] rounded-3xl lg:h-[500px] justify-around flex flex-col items-center py-10">
-
-                    <div className="top-wrap">
-                      <div className="txt flex flex-col items-center mb-5">
-                        <b className="text-3xl dark:text-white">ToothBaste Bits</b>
-                        <p className='font-extralight dark:text-slate-200'>from Ind / Month</p>
-                      </div>
-                      <div className="imgWrap overflow-hidden rounded-full w-[280px] h-[280px] border border-black">
-                        <img src="https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_427322551_2878x.png?v=1695786640" className="w-auto h-[400px]" alt="" />
-                      </div>
-                    </div>
-                    <div className="bottom-wrap">
-                      <div className="bottom w-full flex justify-between">
-                        <div className="icon w-1/3 border rounded-2xl w-[150px] border-red-500">
-                          lorem
-                        </div>
-                        <a href='www.google.com ' className="go-btn ">
-                          Go to Products
-                        </a>
-                      </div>
-                    </div>
-
-
-
-
-
-
-
-
-                  </div>
-                  <div className="middleImg relative overflow:hidden  border border-black    rounded-3xl h-[500px] p-[1px] justify-around flex flex-col items-center ">
-                    <div className=" absolute transition-transform  hover:rounded-3xl hover:transform w-full h-full rounded-3xl bg-center bg-cover bg-no-repeat  relative bg-[url('http://ultraehp.com/images/UP100/Untitled-Camera-2.png')] "></div>
-
-                    {/* <div className="top-wrap">
-                      <div className="txt flex flex-col items-center mb-5">
-                        <b className="text-3xl ">ToothBaste Bits</b>
-                        <p className='font-extralight'>from Ind / Month</p>
-                      </div>
-                      <div className="imgWrap overflow-hidden rounded-full w-[280px] h-[280px] border border-black">
-                        <img src="https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_427322551_2878x.png?v=1695786640" className="w-auto h-[400px]" alt="" />
-                      </div>
-                    </div>
-                    <div className="bottom-wrap">
-                      <div className="bottom w-full flex justify-between">
-                        <div className="icon w-1/3 border rounded-2xl w-[150px] border-red-500">
-                          lorem
-                        </div>
-                        <a href='www.google.com ' className="go-btn ">
-                          Go to Products
-                        </a>
-                      </div>
-                    </div> */}
-
-
-
-
-
-
-
-
-                  </div>
-                  <div className="border border-black rounded-3xl h-[500px] justify-around flex flex-col dark:bg-slate-900 items-center py-10">
-
-                    <div className="top-wrap">
-                      <div className="txt flex flex-col items-center mb-5">
-                        <b className="text-3xl dark:text-white">ToothBaste Bits</b>
-                        <p className='font-extralight dark:text-slate-200'>from Ind / Month</p>
-                      </div>
-                      <div className="imgWrap overflow-hidden rounded-full w-[280px] h-[280px] border border-black">
-                        <img src="https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_427322551_2878x.png?v=1695786640" className="w-auto h-[400px]" alt="" />
-                      </div>
-                    </div>
-                    <div className="bottom-wrap">
-                      <div className="bottom w-full flex justify-between">
-                        <div className="icon w-1/3 border rounded-2xl w-[150px] border-red-500">
-                          lorem
-                        </div>
-                        <a href='www.google.com ' className="go-btn dark:text-slate-300">
-                          Go to Products
-                        </a>
-                      </div>
-                    </div>
-
-
-
-
-
-
-
-
-                  </div>
-
+               <div className="p-2 w-1/3">
+                   <img src="https://ace-industry.co.jp/danikuru/img/detail2.png" alt="" className="" />
                 </div>
-              </div>
+                <div className="p-2 w-1/3">
+                   <img src="https://ace-industry.co.jp/danikuru/img/detail3.png" alt="" className="" />
+                </div>
+             </div>
+
+
+             <div className="txt">
+               <b className="font-bold text-center text-[30px]">PLAY  SWITCH</b>
+             </div>
+            {/* <p className="text-[30px] text-center text-black">HOT SALE</p> */}
+
+
+             <h4 className="text-[#333]">
+              其他配件
+             </h4>
             </div>
+          </div>
+          <div className="right w-[30%]">
 
-            {/* <div className="row">
-              <h4 className="text-4xl font-light ">Tale UPir Eay wuth </h4>
-              <p className="text-normal w-2/4  mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro excepturi facere optio sapiente totam reiciendis beatae perferendis deleniti laudantium ea, nemo quaerat, dolor laborum sit doloribus ad fugit enim reprehenderit?</p>
-             </div> */}
-            {/* <div className="row mt-20">
-              <div className="container 3dModel-wrap border border-zinc-500 w-full h-[1000px ] ">
-                <div className="grid grid-cols-2 py-10">
-                <div className="flex justify-start flex-col pr-40">
-                
-                    <Accordion/>
-                </div>
-                <div className="flex justify-end">
-                  <div className="smallCard h-[320px] w-[250px] flex flex-col border p-2 rounded-2xl border-black">
-                    <div className="img border border-zinc-500 rounded-xl">
-                        <img src="https://cdn.shopify.com/s/files/1/0489/1980/6120/files/Ellipse_2472_750x.png?v=1681456140" className='w-[]' alt="" />
-
-                    </div>
-                    <div className="txt">
-                      <p className="text-xs">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur molestias id doloremque dolorem 
+          </div>
 
 
-                      </p>
-                      <div className="bottom flex items-center  justify-between">
-                        <div className="btn p-1 rounded-full text-xs  bg-black text-white ">
-                          Go but 
+        </section>
+        <section className="section_FooterScroll mt-[200px]">
+          <FooterScroll/>
 
-                        </div>
-                        <a href="">Detail Tern </a>
+        </section>
+        <ApplicateCard/>
 
-                      </div>
+        <div className="w-full  flex-col  md:flex-row flex justify-center items-center border  bg-white border-black">
+          <div className="left w-full md:w-1/2 border border-green">
+
+
+               <div>
+                  <div className="top">
+                    <div className="title py-4 flex mx-auto  w-2/3 justify-center items-center flex-col">
+                      <b className="text-[12px]">高い機能美を
+デイリーなデザインに投影</b>
+                      <b className="text-[12px] text-center">高耐久繊維のCORDURA®︎を贅沢にも二重織りでデザイン。
+裏地だけ糸の太さを変えることで、袖を通した瞬間から
+暖かみとソフトな肌当たりが実感できる。
+パンツはセンタークリースのないイージーなスラックスタイプ。</b>
+                      <Link href="/toys" className="text-[12px] border border-black mt-2 py-1 px-2 text-center w-[100px] block"> More</Link>
+
 
                       
-
                     </div>
-                  </div>
-                </div>
-
-
-
-                  
-                </div>
-              </div>
-
-
-            </div> */}
-            {/*            
-            <div className="row border relative border-black">
-             
-                <Image
-                  className="absolute top-[-400px] left-[50px]"
-                  src={UP10001}
-                  width={1100}
-                  height={800}
-                  alt="Picture of the author"
-                />
-             
-            </div>
-             */}
-
-
-
-            {/* <div className="row mt-20">
-              <div className="grid grid-cols-1 md:grid-cols-2 px-0 md:px-10 lg:px-20">
-                <div>
-                  <div className="card bg-yellow bg-[url('')] rounded-3xl w-full h-[700px] border border-stone-100">
                     
                   </div>
-                </div>
-                <div className="flex flex-col">
-                  <div>
-                    <Image
-                      src={UP100}
-                      width={500}
-                      height={500}
-                      alt="Picture of the author"
-                    />
+                  <div className="bottom">
+                    
                   </div>
-                <div>
-                    <Image
-                      src={airbag}
-                      width={500}
-                      height={500}
-                      alt="Picture of the author"
-                    />
-                  </div>
-                </div>
-                
-                
-              </div>
-         
-            Accordion</div> */}
-
+               </div>
+               <SwiperCard/>
+            
           </div>
-        </section>
-        <section className="section_Cardhover">
-         
-            <div className="row px-[20px] md:px-20">
-              <CardHover />
-            </div>
-       
-        </section>
-        <div className="iframe my-20  relative h-[900px]">
-          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
-          <spline-viewer url="https://prod.spline.design/iLKNk0ig4Z5QEzkf/scene.splinecode"></spline-viewer>
-
-          <div className="txt-wrap flex flex-col justify-center items-center absolute left-[10%]  bg-white  top-[20%] rounded-2xl w-3/4 h-[450px] z-20">
 
 
-            <div className="relative flex-col w-2/3 flex justify-center mb-8 pl-5" data-aos="fade-up" data-aos-delay="450">
-              <h2 className="text-black  text-center dark:text-rose-500  text-5xl ">胃幽門螺旋桿菌的快速尿素呼吸檢測法法</h2>
-              <ul>
-                <li className="text-black  text-center text-normal ">・      我們透過 Webflow + NoCode 幫助企業發展和啟動品牌業務或是打造產品
-                </li>
-                <li className="text-black  text-center text-normal ">Obtain results within 30 minutes</li>
-                <li className="text-black  text-center text-normal ">Assess treatment effect before and after</li>
-              </ul>
+
+          <div className="right overflow-hidden relative w-full md:w-1/2 border border-green">
+              <img src='https://www.dot-st.com/static/docs/studioclip/pages/kazumi_2023september/assets/img/ballet/img_day02_main.jpg' className="w-full "></img>
+              <div className="txt left-[10%] bottom-[20%] absolute z-[99999]">
+                <div className="flex mx-auto flex-col justify-center items-center">
+                   <b className="font-extrabold text-white text-[22px]">中田 慎介</b>
+
+                <p className="text-white text-[16px] font-normal">
+                  CREAT DERECT
+                  
+                  </p>          
+                  <p className="font-light w-3/4 text-center text-[13px] text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima rerum facilis exercitationem nisi aut rem odio veniam dolores 
+                  </p>
+                  <a href="" className="text-[#85dc1c] font-bold w-[180px] text-center py-2 duration-75 mt-4 hover:text-[#fff] hover:bg-[#85dc1c] px-4 border border-[#85dc1c]"> READ MORE</a>
+                </div>
 
 
-            </div>
-{/* 
-            <motion.div className="w-2/3" initial='initial' animate='animate' exit={{ opacity: 0 }}>
-              <motion.div variants={stagger} className='inner w-full pr-2'>
-
-             
-                <motion.p className=" text-gray-600 mt-4 text-center" variants={fadeInUp}>
+                     
+              </div>
             
-
-
-                </motion.p>
-                <motion.h1 className="text-black text-center" variants={fadeInUp}></motion.h1>
-             
-
-            
-
-              </motion.div>
-            </motion.div> */}
-
-
           </div>
         </div>
 
-        {/* <section className='mt-20 '>
-          <div className="container">
-            <div className="row px-5 lg:px-10 xl:px-20 border flex justify-between pb-10">
-              <h3 className="text-7xl dark:text-rose-500 text-black">
-                Apple Hermes
-              </h3>
-              <div className="txt  w-1/4">
-                <p className="dark:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis error ratione quaerat fuga repudiandae ra deleniti, </p>
-                <button className="bg-black mt-4 rounded-full py-1 px-3 text-white">
-                  Read more
-                </button>
-              </div>
-            </div>
-            <div className="row ">
-              <div className="grid grid-cols-1 border border-red  lg:grid-cols-3 px-5 lg:px-10  gap-3 xl:px-20">
-                <div className="border border-rose-500 h-[600px]">
-                  <div className="txt border w-full  2xl:w-2/3 border-black ">
-                    <h4 className="text-2xl font-normal  mb-5">
-                      Hermes Kilim Single Tour
-                    </h4>
-                    <p className="dark:text-slate-200 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse debitis mollitia hic veritatis, consectetur praesentium earum incidunt officiis, odit voluptatibus inventore fugiat magnam nulla minima autem expedita nostrum a voluptatem!
-
-                    </p>
-                    <div className="bg-black my-4 rounded-full w-[200px] text-white py-2 px-3">GO to</div>
-                  </div>
-                  <div className="bottom border border-black ">
-                    <span className="text-drrey text-m">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, dolore?
-                    </span>
-                    <img src="https://cdn.shopify.com/s/files/1/0517/6767/3016/files/Rectangle_41429_1_2878x.png?v=1699194073" alt="" className="w-full"/>
-                    
-                  </div>
-                </div>
-                <div className="border border-rose-300 h-[600px]">
-                  <div className="w-full h-full rounded-2xl  img bg-center bg-no-repeat bg-cover bg-[url('https://ultraehp.com/ultrapeace/images/Products-Detail-Img/UP100/SG01-Camera.png')]">
-                    
-                  </div>
-
-                </div>
-                <div className="border border-rose-400 p-5">
-                  <ReactSlick/>
 
 
 
+
+
+
+         <div className="w-full  flex-col  md:flex-row flex justify-center items-center border  bg-white border-black">
+          <div className="left w-full md:w-1/2 border border-green">
+
+<img src='https://www.dot-st.com/static/docs/studioclip/pages/kazumi_2023september/assets/img/img_mv.jpg' className="w-full "></img>
+              <div className="txt left-[0%] bottom-[20%] absolute z-[99999]">
+                <div className="flex mx-auto flex-col justify-center items-center">
+                   <b className="font-extrabold text-white text-[22px]">中田 慎介</b>
+
+                <p className="text-white text-[16px] font-normal">
+                  CREAT DERECT
                   
-                </div>
-              </div>
-            </div>
-            <div className="row lg:px-10 px-5 xl:px-20 mt-10 ">
-              <div className="title-wrap flex justify-between">
-                 <h2 className="text-5xl dark:text-rose-500 mb-4">Catlog Hermes</h2>
-                 <div className="wrap flex justify-around border">
-                  <a className=" rounded-full mr-3">
-                    Band Type
-                    
-                  </a>
-                  <a className="dark:text-slate-300 rounded-full mr-3">
-                    Band color
-                  </a>
-                  <a className="dark:text-slate-300 dark:bg-orange-600 h-auto rounded-full mr-3">
-                    Csde Size
-                  </a>
-                  <a className=" rounded-full mr-3">
-                    Collection 
-                  </a>
-                 </div>
-              </div>
-            </div>
-            <div className="row lg:px-10 px-5 xl:px-20 ">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3" >
-                <div className="w-full flex border pr-4">
-                  <div className="left w-1/2">
-                    <img className='w-full rounded-2xl' src="
-           https://ultraehp.com/ultrapeace/images/Products-Detail-Img/UP100/A2669111_TD03_V1_3078x.jpg.png " alt="" />
-
-                    
-                  </div>
-                  <div className="right p-5 w-1/2">
-                    <div className="txt">
-                      <h4 className="text-2xl dark:text-slate-100">
-                        Made to push boundaries
-                      </h4>
-                      <p className="text-xs dark:text-slate-200">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea commodi, laborum sunt sapiente nulla, dolorem non qui nemo quas veritatis optio eveniet rem officia neque quaerat temporibus at atque beatae!
-                      </p>
-
-                      <b className="text-m">
-                        Price
-                      </b>
-                    </div>
-                    
-                  </div>
-                  
+                  </p>          
+                  <p className="font-light w-2/5 text-center text-[13px] text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima rerum facilis exercitationem nisi aut rem odio veniam dolores 
+                  </p>
+                  <a href="" className="text-[#85dc1c] font-bold w-[180px] text-center py-2 duration-75 mt-4 hover:text-[#fff] hover:bg-[#85dc1c] px-4 border border-[#85dc1c]"> READ MORE</a>
                 </div>
 
 
-                <div className="w-full flex  border pr-4">
-                  <div className="left  w-1/2">
-                    <div className="video-wrap overflow-hidden rounded-2xl">
-                      <video autoPlay className="" loop style={{ width: '520px', height: '170px' }}>
-                        <source src="   https://ultraehp.com/ultrapeace/images/Products-Detail-Img/UP100/吹氣袋-吸管插入拷貝.mp4" />
-                      </video>
-
-                    </div>
-                   
-
-                  </div>
-                  <div className="right p-5  w-1/2">
-                    <div className="txt">
                      
-                      <p className="text-xs dark:text-slate-200">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea commodi, laborum sunt sapiente nulla, dolorem non qui nemo quas veritatis optio eveniet rem officia neque quaerat temporibus at atque beatae!
-                      </p>
-
-                      <b className="text-m">
-                        Price
-                      </b>
-                    </div>
-
-                  </div>
-
-                </div>
-                
               </div>
-            </div>
-          </div>
-        </section> */}
-
-        <section>
-          <div className="px-[25px] md:px-20">
-            <div className="colorwrap flex py-20 md:py-40  justify-center rounded-2xl bg-black dark:bg-gray-100">
-              <div className="txt w-full md:w-2/3 flex flex-col justify-center items-center">
-                <h2 className="text-5xl text-center text-white dark:text-black">極安檢測-<br></br>
-                  胃幽門螺旋桿菌的快速尿素呼吸檢測法法</h2>
-                <p className="text-gray-300 w-2/3 text-center dark:text-gray-800">胃部感染胃幽門螺旋桿菌時，當我們服用尿素溶液後，胃幽門螺旋桿菌上的尿素酶會將尿素分解成二氧化碳和氨氣。</p>
-
-                <a href="" className="bg-rose-500 text-center mt-6 rounded-full w-[150px] text-white py-2 ">GO to Product</a>
-
-              </div>
-            </div>
 
 
-          </div>
-        </section>
-        <section className="mt-20">
-          <div className="px-[25px] md:px-20">
-            <div className="">
 
-              <div className="txt w-full  md:w-1/2">
+
+
+
 
                
-                <h2 className="text-black dark:text-white text-5xl">
-                  多領域應用
-
-                </h2>
-
-
-                <p className="text-xl font-medium">專利技術建構的生態系健康檢測平台</p>
-              </div>
-
-            </div>
-            <div className="">
-              <ApplicateCard />
-            </div>
-            {/* <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.17/build/spline-viewer.js"></script>
-            <spline-viewer url="https://prod.spline.design/cPZDRSw-YP7AuzNs/scene.splinecode"></spline-viewer> */}
-          </div>
-        </section>
-
-        <section className="section_cloudinary mt-10">
-          <div className="row">
-
-          </div>
-          <div className="row">
-            <div className="container flex">
-
-
-              <div className="flex  md:flex-row flex-col  justify-center row ">
-
-
-                <div className="border rounded-2xl overflow-hidden video-wrap w-[100%] border border-white   flex justify-center  md:w-[70%] rounded-2xl overflow-hidden">
-                  <CldVideoPlayer
-                    className="rounded-2xl"
-                    width={700}
-                    height={607}
-                    src="hnztzdfyhttcbmpwqkwm"
-
-                  />
-                </div>
-                <div className="w-[100%] md:w-[30%] mb-5 p-0 md:pl-7">
-                  <div className="txt">
-                    <h1 className="text-5xl font- dark:text-slate-300">
-                      TITLE1
-                    </h1>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro magnam, rem, maxime aliquid atque natus quae, hic blanditiis minima ipsum quidem! Tempora asperiores doloribus ad blanditiis. Recusandae a itaque accusamus?
-
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-
-
-            </div>
+            
           </div>
 
-        </section>
 
 
+          <div className="right overflow-hidden relative w-full md:w-1/2 border border-green">
+              <div>
+                  <div className="top">
+                    <div className="title py-4 flex mx-auto  w-2/3 justify-center items-center flex-col">
+                      <b className="text-[12px]">高い機能美を
+デイリーなデザインに投影</b>
+                      <b className="text-[12px] text-center">高耐久繊維のCORDURA®︎を贅沢にも二重織りでデザイン。
+裏地だけ糸の太さを変えることで、袖を通した瞬間から
+暖かみとソフトな肌当たりが実感できる。
+パンツはセンタークリースのないイージーなスラックスタイプ。</b>
+                      <Link href="/toys" className="text-[12px] border border-black mt-2 py-1 px-2 text-center w-[100px] block"> More</Link>
 
 
-
-
-
-
-        {/* 
-        <CldImage
-          width="600"
-          height="600"
-          src="cld-sample-5"
-          alt="My Image"
-        /> */}
-
-        <section>
-          <div className="section_banner02 overflow-hidden ">
-            <div className="row border border-black   bg-cover bg-no-repeat bg-right md:bg-center bg-[url('https://www.zensor.com.tw/images/nextTest/up100-banner01.png')] h-[500px] w-full px-10">
-              <div className="grid grid-cols-2 h-full flex items-center justify-center">
-                <div className="border border-white">
-                  <div className="txt  flex items-center flex-col  justify-center">
-
-                    <div className="relative flex-col flex justify-center mb-8 pl-5" data-aos="fade-up" data-aos-delay="450">
-                      <h2 className="text-white dark:text-rose-500  text-5xl ">胃幽門桿菌快速檢測
-</h2>
-                      <p className="text-gray-100">30分鐘立即獲得尿素呼吸測試結果</p>
-                      <a href="" className="btn bg-rose-600 mt-3 text-gray-200 rounded-full px-4 py-2 w-[150px] text-center">關於極安檢測</a>
-
+                      
                     </div>
+                    
                   </div>
-                </div>
-                <div className="border border-white"></div>
-
-              </div>
-            </div>
+                  <div className="bottom">
+                    
+                  </div>
+               </div>
+               <SwiperCard/>
+            
           </div>
-        </section>
-        <Testimonials />
-
-
-
-
-        <div className="row py-20 lg:px-10 px-5 xl:px-20 ">
-          <SwiperCard />
-
         </div>
 
+        <div>
+        {/* <ApplicateCard/> */}
+        </div>
+
+        <div className="w-full flex flex-col  md:flex-row">
+          <div className="left iframe-drag w-full md:w-[60%]">
+             
+     <iframe src='https://my.spline.design/capcopy-d422eebc2e9d45431ef1d4d7c6edf749/' frameborder='0' width='100%' height='500px'></iframe>
+     
+             
+          </div>
+          <div className="right w-full  flex flex-col justify-center items-center md:w-[40%]">
+           
+            
+            <h2 className="text-center font-extrabold">
+              The snackback
+            </h2>
+            <p className="text-center w-2/3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus tempore nemo qui voluptas placeat! Dolor.
+
+            </p>
+             
+             <Link href="/toys" className="border-2 mt-3 py-1 px-4 border-black  text-[20px] text-center"> Others Products</Link>
+            
+          </div>
+        </div>
+
+        
 
 
-        MobileMenu</div>
+
+         
+        {/* <Cards/> */}
+   </div>
+        
+
+
+      
+{/* 
+        <section className="section_features">
+          <div className="container">
+            <div className="row">
+              <Features/>
+            </div>
+            
+          </div>
+          
+          
+        </section> */}
+
+
+
+
+{/* 
+        <div className="row py-20 lg:px-10 px-5 xl:px-20 ">
+          <SwiperCard />
+       
+
+        </div> */}
+        {/* <MailchimpForm/> */}
+
+
+
+     </div>
     </div>
   )
 }

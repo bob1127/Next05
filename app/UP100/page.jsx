@@ -21,7 +21,7 @@ import { useState } from "react";
 // import Head from "next/head";
 import CarouselThumbs from "../../components/CarouselThumbs.js";
 import ProductImage from "../../components/ProductImage.js";
-import testPictureStatic from "../../public/images/SG01-Camera.webp";
+ 
 
 
 import Carousel from "../../components/Products/ProductCarousel.jsx";
@@ -37,12 +37,16 @@ import { title } from "process";
 import UP10001 from '../../public/images/zensor__jogging__black_background_style--v_6.0_728c5804-1334-4d8f-b6de-fabeefed4b4f.png'
 
 import { CldVideoPlayer } from "next-cloudinary";
-import carousel001 from '../../public/images/截圖.webp'
+  
 
-import UP1002 from '../../public/images/截圖.webp'
+  
 
-
-
+const myLoader001 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/Products-Detail-Img/UP100/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/index/carousel-img/1920x768/${src}?w=${width}?p=${placeholder}`
+}
 
 
 const textAnimate = {
@@ -242,12 +246,12 @@ const data = [
     {
         image:
           
-            '/輪播圖-03_xbdkh6.webp' ,
+            'UX100/UX100_zp5m5y' ,
             caption:'test',
     },
     {
         image:
-            '/輪播圖-04_iautsb.webp',
+            'UX100/',
         caption: "test",
     },
     {
@@ -536,7 +540,7 @@ const Product = props => (
                                 <div className=" flex md:flex-row flex-col   w-full ">
                                     <div className="w-full mt-4  ml-0 md:ml-5 mt-3 h-1/2">
                                         <Card isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-5">
-                                            <CardHeader className="absolute z-10 top-1 flex-col items-start">
+                                            <CardHeader className="absolute z-1 top-1 flex-col items-start">
                                                 <p className="text-tiny text-white/60 uppercase font-bold">New</p>
                                                 <h4 className="text-gray-200 font-medium text-2xl">Acme camera</h4>
                                             </CardHeader>
@@ -550,7 +554,7 @@ const Product = props => (
                                                 className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
                                                 src="https://res.cloudinary.com/drmonozsf/video/upload/v1706671843/SPE_%E7%89%B9%E5%AF%AB_l6kafn.mp4"
                                             />
-                                            <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
+                                            <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-1 justify-between">
                                                 <div>
                                                     <p className="text-black text-tiny">Available soon.</p>
                                                     <p className="text-black text-tiny">Get notified.</p>
@@ -564,7 +568,7 @@ const Product = props => (
                                     </div>
                                     <div className="w-full ml-0 mt-4 md:ml-5 mt-3 h-full">
                                         <Card isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7">
-                                            <CardHeader className="absolute z-10 top-1 flex-col items-start">
+                                            <CardHeader className="absolute z-1 top-1 flex-col items-start">
                                                 <p className="text-tiny text-white/60 uppercase font-bold">Your day your way</p>
                                                 <h4 className="text-white/90 font-medium text-xl">Your checklist for better sleep</h4>
                                             </CardHeader>
@@ -576,7 +580,7 @@ const Product = props => (
                                                 className="z-0 w-full h-full object-cover"
                                                 src="/截圖_tioow0.webp"
                                             />
-                                            <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+                                            <CardFooter className="absolute bg-black/40 bottom-0 z-1 border-t-1 border-default-600 dark:border-default-100">
                                                 <div className="flex flex-grow gap-2 items-center">
                                                     <Image
                                                         width={600}

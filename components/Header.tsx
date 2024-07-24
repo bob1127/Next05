@@ -13,7 +13,7 @@ export default function Header() {
                     </div>
                 </Link>
             </div>
-            <nav className="hidden flex-1 items-center justify-center space-x-10 md:ml-16 md:flex">
+            <nav className="hidden flex-1 items-center justify-center  space-x-10 md:ml-16 md:flex">
                 <a className="header-link-item">Gradients</a>
                 <a className="header-link-item">
                     Generator{' '}

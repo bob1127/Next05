@@ -6,6 +6,9 @@ import { InfoIcon } from "./InfoIcon";
 import { InvalidCardIcon } from "./InvalidCardIcon";
 import Image from "next/image";
 
+const myLoader = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/Products-Detail-Img/UP100/${src}?w=${width}?p=${placeholder}`
+}
 export default function App() {
     const itemClasses = {
         base: "py-0 w-full",
@@ -22,61 +25,58 @@ export default function App() {
     return (
         <Accordion
             showDivider={false}
-            className=" h-full px-2 pt-[70px] flex flex-col gap-1 w-full  mt-[-40px] border  z-[999] fixed"
+            className=" h-full  px-2 pt-[70px] flex flex-col gap-1 w-full  mt-[-40px] border  z-50 fixed"
             variant="shadow"
             itemClasses={itemClasses}
         >
             <AccordionItem
                 key="1"
-                aria-label="我門的產品"
-                startContent={<MonitorMobileIcon className="text-primary" />}
-                subtitle={
-                    <p className="flex">
-                        8 kinds of <p className="text-primary ml-1">Products</p>
-                    </p>
-                }
-                title="我們的產品"
+                aria-label="Our Products"
+                title={<strong>Our Products</strong>}
+                
+               
             >
 
-                <Image quality={100} placeholder="empty" loading="lazy" alt="running people" src='/ultraP-logo-banner_ajviez.webp' width={100} height={50} className="" />
+                <Image quality={100} loading="lazy" placeholder="empty" loader={myLoader} alt="running people" src='ultraP-logo-banner01.webp' width={100} height={50} className="" />
 
                 <ul className="link-item mt-4">
-                    <li className="my-4">
-                         <a href="" className="text-black text-normal dark:text-white">UBTiw-Pro|快速胃幽門螺旋桿菌檢測組(專業版)</a>
+                    <li className="my-4 text-left">
+                        <a href="https://www.ultraehp.com/ultrapeace/en/" className="text-black text-normal dark:text-white">UBTiw - Pro|Instant H.pylori test kit(Pro version)</a>
                     </li>
-                    <li className="my-4">
+                    <li className="my-4 text-left">
                            
-                        <a href="" className="text-black text-normal dark:text-white">UBTiw-Home|快速胃幽門螺旋桿菌檢測組(家用版)</a>
+                        <a href="https://www.ultraehp.com/ultrapeace/en/" className="text-black text-normal dark:text-white">UBTiw-Home|Instant H.pylori test kit(Self test version)</a>
                     </li>
                 
                 
                 </ul>
 
-                <Image quality={100} placeholder="empty" loading="lazy" alt="running people" src='/company-logo-mobile_ec3odl.webp' width={120} height={50} className="" />
+
+                <Image  loading="lazy" placeholder="empty" loader={myLoader} alt="running people" src='company-logo-mobile01.webp' width={130} height={67} className="" />
 
                 <ul className="link-item mt-4">
-                    <li className="my-4">
-                        <a href="" className="text-black text-normal dark:text-white">UX100丨酸鹼檢測儀</a>
+                    <li className="my-4 text-left">
+                        <a href="https://www.ultraehp.com/hummingprobe/en/UX100.html" className="text-black text-normal dark:text-white">UX100丨CALIBRATION-FREE pH METER</a>
                     </li>
-                    <li className="my-4">
+                    <li className="my-4 text-left">
 
-                        <a href="" className="text-black text-normal dark:text-white">UX200丨酸鹼趨勢檢測儀</a>
+                        <a href="https://www.ultraehp.com/hummingprobe/en/UX200.html " className="text-black text-normal dark:text-white">UX200丨CALIBRATION-FREE pH METER</a>
                     </li>
-                    <li className="my-4">
+                    <li className="my-4 text-left">
 
-                        <a href="" className="text-black text-normal dark:text-white">CS200丨磁石變頻攪拌器</a>
+                        <a href="https://www.ultraehp.com/hummingprobe/en/CS200.html" className="text-black text-normal dark:text-white">CS200丨MAGNET INVERTER MIXER</a>
                     </li>
-                    <li className="my-4">
+                    <li className="my-4 text-left">
 
-                        <a href="" className="text-black text-normal dark:text-white">UH1｜酸鹼試片電極</a>
+                        <a href="https://www.ultraehp.com/hummingprobe/en/UH1.html" className="text-black text-normal dark:text-white">UH1｜pH STRIP ELECTRODE</a>
                     </li>
-                    <li className="my-4">
+                    <li className="my-4 text-left">
 
-                        <a href="" className="text-black text-normal dark:text-white">UH2｜超微量酸鹼試片電極</a>
+                        <a href="https://www.ultraehp.com/hummingprobe/en/UH2.html" className="text-black text-normal dark:text-white">UH2｜pH STRIP ELECTRODE</a>
                     </li>
-                    <li className="my-4">
+                    <li className="my-4 text-left">
 
-                        <a href="" className="text-black text-normal dark:text-white">UH2-Gas丨氣體酸鹼試片電極</a>
+                        <a href="https://www.ultraehp.com/hummingprobe/en/UH2-GAS.html" className="text-black text-normal dark:text-white">UH2-Gas丨pH Strip Electrode for Gas</a>
                     </li>
 
 
@@ -98,21 +98,25 @@ export default function App() {
             <AccordionItem
                 key="2"
                 aria-label="Apps Permissions"
-                startContent={<ShieldSecurityIcon />}
-                subtitle="3 items "
-                title="服務"
+             
+                title=""
+                subtitle={
+                    <p className="flex font-bold">
+                        Service
+                    </p>
+                }
             >
                 <ul className="link-item mt-4">
-                    <li className="my-4">
-                        <a href="" className="text-black text-normal dark:text-white">隱私權政策</a>
+                    <li className="my-4 text-left">
+                        <a href="https://www.ultraehp.com/en/Policy.html" className="text-black text-normal dark:text-white ">Policy</a>
                     </li>
-                    <li className="my-4">
+                    <li className="my-4 text-left">
 
-                        <a href="" className="text-black text-normal dark:text-white">Blog</a>
+                        <a href="https://www.ultraehp.com/en/ArticleList.html" className="text-black text-normal dark:text-white">Blog</a>
                     </li>
-                    <li className="my-4">
+                    <li className="my-4 text-left">
 
-                        <a href="" className="text-black text-normal dark:text-white">下載項目</a>
+                        <a href="https://www.ultraehp.com/en/Download.html" className="text-black text-normal dark:text-white">Download</a>
                     </li>
              
 
@@ -123,24 +127,41 @@ export default function App() {
             </AccordionItem>
             <AccordionItem
                 key="3"
-                aria-label="Pending tasks"
-                classNames={{ subtitle: "text-warning" }}
+             
+                onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = 'https://www.ultraehp.com/en/aboutUs.html';
+                }}
                
-                subtitle="Complete your profile"
-                title="關於我們"
+               
+                title=""
+                subtitle={
+                    <p className="flex font-bold ">
+                         About Us
+                    </p>
+                }
             >
               
             </AccordionItem>
             <AccordionItem
-                key="4"
-                aria-label="Card expired"
-                classNames={{ subtitle: "text-danger" }}
+
+                onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = 'https://www.ultraehp.com/en/ContactUs.html';
+                }}
+             
                
-                subtitle="Please, update now"
-                title='聯絡我們'
+                subtitle={
+                    <p className="flex font-bold">
+                        Contact Us
+                    </p>
+                }
+                title=''
             >
             
             </AccordionItem>
+         
+
         </Accordion>
     );
 }

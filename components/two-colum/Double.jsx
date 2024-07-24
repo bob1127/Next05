@@ -1,9 +1,18 @@
 'use client';
-import styles from './two.module.scss';
+import styles from './style.module.scss';
 import Image from 'next/image';
 import { useRef } from 'react';
 import Link from 'next/link';
 
+const myLoader00 = ({ src, width, quality, placeholder }) => {
+  return `https://www.nikoand.jp/wp-content/uploads/2023/10/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader01 = ({ src, width, quality, placeholder }) => {
+  return `https://www.nikoand.jp/wp-content/uploads/2023/09/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader02 = ({ src, width, quality, placeholder }) => {
+  return `https://www.nikoand.jp/wp-content/uploads/2024/05/${src}?w=${width}?p=${placeholder}`
+}
 export default function Index({ projects, reversed }) {
 
     const firstImage = useRef(null);
@@ -28,8 +37,8 @@ export default function Index({ projects, reversed }) {
         currentXPercent = currentXPercent + (xPercentDelta * speed)
 
         //Change width of images between 33.33% and 66.66% based on cursor
-        const firstImagePercent = 66.66 - (currentXPercent * 0.33);
-        const secondImagePercent = 33.33 + (currentXPercent * 0.33);
+        const firstImagePercent = 66 - (currentXPercent * 0.33);
+        const secondImagePercent = 33 + (currentXPercent * 0.33);
         console.log(secondImagePercent)
         firstImage.current.style.width = `${firstImagePercent}%`
         secondImage.current.style.width = `${secondImagePercent}%`
@@ -44,18 +53,31 @@ export default function Index({ projects, reversed }) {
     }
 
     return (
-        <div onMouseMove={(e) => { manageMouseMove(e) }} className={styles.double}>
+        <div onMouseMove={(e) => { manageMouseMove(e) }} className="p-[40px] flex flex-col md:flex-row border-2 w-full border-red">
+            <div className="txt w-full  md:w-[50%] p-8">
+              <div className='border-2 border-green-400'>
+                  <h1 className='text-black text-[40px]'>Which One Do You Like </h1>
+                  <p className='mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, neque alias voluptates aliquam vitae officia fuga repudiandae fugit explicabo, nobis tempora ratione nulla maiores fugiat sit illum nihil iste temporibus.</p>
+                  
+                
+                  {/* <div className='border-2 p-4 border-black rounded-xl '>
+                    
+                     <div className='mt-4'>
+                       
+                        <Image quality={100} className='rounded-[10px]' loader={myLoader02}  placeholder="empty" loading="lazy" alt="running people" src='/逕ｻ蜒十24FW_NK_Minions_banner_02_NK0012008_F6jpg.jpg' width={1000} height={400}  />
+                          
+                     </div>
+                  </div> */}
+              </div>
+            </div>
+        
 
           
 
             <div ref={firstImage} className={styles.imageContainer}>
-                <div className={styles.body}>
-                    <p>{projects[0].description}</p>
-
-                    <h3 className='text-black dark:text-slate-2g00'>{projects[0].name}</h3>
-
-                    <p>{projects[0].year}</p>
-                    <a href="" className='border-2  border-gray-400 w-[200px] py-2 rounded-full hover:bg-gray-400 px-2'>Learn More</a>
+                <div className="mx-auto flex flex-row justify-center items-center border">
+                  
+                 
                 </div>
                 <div className={styles.stretchyWrapper}>
   <Link className='w-full border border-white' href="/UltraE">
@@ -66,7 +88,7 @@ export default function Index({ projects, reversed }) {
                         alt={"image"}
                     /> */}
 
-                        <Image quality={100} placeholder="empty" loading="lazy" alt="running people" src='/SG01-Camera.e6e78f0d_rq2gaf.webp' width={500} height={400} className="" />
+                        <Image quality={100} loader={myLoader00}  placeholder="empty" loading="lazy" alt="running people" src='/1080ﾃ・080_01-1.jpg' width={1000} height={400} className="" />
 
                         </Link>
                 </div>
@@ -75,19 +97,15 @@ export default function Index({ projects, reversed }) {
         
 
             <div ref={secondImage} className={styles.imageContainer}>
-                <div className={styles.body}>
-                    <p>{projects[1].description}</p>
-
-                    <h3 className='text-black dark:text-slate-2g00'>{projects[1].name}</h3>
+                  <div className="mx-auto flex flex-row justify-center items-center border">
                   
-                    <p>{projects[1].year}</p>
-                    <a href="" className='border-2  border-gray-400 w-[200px] py-2 rounded-full hover:bg-gray-500  px-2'>Learn More</a>
+                 
                 </div>
                 <div className={styles.stretchyWrapper}>
                     <Link className='w-full border border-white' href="/UltraE">
                     <p></p>
 
-                        <Image quality={100} placeholder="empty" loading="lazy" alt="running people" src='/Untitled-Camera-2_unyaan.webp' width={500} height={400} className="" />
+                        <Image quality={100} loader={myLoader01} placeholder="empty" loading="lazy" alt="running people" src='/23SS_NK_TOKYOUNITE_esports_04_NK0011708_F.jpg' width={1000} height={400} className="" />
                     </Link>
                 </div>
               

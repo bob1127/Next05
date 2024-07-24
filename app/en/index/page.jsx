@@ -111,7 +111,7 @@ export default async function Home() {
 
                             </div>
                             <div className='border col-span-3 relative'>
-                                <div className="border-white border txt absolute top-5 z-40 text-right text-white rigt-0 w-full ">
+                                <div className=" border txt  border-red-500 absolute top-5 z-40 text-right text-white rigt-0 w-full ">
                                     <span className='mr-4 '>Potentiastat</span> <p></p>
                                     <span className='border border-whites rounded-full px-3 py-1 mt-4 mr-4'>Daily Shak 50+</span>
 
@@ -135,7 +135,7 @@ export default async function Home() {
                 <section>
                     <div className="Container">
                         <div className="row center">
-                            <h2 className="mx-auto text-center w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, sint.</h2>
+                            <h2 className="mx-auto text-center w-full  lg:w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, sint.</h2>
                         </div>
                         <div className="row">
                             <div className="hero-img border border-black p-5 relative">

@@ -259,7 +259,7 @@ const Product = props => (
                         <h3 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-pink-600  mt-5 lg:text-4xl dark:text-white text-center">What's in the Box</h3>
                     </div>
                     <div className="row">
-                        <img className="w-full" src="https://cdn.shopify.com/s/files/1/0569/5147/2268/files/sku_11cf0b03-96ed-499a-b4ff-8bc4f13ace87_3838x.jpg?v=1690807720" alt="" />
+                        {/* <img className="w-full" src="https://cdn.shopify.com/s/files/1/0569/5147/2268/files/sku_11cf0b03-96ed-499a-b4ff-8bc4f13ace87_3838x.jpg?v=1690807720" alt="" /> */}
                     </div>
 
                 </div>

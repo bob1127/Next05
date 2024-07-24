@@ -1,6 +1,10 @@
 import React from "react";
 import "../../styles/Overlay.css";
 import { motion } from "framer-motion";
+const myLoader01 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com//images/Products-Detail-Img/UX200/${src}?w=${width}?p=${placeholder}`
+}
+
 
 const Overlay = ({ children, close }) => {
     const variants = {
@@ -17,6 +21,7 @@ const Overlay = ({ children, close }) => {
             animate={"open"}
             exit={"closed"}
             key="overlay"
+            
         >
             {children}
         </motion.div>

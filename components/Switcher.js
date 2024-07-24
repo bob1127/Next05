@@ -13,7 +13,7 @@ export default function Switcher() {
 
   return (
     <>
-      <div className='border flex justify-end border-black w-1/3'>
+      <div className=' flex justify-end w-1/4'>
         <DarkModeSwitch checked={darkSide} onChange={toggleDarkMode} size={35} />
       </div>
     </>

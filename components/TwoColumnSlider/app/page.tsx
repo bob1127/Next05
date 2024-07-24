@@ -200,7 +200,7 @@ export default function SuggestedCarousel() {
             <div className="group container mx-6">
                 <motion.div
                     className={cn(
-                        "pointer-events-none absolute z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+                        "pointer-events-none absolute z-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100",
                     )}
                     style={{
                         width: CURSOR_SIZE,

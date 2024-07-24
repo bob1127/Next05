@@ -1,8 +1,16 @@
 import React from "react";
 import { CldVideoPlayer } from 'next-cloudinary';
-import { Tabs, Tab, Card, CardBody, CardFooter, CardHeader, Image, Button } from "@nextui-org/react";
-
-
+import { Tabs, Tab, Card, CardBody, CardFooter, CardHeader, Button } from "@nextui-org/react";
+import Image from 'next/image';
+const myLoader = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/nav/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader01 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/Products-Detail-Img/UP100/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader02 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/about/${src}?w=${width}?p=${placeholder}`
+}
 export default function App() {
     return (
         <div>
@@ -10,9 +18,26 @@ export default function App() {
 
 
                 <div>
-                    <div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8">
+                    <div className="img  pr-0 md:pr-[30px]">
+                        <div className="txt">
+                            <p>UltraE Co., Ltd. was established in 2016, with a team dedicating 30 years of experience in the development and mass production of biosensors. Leveraging its patented Potentiostrip® technology platform, the company focuses on the research, development, and manufacturing of water quality testing and in vitro diagnostic (IVD) medical devices. In 2019, UltraE Co., Ltd. launched its first brand, Humming Probe, a calibration-free disposable micro-electrode pH measurement system, providing solutions to the challenges of cumbersome pH meter calibration and micro-sample measurement.</p> <br/>
+                            <p >
+                                In 2021, the company introduced its second brand, UltraPeace, the Instant H. pylori Urea Breath Test Kit System. This non-invasive system can accurately detect H. pylori infection within 30 minutes, enabling medical professionals to quickly diagnose, determine the appropriate medications, and conduct follow-up testing after treatment.
+                            </p><br/>
+
+                            <p>
+                                UltraE Co., Ltd. upholds the entrepreneurial spirit of "Ultra-Micro Electrode, Ultra-Healthy Life" as its core value and guiding principle, aiming to develop sustainable businesses that contribute to human health.
+                            </p>
+
+                        </div>
+                        
+                    </div>
+                    <div className="txt">
+                        
+                    </div>
+                    {/* <div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8">
                         <Card className="col-span-12 sm:col-span-4 h-[300px]">
-                            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
+                            <CardHeader className="absolute z-1 top-1 flex-col !items-start">
                                 <p className="text-tiny text-white/60 uppercase font-bold">What to watch</p>
                                 <h4 className="text-white font-medium text-large">Stream the Acme event</h4>
                             </CardHeader>
@@ -24,7 +49,7 @@ export default function App() {
                             />
                         </Card>
                         <Card className="col-span-12 sm:col-span-4 h-[300px]">
-                            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
+                            <CardHeader className="absolute z-1 top-1 flex-col !items-start">
                                 <p className="text-tiny text-white/60 uppercase font-bold">Plant a tree</p>
                                 <h4 className="text-white font-medium text-large">Contribute to the planet</h4>
                             </CardHeader>
@@ -36,9 +61,12 @@ export default function App() {
                             />
                         </Card>
                         <Card className="col-span-12 sm:col-span-4 h-[300px]">
-                            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-                                <p className="text-tiny text-white/60 uppercase font-bold">Supercharged</p>
-                                <h4 className="text-white font-medium text-large">Creates beauty like a beast</h4>
+                            <CardHeader className="absolute z-1 top-1 flex-col !items-start">
+                                <p className="text-tiny text-white/60 uppercase font-bold">主辦單位：台北市儀器商業同業公會
+
+</p>
+                                <h4 className="text-white font-medium text-large">第十五屆台北國際儀器展
+</h4>
                             </CardHeader>
                             <Image
                                 removeWrapper
@@ -48,7 +76,7 @@ export default function App() {
                             />
                         </Card>
                         <Card isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-5">
-                            <CardHeader className="absolute z-10 top-1 flex-col items-start">
+                            <CardHeader className="absolute z-1 top-1 flex-col items-start">
                              
 
                                 <p className="text-tiny text-white/60 uppercase font-bold">New</p>
@@ -66,7 +94,7 @@ export default function App() {
                             </div>
 
 
-                            <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
+                            <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-1 justify-between">
                                 <div>
                                     <p className="text-black text-tiny">Available soon.</p>
                                     <p className="text-black text-tiny">Get notified.</p>
@@ -77,7 +105,7 @@ export default function App() {
                             </CardFooter>
                         </Card>
                         <Card isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7">
-                            <CardHeader className="absolute z-10 top-1 flex-col items-start">
+                            <CardHeader className="absolute z-1 top-1 flex-col items-start">
                                 <p className="text-tiny text-white/60 uppercase font-bold">Your day your way</p>
                                 <h4 className="text-white/90 font-medium text-xl">Your checklist for better sleep</h4>
                             </CardHeader>
@@ -87,7 +115,7 @@ export default function App() {
                                 className="z-0 w-full h-full object-cover"
                                 src="https://cdn.shopify.com/s/files/1/0493/9834/9974/files/A1289011_TD05_V1_35bed047-d425-4ab9-bb1a-624e83c4b96d_2878x.jpg?v=1683699565"
                             />
-                            <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+                            <CardFooter className="absolute bg-black/40 bottom-0 z-1 border-t-1 border-default-600 dark:border-default-100">
                                 <div className="flex flex-grow gap-2 items-center">
                                     <Image
                                         alt="Breathing app icon"
@@ -102,50 +130,39 @@ export default function App() {
                                 <Button radius="full" size="sm">Get App</Button>
                             </CardFooter>
                         </Card>
-                    </div>
+                    </div> */}
 
                 </div>
-                <div className="mt-20 md:mt-0">
+                <div className="mt-[30px] md:mt-0">
                   
-                    <div className="flex w-full justify-center items-center align-middle flex-col border rounded-2xl bg-white dark:bg-black  p-5 lg:p-10">
-                        <div className="txt mb-20 flex flex-col item-center align-middle  justify-center">
-                            <h2 className="text-2xl lg:text-3xl xl:text-4xl dark:text-white font-normal">
-                                極安檢測與13C尿素呼吸檢測法有什麼不同？
-
-
-                            </h2>
-                            <h2 className="text-4xl dark:text-white   font-medium">
-                                Workout
-                            </h2>
-                            <p className="dark:text-slate-200">胃部感染胃幽門螺旋桿菌時，當我們服用尿素溶液後，胃幽門螺旋桿菌上的尿素酶會將尿素分解成二氧化碳和氨氣。我們通過檢測從呼吸中排出的氨氣，對比服用尿素前的背景數值，從而確定是否感染胃幽門螺旋桿菌。
-
-</p>
-                        </div>
-                        <Tabs aria-label="mt-40 flex justify-center  Options">
+                    <div className="flex w-full md:mt-0 justify-center items-center align-middle flex-col   rounded-2xl dark:bg-black  ">
+                     
+                        <Tabs aria-label=" flex bg-white justify-center  Options">
                          
-                            <Tab key="music" className="border-none bg-transparent" title="專業版">
-                                <Card className="border-none bg-transparent">
+                            <Tab key="music" className="border-none bg-transparent" title="Quality Management">
+                                <Card className="border-none bg-transparent bg-white">
 
                                     <CardBody>
-                                        <div className="grid  grid-cols-1  md:grid-cols-2 gap-2">
+                                        <div className="grid  grid-cols-1  ">
                                             <disv className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-duration='4000' data-aos-delay="50">
-                                                <div className="border rounded-2xl">
-                                                    <img src='https://ultraehp.com/images/UP100/A2343211_TD03_V1_3078x.png' className="w-full h-full rounded-2xl" alt="" />
-
+                                                <div className="border rounded-2xl overflow-hidden">
+                                                    <Image width={400} height={300} src='20210714-20210714_031832000_iOS.jpg' alt='家用版' loader={myLoader02} ></Image>
                                                 </div>
                                             </disv>
                                             <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
                                                 <div className="border rounded-2xl  p-5">
 
-                                                    <h2 className="dark:text-white  text-2xl font-normal">
-                                                        專業版本
+                                                    <h2 className="dark:text-white  text-[18px] font-bold">
+                                                        Quality Management
 
                                                     </h2>
-                                                    <p className="text-m dark:text-white ">無需送樣品去檢驗中心，30分鐘現場即可讀取報告</p>
+                                                    <p className="text-[14px] dark:text-white ">In May, 2021, Chaotix Biotech officially passed the international validation of ISO 9001:2015 quality management system and obtained the certificate. Comprehensive quality control, automated production equipment, and strict production process control are our business philosophy.
+
+</p>
                                                     {/* <img src={img01} alt="" className="w-full " /> */}
-                                                    <span className="text-5xl after:content-['min '] text-orange-500">
+                                                    {/* <span className="text-5xl after:content-['min '] text-orange-500">
                                                         30
-                                                    </span>
+                                                    </span> */}
 
 
 
@@ -160,30 +177,33 @@ export default function App() {
                                 </Card>
                             </Tab>
                             <Tab key="
-                            " className=" text-white" title="家用版
+                            " className=" text-white" title=" Professional
                             ">
                                 <Card>
                                     <CardBody>
-                                        <div className="grid  grid-cols-1  lg:grid-cols-2 gap-2">
-                                            <disv className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-duration='4000' data-aos-delay="50">
-                                            <div className="border rounded-2xl">
-                                                    <img src='https://ultraehp.com/images/Black-03_f9884945-38e0-49fe-91b5-dba4449b9152_3078x.jpg.png' className="w-full rounded-2xl" alt="" />
+                                        <div className="grid  grid-cols-1  ">
+                                            <disv className="relative flex justify-center  mb-8" data-aos="fade-up" data-aos-duration='4000' data-aos-delay="50">
+                                            <div className=" rounded-xl">
+                                                    <Image width={400} height={300} src='蜂鳥圖.webp' alt='家用版' loader={myLoader} ></Image>
                                                 
                                             </div>
                                             </disv>
                                            <div className="relative flex justify-center mb-8" data-aos="fade-up" data-aos-delay="450">
                                             <div className="border rounded-2xl  p-5">
 
-                                                <h2 className="dark:text-white  text-2xl font-normal">
-                                                    家用版本
+                                                <h2 className="dark:text-white  text-[18px] font-bold">
+                                                        Professional, serious, meet your needs
+
 
                                                 </h2>
-                                                <p className="text-m dark:text-white ">無需送樣品去檢驗中心，30分鐘現場即可讀取報告</p>
+                                                    <p className="text-[14px] dark:text-white ">We will work harder and harder to provide quality products and services, and to ensure the ultimate in quality and standardized processes to our partners.
+
+</p>
                                                 <img src="
                                                 " alt="" />
-                                                <span className="text-5xl after:content-['min '] text-orange-500">
+                                                {/* <span className="text-5xl after:content-['min '] text-orange-500">
                                                     30
-                                                </span>
+                                                </span> */}
                                              
 
                                                 

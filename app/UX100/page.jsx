@@ -3,45 +3,72 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from 'next/image';
+import YouTubePlayer from '../../components/VideoPlayer/UX100en.jsx';
+
 // import img05 from 'https://www.ultraehp.com/images/Products-Detail-Img/UP100/up111111.png'
 import { DefaultSeo } from 'next-seo';
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import TextScroll from '../../components/textScroll/TextScroll01.jsx';
 import { Card, CardHeader, CardBody, Tooltip, Button } from "@nextui-org/react";
-import AnimatedTabs from '../../components/TabLink/index.jsx'
+// import AnimatedTabs from '../../components/TabLink/index.jsx'
 import CelebrateBTN from '../../components/CelebrateBtn/index.jsx';
 // import 'cloudinary-video-player/cld-video-player.min.css';
 import { card, CardFooter } from '@nextui-org/react';
-import MobileMenu from '../../components/mobileMenu/index.jsx'
+// import MobileMenu from '../../components/mobileMenu/index.jsx'
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
-
-import { Tabs, Tab} from "@nextui-org/react";
+import OthersProducts from '../../components/ReactSlick/ImageSlider2.jsx'
+import SwiperSliders from '../../components/SwiperSliders/page.jsx'
+import { Tabs, Tab } from "@nextui-org/react";
 import { Table } from "@nextui-org/react";
 import { useState } from "react";
 // import Head from "next/head";
 import CarouselThumbs from "../../components/CarouselThumbs.js";
-import ProductImage from "../../components/ProductImage.js";
-import testPictureStatic from "../../public/images/SG01-Camera.webp";
 
+import SwiperSlider from '../../components/SwiperSliders/UX100Slider-en.jsx'
+import { AdvancedVideo, lazyload, accessibility, responsive, placeholder } from "@cloudinary/react";
+import { CldImage } from 'next-cloudinary';
+import HeroImg from '../../public/images/7.jpg'
+import Carousel from "../../components/Products/ProductCarouselUX200.jsx";
 
-import Carousel from "../../components/Products/ProductCarousel.jsx";
+import JsonLd from '../../components/JsonLd.jsx';
 import Navigation from "../../components/Products/Navigation.jsx";
-import TwoColSlider from '../../components/TwoColumnSlider/app/page01.tsx'
-import styles from '../../components/two-colum/twoColumn.module.scss'
-import { projects } from '../../components/two-colum/data.js';
 
-import Double from '../../components/two-colum/Double.jsx';
-import ModalBrn from "../../components/ModalBtn.jsx"
 import ModalBtn from "../../components/ModalBtn-1.jsx"
+import ModalBtn01 from "../../components/ModalBtn-3.jsx"
+import ModalBtn05 from "../../components/ModalBtn-5.jsx"
+import ModalBtn04 from "../../components/ModalBtn-4.jsx"
+import ModalBtn02 from "../../components/ModalBtn-2.jsx"
+import FindSPE from '../../components/FindSPE.jsx'
+import WhenUse from '../../components/WhenUse.jsx'
+
 import { Cloudinary } from "@cloudinary/url-gen";
-import { title } from "process";
-import UP10001 from '../../public/images/zensor__jogging__black_background_style--v_6.0_728c5804-1334-4d8f-b6de-fabeefed4b4f.png'
+const cld = new Cloudinary({
+    cloud: {
+        cloudName: 'ducasbzsc'
+    }
+})
 
-import { CldVideoPlayer } from "next-cloudinary";
-import carousel001 from '../../public/images/截圖.webp'
-
-import UP1002 from '../../public/images/截圖.webp'
-import ReactSlick from '../../components/reactSlick.jsx'
-
+const myLoader = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/Products-Detail-Img/UX200/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader001 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/Products-Detail-Img/UP100/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader01 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/Products-Detail-Img/UX100/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader02 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/Products-Detail-Img/product-01/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader05 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/nav/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader03 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/index/${src}?w=${width}?p=${placeholder}`
+}
+const myLoader04 = ({ src, width, quality, placeholder }) => {
+    return `https://www.ultraehp.com/images/Products-Detail-Img/UH-1/${src}?w=${width}?p=${placeholder}`
+}
 
 
 
@@ -238,42 +265,6 @@ const fadeInUp = {
 };
 
 
-
-const data = [
-    {
-        image:
-          
-            '/輪播圖-04_iautsb.webp' ,
-       
-    },
-    {
-        image:
-            '/輪播圖-04_iautsb.webp'
-      
-    },
-    {
-        image:
-            '/輪播圖-04_iautsb.webp'
-      
-    },
-    {
-        image:
-            '/輪播圖-04_iautsb.webp'
-      
-    },
-    {
-        image:
-            '/輪播圖-04_iautsb.webp'
-      
-    },
-    {
-        image:
-            '/輪播圖-04_iautsb.webp'
-      
-    },
-
-
-];
 const captionStyle = {
     fontSize: "2em",
     fontWeight: "bold",
@@ -283,1254 +274,976 @@ const slideNumberStyle = {
     fontWeight: "bold",
 };
 
+
+
+
+
+
+const ProductPost = {
+    title: 'Humming Probe UX100',
+    description: "The world's pioneer for calibration - free pH measurement, innovatively integrating the principle of electrode measurement on a single test strip electrode for pH measuring",
+    image: "https://www.ultraehp.com/images/Products-Detail-Img/UH-1/UH1-02.webp",
+    positive01: "Accurate, calibration-free, ready-to-use",
+    positive02: "Accuracy can reach ±0.1 pH",
+    positive03: "Disposable to avoid sample cross-contamination",
+    LogoImg: "https://www.ultraehp.com/images/Products-Detail-Img/UP100/company-logo-mobile.webp",
+    BrandName: "UltraE",
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": ""
+    }
+};
+
+
+
+
+
 // const { onOpen, onOpenChange } = useDisclosure();
 const Product = props => (
-    
+
 
     <div className="relative">
+        <link rel="alternate" href="https://www.ultraehp.com/hummingprobe/UX100.html" hreflang="zh-Hant" />
+        <link rel="alternate" href="https://www.ultraehp.com/hummingprobe/en/UX100.html" hreflang="en" />
 
+        {/*metadata */}
+        <title>Calibration-free micro disposable｜pH meter｜acid-base detector - UX100
 
+</title>
+        <meta key="description" name="description" content="Calibration-free micro disposable pH meter acid-base detector UX100 with a disposable electrode only requires ultra small sample requirements, and can complete the acid-base test without pH standard solution calibration. Suitable for very precious samples and easily contaminated or passivated pH electrode surfaces and special samples. Can be held with one hand, touch screen, intuitive operation, and suitable for outdoor use without power supply. pH sensor/pH measurement system/pH meter/pH indicator/pH detector/pH value detector/portable pH meter/desktop pH meter/pH meter/pH electrode/pH meter/acid-base test/ pH test" />
 
-        <title>Ultrapeace｜ Instant H.pylori BUT test kit</title>
-        <meta key="description" name="description" content="DESCRIPTION" />
-
+        <meta name="keywords" content="pH detector/pH value detector/portable pH meter/desktop pH meter/pH meter/pH electrode/pH meter/acid-base test/ pH test"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
+        {/* OG metadata */}
+        <meta property="og:url" content="https://www.ultraehp.com/hummingprobe/UX100.html" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Calibration-free micro disposable｜pH meter｜acid-base detector - UX100" />
+        <meta property="og:description" content="Calibration-free micro disposable pH meter acid-base detector UX100 with a disposable electrode only requires ultra small sample requirements, and can complete the acid-base test without pH standard solution calibration. Suitable for very precious samples and easily contaminated or passivated pH electrode surfaces and special samples. Can be held with one hand, touch screen, intuitive operation, and suitable for outdoor use without power supply. pH sensor/pH measurement system/pH meter/pH indicator/pH detector/pH value detector/portable pH meter/desktop pH meter/pH meter/pH electrode/pH meter/acid-base test/ pH test" />
+        <meta property="og:image" content="https://www.ultraehp.com//images/Products-Detail-Img/UX100/UX100.webp" />
 
 
+       
 
-        <meta property="og:url" content="https://ithelp.ithome.com.tw/articles/10278469" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="#21 No-code 之旅 — 如何讓網站在分享時看起來漂亮和有吸引力？Open Graph (OG) 簡介" />
-        <meta property="og:description" content="大家有沒有發現當有人在社群軟體分享網址的時候，通常除了網址本身還會看到一張縮圖加上網站的標題和描述？這就是用 Open Graph (OG) 設定出來的！今天會解釋一點點什麼是 OG tag (標籤)，加上怎麼在 Next.js 專案中設定 OG 標籤～" />
-        <meta property="og:image" content="https://i.imgur.com/D9cZHL7.png" />
+        {/* 
+        <AnimatedTabs /> */}
+        {/* <MobileMenu/> */}
+
+        {/* 
+          <div className="flex justify-center items-center">
+            <CardSlider/>
+          </div> */}
+        <div>
+            {/* <div className='h-[100vh] items-center flex justify-center bg-black'>
+               
+            </div> */}
+
+            {/* <p>{ProductPost.description}</p>
+            <p className="hidden">Date Published: {ProductPost.datePublished}</p>
+           
+            <img src={ProductPost.image} alt={ProductPost.title} /> */}
+
+            {/* JSON-LD for Blog Post */}
+
+            {/* 結構化資料 UX100 */}
 
 
-        <AnimatedTabs />
-      <MobileMenu/>
-        <DefaultSeo
-            title="Next SEO Example"
-            description="Next SEO is a plug in that makes managing your SEO easier in Next.js projects."
-            openGraph={{
-                type: 'website',
-                locale: 'en_IE',
-                url: 'https://www.url.ie/',
-                siteName: 'SiteName',
-            }}
-            twitter={{
-                handle: '@handle',
-                site: '@site',
-                cardType: 'summary_large_image',
-            }}
-        />
+            <JsonLd data={{
+                "@context": "https://schema.org",
+                "@type": "Product",
+                "name": "HummingProbe",
+                "headline": ProductPost.title,
+                "description": ProductPost.description,
+                "datePublished": ProductPost.datePublished,
+                "author": {
+                    "@type": "Person",
+                    "name": "HummingProbe"
+                },
+                "image": [ProductPost.image],
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5",
+                    "ratingCount": "5"
+                },
+
+                "brand": {
+                    "@type": "Brand",
+                    "name": ProductPost.BrandName,
+                    "logo": ProductPost.LogoImg,
+                },
+                "positiveNotes": {
+                    "@type": "ItemList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": ProductPost.positive01
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": ProductPost.positive02
+                        }, {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "name": ProductPost.positive03
+                        }
+                    ]
+                },
+
+
+                "mainEntityOfPage": ProductPost.mainEntityOfPage
+            }} />
+        </div>
+
+
 
 
 
         <motion.div className="dark:bg-black bg-gray-100 " initial='initial' animate='animate' exit={{ opacity: 0 }}>
+            <div className="fixed mobile-lang w-full top-[10px] pr-6 md:hidden flex justify-end mx-auto z-[99999] ">
+                <a href="https://www.ultraehp.com/hummingprobe/UX100.html">
+                    <div className='w-[40px] h-[40px] text-[18px] bg-white    text-black rounded-full flex justify-start pl-[11.5px] items-center '>cn</div>
+                </a>
+            </div>
+            <div className="langDropdown w-[10px]  text-right ml-[87.5vw]  top-[15px] fixed z-[999]">
+
+                <Dropdown>
+                    <DropdownTrigger>
+                        <Button
+                            variant="bordered p-0"
+                            className="w-[10px] p-0 m-0"
+                        >
+                            <Image className='mb-3 pr-20' src='earth.png' loader={myLoader03} loading='lazy' placeholder='empty' alt='language-switch' width={33} height={33} />
+                        </Button>
+                    </DropdownTrigger>
+                    <DropdownMenu aria-label="Static Actions">
+                        <DropdownItem key="new">
+                            <a className='w-full block' href="https://www.ultraehp.com/hummingprobe/en/UX100.html">English</a>
+                        </DropdownItem>
+                        <DropdownItem key="new">
+                            <a className='w-full block' href="https://www.ultraehp.com/hummingprobe/UX100.html">繁體中文</a>
+                        </DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
+
+
+            </div>
             <Navigation />
-            <div className='fullscreen'>
+            <div className='fullscreen relative pt-[60px]'>
+                <Image loader={myLoader001} src='company-logo.webp' width={160} loading='lazy' placeholder='empty' className="fixed mt-2 ml-[20px] md:ml-[90px] z-[999] top-[60px] left-10" alt='UltraP-logo' height={60}></Image> 
 
-                {/* modal open  */}
-                {/* <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-                    <ModalContent>
-                        {(onClose) => (
-                            <>
-                                <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
-                                <ModalBody>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Nullam pulvinar risus non risus hendrerit venenatis.
-                                        Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Nullam pulvinar risus non risus hendrerit venenatis.
-                                        Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                                    </p>
-                                    <p>
-                                        Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit
-                                        dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis.
-                                        Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod.
-                                        Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur
-                                        proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-                                    </p>
-                                </ModalBody>
-                                <ModalFooter>
-                                    <Button color="danger" variant="light" onPress={onClose}>
-                                        Close
-                                    </Button>
-                                    <Button color="primary" onPress={onClose}>
-                                        Action
-                                    </Button>
-                                </ModalFooter>
-                            </>
-                        )}
-                    </ModalContent>
-                </Modal> */}
-
-                {/* ---------------------- */}
-
-                <div className='product px-3 md:px-10  flex-col md:flex-row border py-9'>
-
-                    <Carousel
-                        animate={{ x: 0, opacity: 1 }}
-                        initial={{ x: 200, opacity: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ delay: 0.2 }}
-                        data={data}
-                        time={3000}
-
-                        captionStyle={captionStyle}
-                        radius="10px"
-                        slideNumber={false}
-                        // slideNumberStyle={slideNumberStyle}
-                        captionPosition="bottom"
-                        automatic={false}
-                        dots={false}
-                        pauseIconColor="white"
-                        pauseIconSize="40px"
-                        // slideBackgroundColor="darkgrey"
-                        slideImageFit="cover"
-                        thumbnails={true}
-                        thumbnailWidth="100px"
-                        showNavBtn={true}
-                    // style={{
-                    //     textAlign: "center",
-                    //     maxWidth: "850px",
-                    //     margin: "40px auto",
-                    // }}
-                    />
-                    {/* <motion.div
-                    className='img'
-                    animate={{ opacity: 1 }}
-                    initial={{ opacity: 0 }}>
-                    <motion.img
-                        key={props.product.image}
-                        src={props.product.image}
-                        animate={{ x: 0, opacity: 1 }}
-                        initial={{ x: 200, opacity: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ delay: 0.2 }}
-                    />
-                    
-                    
-                </motion.div> */}
+                <section className="section   mt-0 md:mt-[150px]">
+                    <div className="Navgation mb-[30px] pl-0 hidden md:block lg:pl-[150px]"> <a href="https://www.ultraehp.com/hummingprobe/en/" className="hover:font-bold">Home</a> / <a className="hover: font-bold " href='#'>Humming Probe UX100
+                        </a> </div>
+                    <div className="container w-full flex px-[0px] md:px-[20px] xl:px-[70px] flex-col md:flex-row justify-start items-start">
+                        <div className="left   w-full md:w-1/2">
+                            <SwiperSlider />
 
 
 
+                        </div>
 
-                    <div className='product-details  md:px-10 px-4 w-full'>
-                        <motion.div variants={stagger} className='inner w-full pr-2'>
-                            <Link href='../products'>
-                                {/* <motion.div variants={fadeInUp}>
-                                Back to products
-                            </motion.div> */}
-                            </Link>
-                            <motion.div variants={fadeInUp}>
-                                <span className=' '>Humming Probe UX200</span>
-                                <Link href='../Products/product01'>CN</Link>
-                            </motion.div>
-                            <motion.h1 className="" variants={fadeInUp}>適用於全系列全球首創的免校正pH酸鹼電極
-</motion.h1>
-                            <motion.p className="dark: text-slate-300 " variants={fadeInUp}>
+                        {/* <div className="block md:hidden left border border-black w-full md:w-1/2">
+                            
+                            <SlickCarousel/>
+                    </div>  */}
+                        <div className="right flex justify-center  md:justify-between  md:pl-[50px] xl:pl-[80px] w-full md:w-1/2 flex-col  h-[480px]">
+                            <div className="txt">
+                                <h1 className="h1-u md:mt-0 mt-[115px]">Humming Probe UX100
+                                  <br/>  CALIBRATION-FREE pH METER</h1>
+                                <h2 className="model-u">pH meter/pH Measurement system
+
+                                </h2>
+                                <p className="text-middle-u">Compatible with a full range of world's first calibration-free pH strip electrodes
 
 
-                                <ul className="mt-6 ml-0 pl-0">
-                                    <li className="text-m font-normal dark:text-white"> ・非侵入檢測方式</li>
-                                    <li className="text-m font-normal dark:text-white"> ・30分鐘立即獲得檢測成果
-Screen</li>
-                                    <li className="text-m font-normal dark:text-white"> ・可用於評估治療前後效果Determination by Algorithm</li>
-                                    <li className="text-m font-normal dark:text-white">   ・自動判讀檢測成果dustproof grade</li>
+                                </p>
+                                <ul>
+                                    <li>・4.3” Color Touchscreen
+
+                                    </li>
+                                    <li>・Algorithm automatic end point judgment
+
+                                    </li>
+                                    <li>・Waterproof: IP54
+
+                                    </li>
+                                    <li>・Dual Mode Inspection Design
+
+                                    </li>
+                                    <li>・Built-In 5M Pixels Camera, recordable and editable data
+
+
+                                    </li>
+                                    <li>・Anti-slip Leather Pattern Design
+
+
+                                    </li>
+                                    <li>・Built-In Adjustable Stand
+
+
+
+                                    </li>
                                 </ul>
-                                {/* <CelebrateBTN/> */}
+                            </div>
+                            <div className="btn-wrap">
 
-
-
-
-
-
-                            </motion.p>
-                            {/* <motion.div variants={fadeInUp} className='additonals'>
-                                <span>Soy Free</span>
-                                <span>Gluten Free</span>
-                            </motion.div> */}
-                            {/* <motion.div variants={fadeInUp} className='qty-price'>
-                                <div className='qty'>
-                                    <div className='minus'>-</div>
-                                    <div className='amount'>1</div>
-                                    <div className='add'>+</div>
+                                <div className="w-full xl:w-3/4 flex flex-col md:flex-row">
+                                    <ModalBtn02 />
                                 </div>
-                                <span className='price'></span>
-                            </motion.div> */}
-                            <motion.div variants={fadeInUp} className='btn-row'>
-                                <ModalBrn />
-                                {/* <button className='add-to-cart rounded-full	 bg-pink-500 text-gray-100 dark:bg-gray-700'> Add to cart</button>
-                            <button className='subscribe'> Subscribe</button> */}
 
-                            </motion.div>
 
-                        </motion.div>
 
+                            </div>
+                        </div>
                     </div>
-                    <div>
+                </section>
 
-                    </div>
-                </div>
+
             </div>
 
-            <div className="content-bottom md:p/x-10 xl:px-15 2xl:px-20">
-                <section className="w-full section-about border  ">
-                    <TextScroll />
-                    <div className="Container items-center flex justify-center w-full	pt-10">
-                        <div className="wrap flex flex-col justify-center items-center w-3/4">
+
+            <div className="content-bottom">
+
+                
+                <section className="section_description   m-0 p-0 flex justify-center">
+
+                    <div className="container w-full md:w-4/5 lg:w-2/3   ">
+                        <div className="row">
+
+                            <h2 className="h2-u">Product</h2>
+                            <p>Description</p>
+
+                        </div>
+                        <div className="row flex justify-center ">
+                            <div className="grid grid-cols-1 md:grid-cols-2">
+                                <div>
+                                    <Image src='UX100-Unboxing.webp' loader={myLoader01} width={600} height={600} placeholder="empty" alt='The unboxing & the contents of the calibration-free micro disposable pH meter/pH measurement system/Humming Probe UX100/UltraE ' loading="lazy"></Image>
+                                </div>
+                                <div className="flex justify-center pl-[30px] items-center">
+                                   <div>
+                                        <h4 className="h3-u text-left">What's Include ?
 
 
-                            <motion.div className="card"
-                                initial={"offscreen"}
-                                whileInView={"onscreen"}
-                                viewport={{ once: true, amount: 0.5 }}
-                                transition={{ staggerChildren: 0.3 }}
-                            >
+                                        </h4>
+                                        <ul>
+                                            <li>1.UX100: pH measurement meter (1 unit)
 
-                                <motion.h2
-                                    className="text-center mb-4 text-2xl  tracking-tight text-gray-900 lg:text-4xl lg:leading-loose  dark:text-white font-bold uppercase"
-                                    variants={textAnimate}
-                                > Humming Probe UX100 - 產品外觀</motion.h2>
+                                            </li>
+                                            <li>2.UH1: pH test strip electrode (10 pcs in a vial)
+
+                                            </li>
+                                            <li>3.Strip extended connection cable (1 pc)
+
+                                            </li>
+                                            <li>4.Charger (1 pc)
+
+                                            </li>
+                                            <li>5.Micro USB cable for charging and data transfer. (1 pc)
+                                            </li>
+
+                                            <li>6.Brief user manual
 
 
-                            </motion.div>
+                                            </li>
+                                            <li>7.User manual is built inside the meter storage <br/> and can be copied to computer for reading.
+
+                                            </li>
+                                        </ul>
+                                   </div>
+                                </div>
+
+                            </div>
+
+
+                          
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </section>
+
+
+
+
+                <section className="section_Appearance    m-0 p-0 flex justify-center">
+
+                    <div className="container w-full md:w-4/5 lg:w-2/3   ">
+                        <div className="row flex flex-col justify-center items-center mb-0  md:mb-5">
+
+                            <h2 className="h2-u">Product 
+</h2>
+                            <p>Appearance</p>
+
+                        </div>
+                        <div className="row flex px-[20px] md:px-0 justify-center ">
+                            <div className="grid grid-cols-1 md:grid-cols-2">
+                                <div>
+                                    <Image src='/UX100-en-2.webp' placeholder="empty" width={650} height={400} loading="lazy" loader={myLoader01} alt='The introduction of the dimension and the interfaces of the calibration-free micro disposable pH meter/pH measurement system/ Humming Probe UX100/UltraE  '></Image>
+
+                                </div>
+                                <div>
+                                    <Image src='UX100-13-產品說明-機身en-720x540_工作區域 1 2.webp' placeholder="empty" width={650} height={400} loading="lazy" loader={myLoader01} alt='The introduction of the dimension and the interfaces of the calibration-free micro disposable pH meter/pH measurement system/ Humming Probe UX100/UltraE  '></Image>
+
+                                </div>
+
+                            </div>
+                            </div>
+                      
+
+
+
+
+
+
+
+
+                    </div>
+                </section>
+
+
+
+               <section className="section-video">
+                    <div className="container px-[15px] flex  2xl:w-[60%] xl:w-[65%] md:w-[80%] w-full mx-auto flex-col justify-center items-center">
+                        <div className="row flex flex-col justify-center items-center mb-0  md:mb-5">
+
+                            <h2 className="h2
+                            -u">Operation</h2>
+
+                            <a href='https://www.youtube.com/watch?v=Ur5FsgcG-HI&feature=youtu.be'>
+                            <div className="rounded-[40px] bg-[#01a5d3] flex justify-center items-center py-2 text-white w-[150px]">
+                              YouTube Video
+                                </div></a>
+
+                        </div>
+                        <div>
+
+                            <YouTubePlayer />
                         </div>
                     </div>
                 </section>
 
-                <section className="section_appearance ">
-                   <div className="container w-4/5">
-                        <div className="grid  md:grid-cols-1 lg:grid-cols-2 px-20 ">
-                            <div className=" flex flex-col justify-center pl-10 ">
-                                <div className="txt">
-                                    <h2 className="">
-                                        開機自檢校正<br></br>
-                                        確保每次測量的可靠性
+
+{/*                 
+                <section className="section_video01 section  m-0 p-0 flex justify-center">
+
+                    <div className="container w-full md:w-4/5 lg:w-2/3   ">
+                        <div className="row flex flex-col justify-center items-center mb-0  md:mb-5">
+
+                            <h2 className="">Introduction video
+</h2>
+                            <p>Operation</p>
+
+                        </div>
+                        <div className="row flex justify-center ">
+
+
+                            <AdvancedVideo poster='https://www.ultraehp.com/images/Ultra Video/UX100/中文版/YouTube-UX100-中文.webp' plugins={[lazyload({ rootMargin: '10px 20px 10px 30px', threshold: 0.25 })]} className='rounded-2xl' preload="flase" controls width={1000} height={600} cldVid={cld.video('/UX100Video/UX100中文版_fhhsj1')} /> 
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </section> */}
+
+                <section className="">
+                    <div className="container  px-5 lg:px-[50px] xl:px-[100px]">
+                        <div className="row flex mt-5 sm:mt-4 md:mt-0 flex-col md:flex-row  justify-center  w-full">
+                            <div className="right mt-3 md:mt-0 flex md:hidden items-center w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h2 className="h3-u text-center">Intuitive operation guide
 
                                     </h2>
-                                    <p>
-                                        4.3寸的全彩觸控螢幕，清楚簡明的圖形選單，<br></br>提供直覺操作體驗，讓您立即進行測量。
+                                    <p className=" text-center mx-auto  w-3/4 lg:w-full ">With 4.3 inch of full color touch screen and clear graphic menu that are intuitive to do the measurement right away.
+
+</p>
+                                </div>
+
+                            </div>
+                            <div className="left   mt-2 md:mt-0 p-0 md:p-10 w-full md:w-1/2">
+                                <Image height={300} loader={myLoader01} placeholder='empty' className="mx-auto" loading='lazy' alt='免校正微量拋棄式pH計酸鹼檢測儀觸控熒幕的操作Humming Probe UX100/超極生技UltraE' width={500} src='UX100-02-手拿方便-02-720x540.webp'></Image>
+
+                            </div>
+                            <div className="right hidden  md:flex items-center w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u text-center">Intuitive operation guide
+
+                                    </h3>
+                                    <p className="text-center w-full mx-auto">With 4.3 inch of full color touch screen and clear graphic menu that are intuitive to do the measurement right away.
+
+</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div className="row flex mt-5 sm:mt-4 md:mt-0 flex-col md:flex-row  justify-center  w-full">
+
+                            <div className="right mt-3 md:mt-0 flex items-center  w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u text-center">Algorithm automatic interpretation of the end point
+                                    </h3>
+                                    <p className="text-center  w-full lg:w-full mx-auto">Generally, the final pH value is determined from when the measured value stops fluctuating on the traditional pH meter. The UX100 uses an intelligent end point identification function (Auto read) and an algorithm to automatically determine the results, which can display the measurement results faster and more accurately, reducing human error.</p>
+                                </div>
+
+                            </div>
+                            <div className="left mt-2 md:mt-0 p-0 md:p-10 w-full  md:w-2/3">
+                                <Image loader={myLoader01} height={300} placeholder='empty' className="mx-auto mt-3" loading='lazy' width={500} src='UX100-08-智能結果判讀720x540.webp' alt='免校正微量拋棄式pH計酸鹼檢測儀演算法自動判讀pH值Humming Probe UX100/超極生技UltraE'></Image>
+
+                            </div>
+
+                        </div>
+                        <div className="row flex mt-5 sm:mt-4 md:mt-0 flex-col md:flex-row justify-center   w-full">
+                            <div className="right mt-3 lg:mt-0  flex md:hidden  items-center  w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u w-full text-center">Power-on Self-checking Calibration
+                                        Make sure the reliability for every measurement
+                                    </h3>
+                                    <p className="mx-auto text-center w-full">The Humming Probe contains built-in simulate electrodes for self-checking and validating and will conduct comprehensive self-checking every time it is turned on to eliminate the possibility of system errors.</p>
+                                </div>
+
+                            </div>
+                            <div className="left mt-2 lg:mt-0 p-0 md:p-10 w-full md:w-2/3">
+                                <Image loader={myLoader01} height={300} placeholder='empty' className="mx-auto" loading='lazy' width={500} src='UX100-開機自檢校正720x540.webp' alt='免校正微量拋棄式pH計酸鹼檢測儀開機自動自檢校正Humming Probe UX100/超極生技UltraE'></Image>
+
+                            </div>
+                            <div className="right hidden  md:flex items-center  w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u w-full text-center">Power-on Self-checking Calibration
+                                        Make sure the reliability for every measurement
+                                    </h3>
+                                    <p className="text-center">The Humming Probe contains built-in simulate electrodes for self-checking and validating and will conduct comprehensive self-checking every time it is turned on to eliminate the possibility of system errors.</p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <section className="  ">
+                            <div className="Container px-0 md:px-[20px]  ">
+                                <div className="grid  grid-cols-1">
+                                   
+                                    <div className="row">
+
+
+                                        <div className="relative w-full grid md:grid-cols-2  ">
+
+                                            <div className="mt-5 px-0 md:px-2">
+                                                <Card className="py-4">
+
+                                                    <CardBody className="overflow-visible py-2">
+                                                        <div className="img mt-5">
+                                                            <Image placeholder="empty" loader={myLoader01} loading='lazy' src='UX100-img04.webp' width={600} alt="免校正微量拋棄式pH計酸鹼檢測儀的試片插槽模式Humming Probe UX100/超極生技UltraE" height={600}></Image>
+                                                        </div>
+                                                        <div className="txt flex flex-col justify-center items-center mt-4 px-10">
+                                                            <h3 className="h3-u text-center">
+                                                                Strip Port Mode 
+
+<br></br>(Strip Port):
+
+
+
+                                                            </h3>
+                                                            <p className=" text-center">Dip the pH strip in the sample solution or drop the sample on the pH strip
+                                                                then insert the pH strip into the pH Meter for pH detection.</p>
+
+                                                        </div>
+
+                                                    </CardBody>
+                                                </Card>
+                                            </div>
+                                            <div className="mt-5 px-0 md:px-2">
+                                                <Card className="py-4">
+
+                                                    <CardBody className="overflow-visible py-2">
+                                                        <div className="img mt-5">
+                                                            <Image loader={myLoader01} src='UX100-img05.webp' placeholder="empty" loading='lazy' alt="免校正微量拋棄式pH計酸鹼檢測儀的外接傳輸線模式Humming Probe UX100/超極生技UltraE
+" width={600} height={600}></Image>
+                                                        </div>
+                                                        <div className="txt flex flex-col justify-center items-center mt-4 px-10">
+                                                            <h3 className="h3-u text-center">
+                                                                Cable Socket Mode <br />(Cable Socket)
+
+
+                                                            </h3>
+                                                            {/* <h3 className="h3-u opacity-0 text-center">
+                                                                外接傳輸線
+
+
+                                                            </h3> */}
+
+
+
+                                                        </div>
+                                                        <p className="text-center ">Strip port can be extended by cable socket that is similar to traditional pH meter measurement.
+
+
+
+                                                        </p>
+                                                        
+
+                                                    </CardBody>
+                                                </Card>
+                                            </div>
+
+
+
+
+
+
+
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </section>
+
+
+
+
+
+{/* 
+                        <section className="grid section md:w-full mx-auto lg:w-4/5 grid-cols-1">
+                            <div className="row flex items-center flex-col  justify-center">
+
+
+                                <div className="container flex flex-col justify-center items-center center">
+                                    <h2 className="">各種場都可提供清晰顯示
+
+                                    </h2>
+                                    <p className=" w-full text-center lg:w-2/3 ">彩色顯示器大又清楚，一眼就能找到相關資訊。具背光的350 cd/m2亮度的 LCD熒幕，無論在陽光直射下，或是在黑暗的區域，也能辨讀結果或瀏覽選單。
+
+</p>
+                                </div>
+
+
+
+
+                            </div>
+                            <div className="row">
+
+                                <div className="container center relative w-full mt-2 md:mt-0 border flex justify-center">
+
+
+                                    <Image placeholder="empty" loader={myLoader} loading="lazy" alt="免校正微量拋棄式pH計酸鹼檢測儀的高亮度熒幕適合戶外使用Humming Probe UX100/超極生技UltraE" src='UX100-02-手拿方便-03-720x540.webp' width={1100} height={400} className="rounded-2xl mt-3" />
+
+
+
+
+                                </div>
+
+
+                            </div>
+
+
+
+                        </section>
+                        
+                        <section className="row section flex flex-col md:flex-row  justify-center  w-full">
+
+                            <div className="right mt-3 md:mt-0 flex items-center  w-full md:w-1/2">
+                                <div className="container-text-wrap mx-auto">
+                                    <h2 className="mt-4 md:mt-0 text-[26px]">可透過USB連接至電腦
+
+                                    </h2>
+                                    <p className="text-center">內嵌大容量移記憶體空間，可記錄大量現場原始數據（照片，文件等）。也可作為一般移動硬碟使用。
+
+</p>
+                                </div>
+
+                            </div>
+                            <div className="left mt-2 md:mt-0 p-0 md:p-10 w-full md:w-1/2">
+                                <Image loader={myLoader01} height={300} placeholder='empty' className="mx-auto" loading='lazy' width={500} src='UX100-09-USB-720x540.webp' alt='免校正微量拋棄式pH計酸鹼檢測儀有大容量記憶空間可透過USB連接至電腦Humming Probe UX100/超極生技UltraE'></Image>
+
+                            </div>
+
+                        </section> */}
+                        {/* <div className="row flex flex-col md:flex-row justify-center   w-full">
+                            <div className="right mt-3 lg:mt-0  flex md:hidden  items-center  w-full md:w-1/2">
+                                <div className="container-text-wrap mx-auto">
+                                    <h2 className="text-[26px] mt-4 lg:mt-0">高效充電電池系統
+
+                                    </h2>
+                                    <p className="text-center">內建高效充電電池，，充電後可使用數小時，滿足實驗室及野外，無電力系統環境下的各種移動檢測需求。
+
+</p>
+                                </div>
+
+                            </div>
+                            <div className="left mt-2 lg:mt-0 p-0 md:p-10 w-full md:w-1/2">
+                                <Image loader={myLoader01} height={300} placeholder='empty' className="mx-auto" loading='lazy' width={500} src='UX100-01-高校充電電池720x540.webp' alt='免校正微量拋棄式pH計酸鹼檢測儀可不插電使用且有大容量電池系統Humming Probe UX100/超極生技UltraE'></Image>
+
+                            </div>
+                            <div className="right hidden  md:flex items-center  w-full md:w-1/2">
+                                <div className="container-text-wrap mx-auto">
+                                    <h2 className="text-[26px] mt-4 md:mt-0">開機自檢校正
+                                        確保每次測量的可靠性
+                                    </h2>
+                                    <p className="text-center">內置自檢確效模擬電極，每次開機會全面自我檢測，排除系統誤差的可能性。</p>
+                                </div>
+
+                            </div>
+
+
+                        </div> */}
+                    </div>
+                </section>
+                <section className="section_banner02 section h-[450px] relative mt-[50px] overflow-hidden lg:h-[576px] 2xl:h-[700px]">
+                    <Image className="absolute hidden md:block z-[8] top-0 left-0" src='UX200-10-方便攜帶-無字版-1920x768.webp' placeholder='empty' loader={myLoader} loading='lazy' alt="免校正微量拋棄式pH計酸鹼檢測儀的便攜設計適合隨身攜帶Humming Probe UX100/超極生技UltraE" width={1920} height={768}></Image>
+                    <Image className="absolute block md:hidden z-[8] top-0 left-0" src='UX100-11-方便攜帶-無字版-640x640.webp' placeholder='empty' loader={myLoader} loading='lazy' alt="免校正微量拋棄式pH計酸鹼檢測儀的便攜設計適合隨身攜帶Humming Probe UX100/超極生技UltraE" width={1920} height={768}></Image>
+
+
+                    <div className="txt bg-[] absolute left-[15px] md:left-[80px] z-[8] w-[90%] md:w-2/5 top-[25%] md:top-[14%] lg:top-[33%]">
+                        <h3 className="text-[32px] font-semibold">Easy for hand-held, portable
+
+                        </h3>
+
+                        <p className="text-white xl:w-4/5 w-full">Lightweight 250g, size suitable for handheld operation. Leather texture anti-slip design is easy to operate with one hand and disposable Humming Probe pH electrode <a href="https://www.ultraehp.com/hummingprobe/en/UH1.html" className="border-b-2 hover:text-orange-500">(learn more)</a> is portable without protection. </p>
+                    </div>
+                </section>
+
+
+                <section className="">
+                    <div className="container  px-5 lg:px-[50px] xl:px-[100px]">
+                        <div className="row flex mt-4 md:mt-0 py-0 md:py-8 flex-col md:flex-row  justify-center  w-full">
+
+                            <div className="right mt-3 md:mt-0 flex items-center  w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u text-center">Can provide clear display in various fields
+
+
+
+                                    </h3>
+                                    <p className="text-center">The color monitor is large and clear, so you can find relevant information at a glance. The 350 cd/m2 brightness LCD screen with backlight allows you to read results or browse menus in direct sunlight or in dark areas.
+
+
                                     </p>
                                 </div>
 
                             </div>
-                            <div>
-                                <Image src='/UX100-12-產品說明-720x540_工作區域_1-2_ru6jfc.webp' width={1000} height={1000}></Image>
+                            <div className="left mt-2 md:mt-0 p-0  w-full md:w-1/2">
+                                <Image loader={myLoader01} height={300} placeholder='empty' className="mx-auto" loading='lazy' width={500} src='UX100-02-手拿方便-03-720x540.webp' alt='免校正微量拋棄式pH計酸鹼檢測儀的高亮度熒幕適合戶外使用Humming Probe UX100/超極生技UltraE'></Image>
 
                             </div>
-                        </div>
 
-                   </div>
-                      
-                          
-                        
-                    <div className=" flex justify-center px-10 ">
-                        <div className="grid text-center  md:grid-cols-2 lg:grid-cols-4 mt-10  rounded-lg py-5 px-5 bg-orange-500"> 
-                            <a href='#inside' className="hover:bg-white hover:bg-opacity-20 p-4 rounded-lg hover:duration-400 text-white flex md:mt-5 mt-6">
-                               
-                                    <Image className="ml-5 rounded-lg" src='/UX100-Unboxing_ivzyjz.webp' width={110} height={110}></Image><br></br>
-                                <p className="text-white ml-1">內容配件<br></br>(極安檢測-胃幽門螺旋桿菌不同診斷方式比較
-)</p>
-                               
-                            </a>
-                            <a href='#features' className="hover:bg-white hover:bg-opacity-20 p-4 rounded-lg hover:duration-400 text-white flex md:mt-5 mt-6">
-                                <Image className="ml-5 rounded-lg" src='/banner01_hox7to.png' width={110} height={110}></Image>
-                                <p className="text-white ml-1">產品特點<br></br>(Algorithm automatically reads endpoints)</p>
-                            </a>
-                            <a href='#' className="hover:bg-white hover:bg-opacity-20 p-4 rounded-lg hover:duration-400 text-white flex md:mt-5 mt-6">
-                                <Image className="ml-5 rounded-lg" src='/banner01_hox7to.png' width={110} height={110}></Image>
-                                <p className="text-white ml-1">各種場都可提供清晰顯示(Provides a clear display)
+                        </div>
+                        <div className="row flex mt-4 md:mt-0 py-0 md:py-8  flex-col md:flex-row  justify-center  w-full">
+                            <div className="right mt-3 md:mt-0 flex md:hidden items-center w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h2 className="h3-u text-center">Can provide clear display in various fields
+
+                                    </h2>
+                                    <p className="text-center">The color monitor is large and clear, so you can find relevant information at a glance. The 350 cd/m2 brightness LCD screen with backlight allows you to read results or browse menus in direct sunlight or in dark areas.
+
 </p>
-                            </a>
-                            <a href='#' className="hover:bg-white hover:bg-opacity-20 p-4 rounded-lg hover:duration-400 text-white flex md:mt-5 mt-6">
-                                <Image className="ml-5 rounded-lg" src='/banner01_hox7to.png' width={110} height={110}></Image>
-                                <p className="text-white ml-1">Shop Early, 
-Enjoy Sooner</p>
-                            </a>
+                                </div>
+
+                            </div>
+                            <div className="left   mt-2 md:mt-0 p-0 w-full md:w-1/2">
+                                <Image height={300} loader={myLoader01} placeholder='empty' className="mx-auto" loading='lazy' alt='免校正微量拋棄式pH計酸鹼檢測儀可不插電使用且有大容量電池系統Humming Probe UX100/超極生技UltraE' width={500} src='UX100-01-高校充電電池720x540.webp'></Image>
+
+                            </div>
+                            <div className="right hidden  md:flex items-center w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u text-center">High Efficiency Rechargeable Battery System
+
+
+                                    </h3>
+                                    <p className="text-center">The built-in high-efficiency rechargeable battery can be used for several hours after charging, which can meet various mobile detection needs for laboratories or outdoor environments without power system.
+
+
+</p>
+                                </div>
+
+                            </div>
+
                         </div>
-                        
-                    </div>
-                  
-                    
-                    {/* <div className="flex justify-center bg-black py-4 mt-5">
-                        <div className="color-bar w-2/4  grid grid-cols-3">
-                            <div className="text-center">
-                                <a href="" className="text-white text-center">產品概述</a>
-                            </div>
-                            <div className="text-center">
-                                <a href="" className="text-white text-center">使用方式
+                        <div className="row flex mt-4 md:mt-0  py-0 md:py-8  flex-col md:flex-row  justify-center  w-full">
 
-</a>
-                            </div>
-                            <div className="text-center">
-                                <a href="#fff" className="text-white text-center">您可能也會喜歡</a>
+                            <div className="right mt-3 md:mt-0 flex items-center  w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u text-center">Build-in camera
 
 
+                                    </h3>
+                                    <p className="text-center">On-site sample status and test environment can be recorded at any time.
+
+
+
+
+</p>
+                                </div>
+
                             </div>
+                            <div className="left mt-2 md:mt-0 p-0  w-full md:w-1/2">
+                                <Image loader={myLoader01} height={300} placeholder='empty' className="mx-auto" loading='lazy' width={500} src='UX100-10-手持拍照-720x540.webp' alt='免校正微量拋棄式pH計酸鹼檢測儀具有鏡頭可以記錄原始數據Humming Probe UX100/超極生技UltraE'></Image>
+
+                            </div>
+
                         </div>
-                       
-                        
+                        <div className="row flex mt-4 md:mt-0 py-0 md:py-8  flex-col md:flex-row justify-center   w-full">
+                            <div className="right mt-3 lg:mt-0  flex md:hidden  items-center  w-full md:w-2/3">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u text-center">Can be connected to a computer via USB
+
+                                    </h3>
+                                    <p className="text-center">Built-in large memory capacity for recording a large amount of live raw data (photos, documents, etc.). It can also be used as a general mobile hard disk.
+
+
+
+</p>
+                                </div>
+
+                            </div>
+                            <div className="left mt-2 lg:mt-0 p-0 w-full md:w-1/2">
+                                <Image loader={myLoader01} height={300} placeholder='empty' className="mx-auto" loading='lazy' width={500} src='UX100-09-USB-720x540.webp' alt='免校正微量拋棄式pH計酸鹼檢測儀有大容量記憶空間可透過USB連接至電腦Humming Probe UX100/超極生技UltraE'></Image>
+
+                            </div>
+                            <div className="right hidden  md:flex items-center  w-full md:w-1/2">
+                                <div className="container-text-wrap mx-auto">
+                                    <h3 className="h3-u text-center">Can be connected to a computer via USB
+
+
+                                    </h3>
+                                    <p className="text-center">Built-in large memory capacity for recording a large amount of live raw data (photos, documents, etc.). It can also be used as a general mobile hard disk.
+
+
+
+</p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        </div>
+                        </section>
+
+
+
+
+
+               
+
+
+
+
+                <section className="section  ">
+                    <div className="Container px-0 md:px-[20px]  ">
+                        <div className="grid grid-cols-1">
+
+                            <div className="row md:px-[60px] xl:px-[150px]">
+
+
+                                <div className="relative w-full grid md:grid-cols-2  ">
+
+                                    <div className="mt-5 px-0 md:px-3">
+                                        <Card className="py-4">
+
+                                            <CardBody className="overflow-visible py-2">
+                                                <div className="img mt-5">
+                                                    <Image
+                                                        alt="免校正微量拋棄式pH計酸鹼檢測儀可使用三角架實現桌上型pH計Humming Probe UX100/超極生技UltraE"
+                                                        className="object-cover rounded-xl"
+                                                        placeholder="empty"
+                                                        loading="lazy"
+                                                        loader={myLoader01}
+
+                                                        src="UX100-img03.webp"
+                                                        width={970}
+                                                        height={500}
+                                                    />
+                                                </div>
+                                                <div className="txt flex flex-col justify-center items-center mt-4 px-10">
+                                                    <h3 className="h3-u text-center">Easy to use with facility
+
+
+                                                    </h3>
+
+
+                                                    <p className="text-default-500 text-gray-900">Long-term continuous monitoring
+
+                                                    </p>
+                                                    <p className="text-default-500 text-gray-900">Triangular Adjustable Stand
+
+                                                    </p>
+                                                    <p className="text-default-500 text-gray-900">Convenient and stable fixation
+
+                                                    </p>
+
+                                                </div>
+
+                                            </CardBody>
+                                        </Card>
+                                    </div>
+                                    <div className="mt-5 px-0 md:px-3">
+                                        <Card className="py-4">
+
+                                            <CardBody className="overflow-visible py-2">
+                                                <div className="img mt-5">
+                                                    <Image
+                                                        loader={myLoader01}
+                                                        alt="免校正微量拋棄式pH計酸鹼檢測儀具有防水防塵，適合戶外使用Humming Probe UX100/超極生技UltraE"
+                                                        className="object-cover rounded-xl"
+                                                        placeholder="empty"
+                                                        loading="lazy"
+                                                        src="UX100-img02.webp"
+                                                        width={970}
+                                                        height={500}
+                                                    />
+                                                </div>
+                                                <div className="txt flex flex-col justify-center items-center mt-4 px-10">
+                                                    <h3 className="h3-u text-center">IP54 waterproof and dustproof rating
+                                                    </h3>
+                                                    <p className=" text-gray-900">Unaffected by weather
+</p>
+                                                    <p className=" text-gray-900">Suitable for every application
+</p>
+                                                    <p className=" text-gray-900">Firm and sturdy
+
+
+
+
+
+
+
+</p>
+                                                    </div>
+
+                                            </CardBody>
+                                        </Card>
+                                    </div>
+
+
+
+
+
+
+
+                                </div>
+
+
+
+
+
+                            </div>
+
+
+
+                        </div>
                     </div>
-                     */}
                 </section>
-                
-                <section className="section_Accessories " id='inside'>
 
-                    <div className="flex flex-col w-full px-[20px] md:px-20 bg-gray-150">
-                        <div className="w-full text-center flex flex-col items-center justify-center py-10">
-                            <h1 className="mt-2  text-center text-3xl md:text-5xl font-bold uppercase" >
-                                內容物配件
-                            </h1>
-                            <p className="">
-                                極安檢測-胃幽門螺旋桿菌不同診斷方式比較
+                <section className="section  ">
+                    <div className="Container px-0 md:px-[20px]  ">
+                        <div className="grid grid-cols-1">
+                            <div className="row  flex items-center flex-col  justify-center">
+
+                              
+
+                                <motion.p
+                                    className="text-m "
+                                    variants={title03}
+                                >
+
+                                </motion.p>
+
+
+                            </div>
+                           
+
+
+
+                        </div>
+                    </div>
+                </section>
+                <section className=" section_slider section  hidden">
+                    <div className="mb-10">
+                      
+
+
+                        <h2 id='fff' className="mb-4 dark:text-white text-3xl text-center md:text-5xl leading-none font-bold uppercase">  胃幽門螺旋桿菌的快速尿素呼吸檢測法</h2>
+
+
+
+                        <div className="px-[20px]">
+                            <p className="text-black w-full md:w-1/2  text-m text-center mx-auto dark:text-gray-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. In exercitationem officiis saepe accusamus error, sit maxime commodi officia, rerum temporibus laudantium culpa recusandae dolor, ipsa eveniet cupiditate natus vero non!</p>
+                        </div>
+
+                        <div className="flex justify-center">
+                            <p className="text-sm text-center   rounded-full bg-orange-500 inline-block text-gray-100 mt-4 px-3 py-2 mx-auto ">
+                                幽門螺旋桿菌
 
                             </p>
                         </div>
-                        <div className="w-full flex flex-col lg:flex-row ">
-                            <div className="w-full lg:w-1/2">
 
-                                <div className="left py-16 border-gray-50 rounded-2xl shadow-md bg-black border  flex flex-col items-center justify-center overflow-hidden group">
-                                    <div className="txt text-center p-1">
-
-                                        <p className="text-white text-normal">Stem Play</p>
-                                        <h2 className="text-white mt-2 text-center text-4xl font-bold uppercase">直覺性操作指引
-</h2>
-
-                                        <a href="#" className="mt-10">Learn More</a>
-                                    </div>
-                                    <Image className="duration-500 group-hover:scale-110" src='/UX100_cpaa0v.webp' width={600} height={200}></Image>
-                                    <p className="text-gray-300 w-2/3 text-center mt-10 hidden md:block">4.3寸的全彩觸控螢幕，清楚簡明的圖形選單，提供直覺操作體驗，讓您立即進行測量。</p>
-                                </div>
-
-
-                            </div>
-                            <div className="right w-full lg:w-1/2">
-                                <div class='h-1/2 ml-0 md:ml-5 mt-4  w-full border border-gray-50 bg-white flex rounded-2xl p-8 shadow-md overflow-hidden  group'>
-                                    <div className="tx w-2/5">
-                                        <h2 className="text-black mt-2 text-left text-3xl font-bold uppercase">What's Include ?</h2>
-                                        <p className="text-xs">1.UX100:酸鹼檢測儀(一台)</p>
-                                        <p className="text-xs">1.UX100:酸鹼檢測儀(一台)</p>
-                                        <p className="text-xs">1.UX100:酸鹼檢測儀(一台)</p>
-                                        <p className="text-xs">1.UX100:酸鹼檢測儀(一台)</p> <p className="text-xs">1.UX100:酸鹼檢測儀(一台)</p>
-                                        
-                                    </div>
-                                    <div className="w-3/5 group-hover:scale-150 relative h-[300px] duration-500">
-                                        <Image src='/UX100-Unboxing_ivzyjz.webp' width={800} height={500} className="absolute right-[-10px] scale-[1.05] "></Image>
-                                    </div>
-                                    
-                                   
-
-
-                                </div>
-                                <div className=" flex md:flex-row flex-col   w-full ">
-                                    <div className="w-full mt-4  ml-0 md:ml-5 mt-3 h-1/2">
-                                        <Card isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-5">
-                                            <CardHeader className="absolute z-10 top-1 flex-col items-start">
-                                                <p className="text-tiny text-white/60 uppercase font-bold">New</p>
-                                                <h4 className="text-gray-200 font-medium text-2xl">Acme camera</h4>
-                                            </CardHeader>
-                                            <video
-                                                autoPlay
-                                                loop
-                                                muted
-                                                
-                                                removeWrapper
-                                                alt="Card example background"
-                                                className="z-0 w-full h-full object-cover"
-                                                src="https://www.ultraehp.com/images/Ultra%20Video/UX100/中文版/UX100中文版.mp4"
-                                            />
-                                            <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
-                                                <div>
-                                                    <p className="text-black text-tiny">Available soon.</p>
-                                                    <p className="text-black text-tiny">Get notified.</p>
-                                                </div>
-                                                <Button className="text-tiny"  color="primary" radius="full" size="sm">
-                                                    <a href="https://www.youtube.com">
-                                                        Go youtube
-                                                   </a>
-                                                </Button>
-                                              
-                                            </CardFooter>
-                                        </Card>
-                                    </div>
-                                    <div className="w-full ml-0 mt-4 md:ml-5 mt-3 h-full">
-                                        <Card isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7">
-                                            <CardHeader className="absolute z-10 top-1 flex-col items-start">
-                                                <p className="text-tiny text-white/60 uppercase font-bold">Your day your way</p>
-                                                <h4 className="text-white/90 font-medium text-xl">Your checklist for better sleep</h4>
-                                            </CardHeader>
-                                            <Image
-                                                 width={500}
-                                                 height={500}
-                                                removeWrapper
-                                                alt="Relaxing app background"
-                                                className="z-0 w-full h-full object-cover"
-                                                src="/截圖_2024-02-16_上午11.11.08_qcpxwy.png"
-                                            />
-                                            <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-                                                <div className="flex flex-grow gap-2 items-center">
-                                                    <Image
-                                                        width={600}
-                                                        height={600}
-                                                        alt="Breathing app icon"
-                                                        className="rounded-full w-10 h-11 bg-black"
-                                                        src="/截圖_2024-02-16_上午11.11.08_qcpxwy.png"
-                                                    />
-                                                    <div className="flex flex-col">
-                                                        <p className="text-tiny text-white/60">Breathing App</p>
-                                                        <p className="text-tiny text-white/60">Get a good night's sleep.</p>
-                                                    </div>
-                                                </div>
-                                                <Button radius="full" size="sm">Download DM</Button>
-                                            </CardFooter>
-                                        </Card>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        
-                    </div>
-
-
-                
-                </section>
-                
-                <section className="section_clear_display" id="features">
-                    <div className="Container px-5 md:px-20">
-                        <div className="grid grid-cols-1">
-                            <div className="row mt-20 flex items-center flex-col  justify-center">
-                                {/* <motion.div className="card"
-                            initial={"offscreen"}
-                            whileInView={"onscreen"}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ staggerChildren: 0.3 }}
-                        >
-
-                            <motion.h2
-                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                variants={textAnimate}
-                            > About Helicobacter pylori</motion.h2>
-
-
-                        </motion.div> */}
-
-
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
-
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={title01}
-                                    >
-
-                                       <div className="container flex flex-col justify-center items-center center">
-                                            <h2 className="">各種場都可提供清晰顯示</h2>
-                                            <p className=" w-full lg:w-2/3 ">彩色顯示器大又清楚，一眼就能找到相關資訊。具背光的350 cd/m2亮度的 LCD熒幕，無論在陽光直射下，或是在黑暗的區域，也能辨讀結果或瀏覽選單。</p>
-                                       </div>
-
-                                    </motion.h2>
-
-
-
-                                    <motion.p
-                                        className="text-m "
-                                        variants={title02}
-                                    >
-
-                                        <div className="order mt-10 mx-auto py-1 px-5 text-center w-[150px] bg-black rounded-full text-slate-200 border">
-                                            UP100
-                                        </div>
-
-                                        <div className="w-full border flex justify-center">
-                                            <a href="https://www.ultraehp.com/ultrapeace" className="text-grey-400 text-center mx-auto">read more → </a>
-                                        </div>
-
-
-                                    </motion.p>
-
-
-                                </motion.div>
-
-
-                                <motion.p
-                                    className="text-m "
-                                    variants={title03}
-                                >
-
-                                </motion.p>
-
-
-                            </div>
-                            <div className="row">
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
-
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={ImageAnimate}
-                                    >
-
-                                        <div className="container center relative w-full border flex justify-center">
-                                            {/* <img className="w-[1000px] mx-auto rotate-[-1.5deg]" src="https://www.ultraehp.com/images/Products-Detail-Img/UP100/up100-12.png" alt="" /> */}
-
-                                            <Image placeholder="empty" loading="lazy" alt="running people" src='/UX100-02-手拿方便-03-720x540-2_gsmgfq.png' width={1000} height={400} className="rounded-2xl" />
-
-
-
-                                            
-                                        </div>
-
-
-
-
-                                    </motion.h2>
-
-
-                                </motion.div>
-
-
-
-                            </div>
-
-
-                            
-                        </div>
-                    </div>
-                </section>
-                <section className="section_lens">
-                    <div className=" flex flex-col justify-center items-center px-5 md:px-20">
-                        <div className="grid md:w-full  lg:w-2/3 grid-cols-1">
-                            <div className="row mt-20  flex items-center flex-col  justify-center">
-                                {/* <motion.div className="card"
-                            initial={"offscreen"}
-                            whileInView={"onscreen"}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ staggerChildren: 0.3 }}
-                        >
-
-                            <motion.h2
-                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                variants={textAnimate}
-                            > About Helicobacter pylori</motion.h2>
-
-
-                        </motion.div> */}
-
-
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
-
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={title01}
-                                    >
-
-                                        <div className="container flex flex-col justify-center items-center center">
-                                            <h2 className="">內置鏡頭
-</h2>
-                                            <p className=" w-full lg:w-2/3 ">可隨時記錄現場樣品狀態及測試環境。</p>
-                                        </div>
-
-                                    </motion.h2>
-
-
-
-                                    <motion.p
-                                        className="text-m "
-                                        variants={title02}
-                                    >
-
-                                        <div className="order mt-10 mx-auto py-1 px-5 text-center w-[150px] bg-black rounded-full text-slate-200 border">
-                                            UP100
-                                        </div>
-
-                                        <div className="w-full border flex justify-center">
-                                            <a href="https://www.ultraehp.com/ultrapeace" className="text-grey-400 text-center mx-auto">read more → </a>
-                                        </div>
-
-
-                                    </motion.p>
-
-
-                                </motion.div>
-
-
-                                <motion.p
-                                    className="text-m "
-                                    variants={title03}
-                                >
-
-                                </motion.p>
-
-
-                            </div>
-                            <div className="row">
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
-
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={ImageAnimate}
-                                    >
-
-
-                                        <div className="container center relative w-full border flex justify-center">
-                                            {/* <img className="w-[1000px] mx-auto rotate-[-1.5deg]" src="https://www.ultraehp.com/images/Products-Detail-Img/UP100/up100-12.png" alt="" /> */}
-
-                                            <Image placeholder="empty" loading="lazy" alt="running people" src='/UX100-10-手持拍照-720x540-2_tgcgm8.webp' width={1100} height={400} className="rounded-2xl" />
-
-
-
-
-                                        </div>
-
-
-
-
-                                    </motion.h2>
-
-
-                                </motion.div>
-
-
-
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                </section>
-
-
-                <section>
-                    <div className="Container px-5 md:px-20">
-                        <div className="grid grid-cols-1">
-                            <div className="row mt-20 flex items-center flex-col  justify-center">
-                                {/* <motion.div className="card"
-                            initial={"offscreen"}
-                            whileInView={"onscreen"}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ staggerChildren: 0.3 }}
-                        >
-
-                            <motion.h2
-                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                variants={textAnimate}
-                            > About Helicobacter pylori</motion.h2>
-
-
-                        </motion.div> */}
-
-
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
-
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={title01}
-                                    >
-                                        <div className="container flex flex-col justify-center items-center center">
-
-                                            <h2 className="">產品特點</h2>
-                                            <p className="text-base text-gray-800 md:w-2/3 w-full mx-auto">彩色顯示器大又清楚，一眼就能找到相關資訊。具背光的350 cd/m2亮度的 LCD熒幕，無論在陽光直射下，或是在黑暗的區域，也能辨讀結果或瀏覽選單。</p>
-
-
-
-                                            </div>
-
-                                    
-                                    </motion.h2>
-
-
-
-                                    <motion.p
-                                        className="text-m "
-                                        variants={title02}
-                                    >
-
-                                        <div className="order mt-10 mx-auto py-1 px-5 text-center w-[150px] bg-black rounded-full text-slate-200 border">
-                                            UP100
-                                        </div>
-
-                                        <div className="w-full border flex justify-center">
-                                            <a href="https://www.ultraehp.com/ultrapeace" className="text-grey-400 text-center mx-auto">read more → </a>
-                                        </div>
-
-
-                                    </motion.p>
-
-
-                                </motion.div>
-
-
-                                <motion.p
-                                    className="text-m "
-                                    variants={title03}
-                                >
-
-                                </motion.p>
-
-
-                            </div>
-                            <div className="row">
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
-
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={ImageAnimate}
-                                    >
-
-                                        <div className="relative w-full grid lg:grid-cols-2 px-20">
-
-                                            <div className="px-10 flex shadow-xl p-7 rounded-2xl flex-col items-center m-3 dark:bg-white ">
-                                                <div className="txt">
-                                                    <h3 className="">
-                                                        可透過USB連接至電腦
-
-
-                                                    </h3>
-                                                 
-
-                                                </div>
-                                                <small className=" ">內嵌大容量移記憶體空間，可記錄大量現場原始數據（照片，文件等）。也可作為一般移動硬碟使用。</small>
-                                                <div className="img mt-5">
-                                                    <Image src='/UX100-09-USB-720x540-2_vyfagg.webp' width={600} height={600}></Image>
-                                                </div>
-                                                
-                                                
-                                            </div>
-                                            <div className="px-10 m-3 flex shadow-xl p-7 rounded-2xl flex-col items-center dark:bg-white">
-                                                <div className="txt">
-                                                    <h3 className="">
-                                                        高效充電電池系統
-
-
-                                                    </h3>
-
-
-                                                </div>
-                                                <small className=" ">內建高效充電電池，，充電後可使用數小時，滿足實驗室及野外，無電力系統環境下的各種移動檢測需求。
-
-</small>
-                                                <div className="img mt-5">
-                                                    <Image src='/UX100-01-高校充電電池720x540-2_isuywj.webp' width={600} height={600}></Image>
-                                                </div>
-
-
-                                            </div>
-                                          
-
-                                           
-
-
-
-
-                                        </div>
-
-
-
-
-                                    </motion.h2>
-
-
-                                </motion.div>
-
-
-
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div className="Container px-5 md:px-20">
-                        <div className="grid grid-cols-1">
-                            <div className="row mt-20 flex items-center flex-col  justify-center">
-                                {/* <motion.div className="card"
-                            initial={"offscreen"}
-                            whileInView={"onscreen"}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ staggerChildren: 0.3 }}
-                        >
-
-                            <motion.h2
-                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                variants={textAnimate}
-                            > About Helicobacter pylori</motion.h2>
-
-
-                        </motion.div> */}
-
-
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
-
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={title01}
-                                    >
-
-                                        <h2 className="mb-4 dark:text-white text-center text-3xl md:text-5xl leading-none font-bold uppercase">產品特點</h2>
-                                        <p className="text-base text-gray-800 md:w-2/3 w-full mx-auto">彩色顯示器大又清楚，一眼就能找到相關資訊。具背光的350 cd/m2亮度的 LCD熒幕，無論在陽光直射下，或是在黑暗的區域，也能辨讀結果或瀏覽選單。</p>
-
-                                    </motion.h2>
-
-
-
-                                    <motion.p
-                                        className="text-m "
-                                        variants={title02}
-                                    >
-
-                                        <div className="order mt-10 mx-auto py-1 px-5 text-center w-[150px] bg-black rounded-full text-slate-200 border">
-                                            UP100
-                                        </div>
-
-                                        <div className="w-full border flex justify-center">
-                                            <a href="https://www.ultraehp.com/ultrapeace" className="text-grey-400 text-center mx-auto">read more → </a>
-                                        </div>
-
-
-                                    </motion.p>
-
-
-                                </motion.div>
-
-
-                                <motion.p
-                                    className="text-m "
-                                    variants={title03}
-                                >
-
-                                </motion.p>
-
-
-                            </div>
-                            <div className="row">
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
-
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={ImageAnimate}
-                                    >
-
-                                        <div className="relative w-full grid lg:grid-cols-2 border border-black px-20">
-
-                                            <div className="px-10">
-                                                <Card className="py-4">
-                                                    <CardHeader className="pb-0 pt-2 px-4 flex-col  items-center">
-
-                                                        <h2 className="font-bold text-large">無論如何使用都得心應手
-
-                                                        </h2>
-
-                                                     
-                                                        <small className="text-default-500 text-gray-900">長時間連續監測
-</small>
-                                                        <small className="text-default-500 text-gray-900">三角力學活動架
-                                                        </small>
-                                                        <small className="text-default-500 text-gray-900">方便穩定的固定方式
-                                                        </small>
-
-
-                                                    </CardHeader>
-                                                    <CardBody className="overflow-visible py-2">
-                                                        <Image
-                                                            alt="Card background"
-                                                            className="object-cover rounded-xl"
-                                                            src="/UX100-img03_eakhd8.webp"
-                                                            width={970}
-                                                            height={500}
-                                                        />
-                                                    </CardBody>
-                                                </Card>
-                                            </div>
-                                            <div className="px-10">
-                                                <Card className="py-4">
-                                                    <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
-                                                        <h2 className="font-bold text-large">IP54防水防塵等級
-                                                        </h2>
-                                                        <small className="text-default-500 text-gray-900">不受天氣影響</small>
-                                                        <small className="text-default-500 text-gray-900">適合各種應用場合</small>
-                                                        <small className="text-default-500 text-gray-900">堅固耐用</small>
-                                                      
-                                                       
-                                                    </CardHeader>
-                                                    <CardBody className="overflow-visible py-2">
-                                                        <Image
-                                                            alt="Card background"
-                                                            className="object-cover rounded-xl"
-                                                            src="/UX100-img02_wfp5ej.webp"
-                                                            width={970}
-                                                            height={500}
-                                                        />
-                                                    </CardBody>
-                                                </Card>
-                                            </div>
-
-
-
-
-
-
-
-                                        </div>
-
-
-
-
-                                    </motion.h2>
-
-
-                                </motion.div>
-
-
-
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                </section>
-                <section className=" section_slider mt-20">
-                    <div className="mb-10"> 
-                        {/* <div className="text-center ">
-                            <Link
-                                className="text-sm underline underline-offset-2 hover:text-lime-300"
-                                href={"https://medium.com/@jeyprox"}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                to the article
-                            </Link>
-                            <Link
-                                className="text-sm underline underline-offset-2 hover:text-lime-300"
-                                href={"https://github.com/jeyprox/framer-carousel"}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                to the repo
-                            </Link>
-                        </div> */}
-                        <h1 className="mt-2  text-center text-4xl font-bold uppercase">
-                          
-
-                        </h1>
-                       
-                        <motion.div className="card"
-                            initial={"offscreen"}
-                            whileInView={"onscreen"}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ staggerChildren: 0.3 }}
-                        >
-
-                            <motion.h2
-                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                variants={title01}
-                            >
-
-                              
-
-                                <h2 id='fff' className="mb-4 dark:text-white text-3xl text-center md:text-5xl leading-none font-bold uppercase">  胃幽門螺旋桿菌的快速尿素呼吸檢測法</h2>
-                              
-
-                            </motion.h2>
-
-
-
-                            <motion.p
-                                className="text-m "
-                                variants={title02}
-                            >
-
-                                <div className="px-[20px]">
-                                    <p className="text-black w-full md:w-1/2  text-m text-center mx-auto dark:text-gray-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. In exercitationem officiis saepe accusamus error, sit maxime commodi officia, rerum temporibus laudantium culpa recusandae dolor, ipsa eveniet cupiditate natus vero non!</p>
-                                </div>
-
-                                <div className="flex justify-center">
-                                    <p className="text-sm text-center   rounded-full bg-orange-500 inline-block text-gray-100 mt-4 px-3 py-2 mx-auto ">
-                                        幽門螺旋桿菌
- 
-                                    </p>
-                                </div>
-
-                            </motion.p>
-
-
-                        </motion.div>
-                       
+                     
 
                     </div>
 
                     <div className="flex w-full p-[15px] px-20 relative">
 
-                   
 
-                    <div className="w-[60%] px-20 ">
 
-                        <div className="txt  pl-[20%]">
-                            <h3>
+                        <div className="w-[60%] px-20 ">
+
+                            <div className="txt  pl-[20%]">
+                                <h3>
                                     輕鬆手持，方便攜帶
-                            </h3>
+                                </h3>
                                 <p className="mt-2 dark:text-white text-base text-gray-800">250g 的輕巧重量，適合手持操作的大小。皮革質感防滑設計，可輕鬆單手完成操作。配合方便攜帶的拋棄式蜂鳥探針電極 (瞭解更多) 無需層層保護，輕鬆移動。</p>
+                            </div>
+
                         </div>
+                        <div className="w-[40%]  ">
+                            {/* <TwoColSlider /> */}
 
+                            <Image src='/截圖_2024-02-01_下午3.59.25_gfj4te.webp' alt='輕鬆手持' width={400} height={1000} ></Image>
+                        </div>
                     </div>
-                    <div className="w-[40%]  ">
-                        {/* <TwoColSlider /> */}
-
-                            <Image src='/截圖_2024-02-01_下午3.59.25_gfj4te.webp' width={400}height={1000}></Image>
-                    </div>
-                    </div>
-                  
-                </section>
-
-
-
-
-
-
-                <section className="  mt-20 flex center">
-                    <div className="mb-10 container md:px-10 lg:px-20">
-                        {/* <div className="text-center ">
-                            <Link
-                                className="text-sm underline underline-offset-2 hover:text-lime-300"
-                                href={"https://medium.com/@jeyprox"}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                to the article
-                            </Link>
-                            <Link
-                                className="text-sm underline underline-offset-2 hover:text-lime-300"
-                                href={"https://github.com/jeyprox/framer-carousel"}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                to the repo
-                            </Link>
-                        </div> */}
-                        <h1 className="mt-2  text-center text-4xl font-bold uppercase">
-
-
-                        </h1>
-
-                        <motion.div className="card"
-                            initial={"offscreen"}
-                            whileInView={"onscreen"}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ staggerChildren: 0.3 }}
-                        >
-
-                            <motion.h2
-                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                variants={title01}
-                            >
-
-
-
-                                <h2 id='fff' className="mb-4 dark:text-white text-3xl text-center text-black  leading-none font-bold uppercase">  什麼時候需要使用蜂鳥探針pH檢測電極？
-
-</h2>
-
-
-                            </motion.h2>
-
-
-
-                            <motion.p
-                                className="text-m "
-                                variants={title02}
-                            >
-
-                             
-
-
-
-                                <div className="card-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-                                    <div>
-                                        <Card className="py-4">
-                                            <CardHeader className="pb-0 pt-2 px-4 flex-col h-[250px] items-start">
-                                                <h4 className="font-bold text-large">生物實驗室
-                                                </h4>
-                                                <small className="text-default-500 text-gray-900">培養基或者緩衝溶液的酸鹼值控制通常需要在0.1pH的範圍內調整酸鹼度。蜂鳥探針可以直接插入培養基中，精確控制及監測培養基酸鹼度。保證細胞及細菌等的培養所需的適合的環境。</small>
-                                              
-                                            </CardHeader>
-                                            <CardBody className="overflow-visible py-2">
-                                                <Image
-                                                    alt="Card background"
-                                                    className="object-cover rounded-xl"
-                                                    src="/FAQ-01_kjgfr3.webp"
-                                                    width={500}
-                                                    height={300}
-                                                />
-                                            </CardBody>
-                                        </Card>
-
-                                    </div>
-                                    <div>
-                                        <Card className="py-4">
-                                            <CardHeader className="pb-0 pt-2 px-4 flex-col h-[250px]  items-start">
-                                                <h4 className="font-bold text-large">戶外現場檢測</h4>
-                                                <small className="text-default-500 text-gray-900">傳統方法在監測戶外環境汙染問題，往往需要將樣品採樣至實驗室後進行檢測，直接現場檢測之方式較少採用，所需時間往往較長，無法於第一時間檢測出汙染問題。蜂鳥探針無須攜帶多種校正液體，只需攜帶檢測儀及試片電極，直接於現場檢測，快速得到檢測結果，大幅縮短檢測時程，第一時間了解汙染程度。</small>
-                                               
-                                            </CardHeader>
-                                            <CardBody className="overflow-visible py-2">
-                                                <Image
-                                                    alt="Card background"
-                                                    className="object-cover rounded-xl"
-                                                    src="/FAQ-02_iidqpu.webp"
-                                                    width={500}
-                                                    height={300}
-                                                />
-                                            </CardBody>
-                                        </Card>
-                                    </div>
-                                    <div>
-                                        <Card className="py-4">
-                                            <CardHeader className="pb-0 pt-2 px-4 flex-col h-[250px]  items-start">
-                                                <h4 className="font-bold text-large">生醫檢測領域
-                                                </h4>
-                                                <small className="text-default-500 text-gray-800">生醫檢測的樣品體積量通常比較微小，如:血液、尿液、組織液等，以傳統pH計檢測電極無法量測，故常以較為簡單的模式(如顯色法)進行，無法準確得到量測數據。蜂鳥探針可以在樣品體積只有1 - 20 微升時 仍可準確的量測生物反應中酸鹼值及電導度之變化。拋棄式的設計更可以避免交叉污染。蜂鳥探針系統也可以客製化方式嵌入至其他檢測產品中提供pH數值。
-
-</small>
-                                               
-                                            </CardHeader>
-                                            <CardBody className="overflow-visible py-2">
-                                                <Image
-                                                    alt="Card background"
-                                                    className="object-cover rounded-xl"
-                                                    src="/FAQ-03_zpb7fd.webp"
-                                                    width={500}
-                                                    height={300}
-                                                />
-                                            </CardBody>
-                                        </Card>
-                                    </div>
-                                    <div>
-                                        <Card className="py-4">
-                                            <CardHeader className="pb-0 pt-2 px-4 flex-col h-[250px]  items-start">
-                                                <h4 className="font-bold text-large">農業領域
-                                                </h4>
-                                                <small className="text-default-500 text-gray-900">土壤的酸鹼度(pH值)是作物種植時重要的一步。蜂鳥探針可以直接在濕潤土壤或使用簡單水溶解介質中測試土壤的酸鹼度。協助植物生長管理或者土壤改良。</small>
-                                              
-                                            </CardHeader>
-                                            <CardBody className="overflow-visible py-2">
-                                                <Image
-                                                    alt="Card background"
-                                                    className="object-cover rounded-xl"
-                                                    src="/FAQ-04_a9id6p.webp"
-                                                    width={500}
-                                                    height={300}
-                                                />
-                                            </CardBody>
-                                        </Card>
-                                    </div>
-                                    <div><Card className="py-4">
-                                        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start h-[250px ]">
-                                            <h4 className="font-bold text-large">食品與飲料加工業
-                                                </h4>
-                                            <small className="text-default-500 text-gray-900">酸鹼值對於生產食品的製程中，會影響到成品的口味、新鮮度和保存期限。蜂鳥探針的專利離子膜及拋棄式電極的設計可以克服樣品中的成分複雜，通常需要前處理過程後才能精確測測試。提供如肉品、魚類、果醬、海鮮、牛奶、起司、優格、乳製品、醬汁、茶類等pH值的精確量測結果。
-
-</small>
-                                          
-                                        </CardHeader>
-                                        <CardBody className="overflow-visible py-2">
-                                            <Image
-                                                alt="Card background"
-                                                className="object-cover rounded-xl"
-                                                src="/FAQ-05_jlfyqv.webp"
-                                                width={500}
-                                                height={300}
-                                            />
-                                        </CardBody>
-                                    </Card></div>
-                                    <div><Card className="py-4">
-                                        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start h-[250px ]">
-                                            <h4 className="font-bold text-large">合成實驗室
-                                            </h4>
-                                            <small className="text-default-500 text-gray-900">無論是有機，無機或是高分子合成實驗室，在控制反應條件及中間產物的管理中，會需要針對不同階段的產物進行pH酸鹼值的控制。拋棄式的蜂鳥探針可以在不同階段直接蘸取少量樣品即可獲得精確的pH值。拋棄式的設計也不用擔心雜質污染電極，或帶入污染物。
-
-</small>
-                                          
-                                        </CardHeader>
-                                        <CardBody className="overflow-visible py-2">
-                                            <Image
-                                                alt="Card background"
-                                                className="object-cover rounded-xl"
-                                                src="/FAQ-06_nqo3sg.webp"
-                                                width={500}
-                                                height={300}
-                                            />
-                                        </CardBody>
-                                    </Card></div>
-
-
-
-
-
-                                </div>
-
-
-                            </motion.p>
-
-                            
-
-                        </motion.div>
-
-
-                    </div>
-
-                    
 
                 </section>
 
 
 
+                <section className="section_banner02 section h-[450px] relative mt-[50px] overflow-hidden lg:h-[576px] 2xl:h-[700px]">
+                    <Image className="absolute hidden md:block z-[8] top-0 left-0" placeholder="empty" loading="lazy" alt='最佳化的行動實驗室' loader={myLoader} src='UX200-13-最佳的行動實驗室-無字版-1920x768.webp' width={1920} height={768}></Image>
+                    <Image className="absolute z-[8] block md:hidden top-0 left-0" placeholder="empty" loading="lazy" alt='最佳化的行動實驗室' loader={myLoader} src='UX200-13-最佳的行動實驗室-無字版-640x640.jpg' width={1920} height={768}></Image>
+                    <div className="txt  absolute right-[15px] md:right-[50px] z-[8] w-[90%] md:w-2/5 top-[25%] md:top-[14%] lg:top-[33%]">
+                        <h3 className="h3-u ">Optimized Mobile Laboratory
+
+                        </h3>
+
+                        <p className="text-white mt-4 text-[14px] md:text-[18px]">The UX100 provides a shooting function. For each data, it can take pictures to record the scene environment and the details of the sample number. Satisfy the management requirements of the source of the result analysis and the original data. Data can be easily transferred to a computer for backup
 
 
 
@@ -1538,234 +1251,27 @@ Enjoy Sooner</p>
 
 
 
-                <section className="section_find px-20 flex  flex-col justify-center items-center mt-10">
-                    <div className="text-center py-5">
-                        <h2 className="font-bold uppercase text-4xl">找到你的蜂鳥探針</h2>
+</p>
                     </div>
-                    <div className="w-4/5  flex flex-wrap  justify-center items-center align-middle">
-                        <div className="item flex flex-col align-middle items-center justify-center w-1/3">
-                            <Image src='/UH-1_twuf2y.webp' placeholder="empty"
-                                loading="lazy" width={70} height={150}></Image>
-                            <div className="txt flex flex-col justify-center items-center">
-                                <h4 className="font-bold text-xl">Classic
-                                </h4>
-                                <p>適用於大部分的檢測需求</p>
-                                <b className="text-rose-700 text-normal">UH1 pH STRIP
-                                </b>
-                            </div>
-                            <ul className="mt-4">
-                                <li className="mt-2">
-                                    適用於液體樣品
-                                </li>
-                                <li className="mt-2">
-                                    樣品使用量：10~20μL
-                                </li>
-                                <li className="mt-2">
-                                    適用單點&連續測試
-                                </li>
-                            </ul>
-                            <Button radius="full" href='#' className="bg-orange-500  text-white shadow-lg">
-                                More
-                            </Button>
-                        </div>
-                        <div className="item flex flex-col align-middle items-center justify-center w-1/3">
-                            <Image src='/UH2_ivwada.webp' placeholder="empty"
-                                loading="lazy" width={70} height={150}></Image>
-                            <div className="txt flex flex-col justify-center items-center">
-                                <h4 className="font-bold text-xl">Classic
-                                </h4>
-                                <p>適用於大部分的檢測需求</p>
-                                <b className="text-rose-700 text-normal">UH1 pH STRIP
-                                </b>
-                            </div>
-                            <ul className="mt-4">
-                                <li className="mt-2">
-                                    適用於液體樣品
-                                </li>
-                                <li className="mt-2">
-                                    樣品使用量：10~20μL
-                                </li>
-                                <li className="mt-2">
-                                    適用單點&連續測試
-                                </li>
-                            </ul>
-                            <Button radius="full" href='#' className="bg-orange-500  text-white shadow-lg">
-                                More
-                            </Button>
-                        </div>
-                        <div className="item flex flex-col align-middle items-center justify-center w-1/3">
-                            <Image src='/UH2-Gas_h1vvho.webp' placeholder="empty"
-                                loading="lazy" width={70} height={150}></Image>
-                            <div className="txt flex flex-col justify-center items-center">
-                                <h4 className="font-bold text-xl">Classic
-                                </h4>
-                                <p>適用於大部分的檢測需求</p>
-                                <b className="text-rose-700 text-normal">UH1 pH STRIP
-                                </b>
-                            </div>
-                            <ul className="mt-4">
-                                <li className="mt-2">
-                                    適用於液體樣品
-                                </li>
-                                <li className="mt-2">
-                                    樣品使用量：10~20μL
-                                </li>
-                                <li className="mt-2">
-                                    適用單點&連續測試
-                                </li>
-                            </ul>
-                            <Button radius="full" href='#' className="bg-orange-500   text-white shadow-lg">
-                                More
-                            </Button>
-                        </div>
-                    </div>
-
                 </section>
-                <section className="section_find px-20 flex  flex-col justify-center items-center mt-20">
-                    <div className="text-center py-5">
-                        <h2 className="font-bold uppercase text-4xl">找到你的儀表及配件</h2>
-                    </div>
-                    <div className="w-4/5  flex flex-row justify-center items-center align-middle">
-                        <div className="item flex flex-col align-middle items-center justify-center w-1/3">
+                   <WhenUse/>
+   
+                    <FindSPE/>
 
-                            <div className="txt flex flex-col justify-center items-center">
-                                <h4 className="font-bold text-xl">UX100 酸鹼檢測儀
-                                </h4>
-                                {/* <p>適用於大部分的檢測需求</p>
-                            <b className="text-rose-700 text-normal">UH1 pH STRIP
-                            </b> */}
-                            </div>
-                            <ul className="mt-4">
-                                <li className="mt-2">
-                                    4.3寸彩色防水觸控頻
+            
+                <div className="p-0 mt-[50px]">
+                    <ModalBtn />
+                </div>
+              
+                         
+                              
 
-                                </li>
-                                <li className="mt-2">
-                                    雙模式檢測片連結器
 
-                                </li>
-                                <li className="mt-2">
-                                    500萬畫素鏡頭可編輯資料
-                                </li>
-                            </ul>
-                            <Button radius="full" href='#' className="bg-orange-500   text-white shadow-lg">
-                                More
-                            </Button>
-                            <Image src='/UX100_cpaa0v.webp' placeholder="empty" width={470}
-                                loading="lazy" height={470}></Image>
 
-                        </div>
-                        <div className="item flex flex-col align-middle items-center justify-center w-1/3">
-
-                            <div className="txt flex flex-col justify-center items-center">
-                                <h4 className="font-bold text-xl">UX100 酸鹼檢測儀
-                                </h4>
-                                {/* <p>適用於大部分的檢測需求</p>
-                            <b className="text-rose-700 text-normal">UH1 pH STRIP
-                            </b> */}
-                            </div>
-                            <ul className="mt-4">
-                                <li className="mt-2">
-                                    4.3寸彩色防水觸控頻
-
-                                </li>
-                                <li className="mt-2">
-                                    雙模式檢測片連結器
-
-                                </li>
-                                <li className="mt-2">
-                                    500萬畫素鏡頭可編輯資料
-                                </li>
-                            </ul>
-                            <Button radius="full" href='#' className="bg-orange-500   text-white shadow-lg">
-                                More
-                            </Button>
-                            <Image loading="lazy" placeholder="empty" src='/UX200_g8naeo.webp' width={470} height={470}></Image>
-
-                        </div>
-                        <div className="item flex flex-col align-middle items-center justify-center w-1/3">
-
-                            <div className="txt flex flex-col justify-center items-center">
-                                <h4 className="font-bold text-xl">UX100 酸鹼檢測儀
-                                </h4>
-                                {/* <p>適用於大部分的檢測需求</p>
-                            <b className="text-rose-700 text-normal">UH1 pH STRIP
-                            </b> */}
-                            </div>
-                            <ul className="mt-4">
-                                <li className="mt-2">
-                                    4.3寸彩色防水觸控頻
-
-                                </li>
-                                <li className="mt-2">
-                                    雙模式檢測片連結器
-
-                                </li>
-                                <li className="mt-2">
-                                    500萬畫素鏡頭可編輯資料
-                                </li>
-                            </ul>
-                            <Button radius="full" href='#' className="bg-orange-500   text-white shadow-lg">
-                                More
-                            </Button>
-                            <Image loading="lazy" placeholder="empty" src='/CS200_mz0vj6.webp' width={470} height={470}></Image>
-
-                        </div>
-                    </div>
-
-                </section>
-                <section>
-                    <div className="Container ">
+                <section className=" px-[20px] lg:px-[50px] 2xl:px-[140px] pt-0">
+                    <div className="Container md:px-20">
                         <div className="grid grid-cols-1">
-                        
-                            <div className="row">
-                                        <ModalBtn/>
-                               
-                                        {/* <div className="relative w-full border">
-                                           
-
-                                            <Image placeholder="empty" loading="lazy" alt="running people" src='/UX100-1920X768-促銷活動-01-2_mocojp.webp' width={1920} height={600}  />
-
-
-
-
-                                        </div> */}
-
-
-
-
-
-
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                </section>
-                <section className="section_double">
-                    {/* <Double/> */}
-                </section>
-                <section>
-                    <div className="Container px-5 md:px-20">
-                        <div className="grid grid-cols-1">
-                            <div className="row mt-20 flex items-center flex-col  justify-center">
-                                {/* <motion.div className="card"
-                            initial={"offscreen"}
-                            whileInView={"onscreen"}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ staggerChildren: 0.3 }}
-                        >
-
-                            <motion.h2
-                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                variants={textAnimate}
-                            > About Helicobacter pylori</motion.h2>
-
-
-                        </motion.div> */}
-
-
+                            <div className="row  flex items-center flex-col  justify-center">
                                 <motion.div className="card"
                                     initial={"offscreen"}
                                     whileInView={"onscreen"}
@@ -1778,10 +1284,11 @@ Enjoy Sooner</p>
                                         variants={title01}
                                     >
 
-                                        <h2 className="">Humming Probe UX100
-</h2>
-                                        <p className="text-lg text-gray-800 md:w-2/3 w-full mx-auto">免校正酸鹼檢測儀
-</p>
+                                        <h2 className="h2-u">Humming Probe UX100
+
+                                        </h2>
+                                        {/* <p className="text-lg text-gray-800 md:w-2/3 w-full mx-auto">免校正酸鹼檢測儀
+                                        </p> */}
 
                                     </motion.h2>
 
@@ -1792,14 +1299,14 @@ Enjoy Sooner</p>
                                         variants={title02}
                                     >
 
-                                        <button href='' className="rounded-full w-[150px]  bg-orange-500 text-white py-2 px-4 mx-auto mb-[50px]">
-                                            DM 下載
-                                        </button>
-{/* 
-                                        <div className="w-full border flex justify-center">
-                                            <a href="https://www.ultraehp.com/ultrapeace" className="text-grey-400 text-center mx-auto">read more → </a>
-                                        </div> */}
+                                        <a href='https://www.ultraehp.com/images/DM/UltraE-DM-en.pdf' 
 
+                                        className="rounded-full w-[150px] mx-auto  text-center bg-orange-500 font-black text-white py-2 px-4 mx-auto mb-[50px]">
+
+                                            DM Download
+
+                                        </a>
+                                     
 
                                     </motion.p>
 
@@ -1817,276 +1324,266 @@ Enjoy Sooner</p>
 
                             </div>
                             <div className="row">
-                                <motion.div className="card"
-                                    initial={"offscreen"}
-                                    whileInView={"onscreen"}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ staggerChildren: 0.3 }}
-                                >
+                             
 
-                                    <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                        variants={ImageAnimate}
-                                    >
+                                <div className="grid grid-cols-1 lg:grid-cols-2">
+                                    <div className="p-10 items-end flex flex-col">
+                                        <Image loader={myLoader01} src='UX100 酸鹼檢測器-尺寸圖.webp' className="mr-0 md:mr-[100px] w-full  md:w-1/2" placeholder="empty" alt='UX100_酸鹼檢測器-尺寸圖' width={600} height={600}></Image>
+                                        <Image src='UX100-en-01.png' loader={myLoader01} placeholder="empty" className="mr-0 md:mr-[100px] w-full  md:w-1/2" alt='UX100_酸鹼檢測器-尺寸圖' width={600} height={600}></Image>
 
+                                    </div>
+                                    <div>
 
-                                    <div className="grid grid-cols-1 lg:grid-cols-2">
-                                         <div className="p-10">
-                                                <Image src='/UX02_e3q1re.webp ' width={600} height={600}></Image>
-                                         
-                                         </div>
-                                         <div>
+                                        <div className="flex w-full flex-col">
+                                            <Tabs aria-label="Options">
 
-
-                                                <div className="flex w-full flex-col">
-                                                    <Tabs aria-label="Options">
-                                                        <Tab key="UX100-酸鹼檢測儀" title="UX100-酸鹼檢測儀">
-                                                            <Card>
-                                                                <CardBody>
-                                                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                                                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                           
-                                                                            <tbody>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        螢幕：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        4.3寸 彩色LCD螢幕
-                                                                                    </td>
-
-
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        防水防塵等級：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        IP54
-                                                                                    </td>
-
-
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        防水防塵等級：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        IP54
-                                                                                    </td>
-
-
-
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        相機：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        500萬畫素
-                                                                                    </td>
-
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        電源：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        5V DC，2A(Input 100/240V AC)(電池容量2500mAh)
-                                                                                    </td>
-
-
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        尺寸（寬Ｘ長Ｘ高）：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        87 x 152 x 21 mm
-                                                                                    </td>
-
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        重量：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        250g
-                                                                                    </td>
-
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        Apple Watch 5
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        Red
-                                                                                    </td>
-
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </CardBody>
-                                                            </Card>
-                                                        </Tab>
-                                                        <Tab key="量測範圍
-" title="量測範圍
+                                                <Tab key="Humming Probe UX100
+" title="Humming Probe UX100
 ">
-                                                            <Card>
-                                                                <CardBody>
-                                                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                                                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                                            
-                                                                            <tbody>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        pH值：	
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        0.00~14.00 pH
-                                                                                    </td>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+
+                                                                    <tbody>
+                                                                        <tr class="bg-gray-800 ">
+                                                                            <th scope="row" colSpan={2} class="px-6 py-4 font-medium text-white whitespace-nowrap  text-center">
+                                                                                Range:
+                                                                            </th>
 
 
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        電位：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        ± 1000.0 mV
-                                                                                    </td>
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                pH Value:
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                0.00~14.00 pH
+
+                                                                            </td>
 
 
-
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        溫度：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        10 ~ 40°C (小於10℃ 或 大於40℃ 顯示提示警語)
-                                                                                    </td>
-
-                                                                                </tr>
-                                                                               
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </CardBody>
-                                                            </Card>
-                                                        </Tab>
-                                                        <Tab key="解析度" title="解析度">
-                                                            <Card>
-                                                                <CardBody>
-                                                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                                                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-
-                                                                            <tbody>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        pH值：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        0.01pH
-                                                                                    </td>
-
-
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        電位：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        0.1 mV
-                                                                                    </td>
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Electric Potential:
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                ± 1000.0 mV
+                                                                            </td>
 
 
 
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        溫度：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        0.1 °C
-                                                                                    </td>
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Temperature:
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                10 ~ 40°C ( &lt; 10°C or &gt; 40°C will show warning)
+                                                                            </td>
 
-                                                                                </tr>
-
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </CardBody>
-                                                            </Card>
-                                                        </Tab>
-                                                        <Tab key="精確度" title="精確度">
-                                                            <Card>
-                                                                <CardBody>
-                                                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                                                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-
-                                                                            <tbody>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        pH值：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        ± 0.1 pH
-                                                                                    </td>
-
-
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        電位：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        0.05 %
-                                                                                    </td>
+                                                                        </tr>
 
 
 
-                                                                                </tr>
-                                                                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                                                        溫度：
-                                                                                    </th>
-                                                                                    <td class="px-6 py-4">
-                                                                                        ± 0.5°C
-                                                                                    </td>
 
-                                                                                </tr>
-
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </CardBody>
-                                                            </Card>
-                                                        </Tab>
-                                                    </Tabs>
-                                                </div>  
+                                                                        <tr class="bg-gray-800 ">
+                                                                            <th scope="row" colSpan={2} class="px-6 py-4 font-medium text-white whitespace-nowrap  text-center">
+                                                                                Resolution:
+                                                                            </th>
 
 
+                                                                        </tr>
 
-                                               
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                pH Value：
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                0.01 pH
+                                                                            </td>
 
-                                         </div>
-                                    
+
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Electric Potential：
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                0.1 mV
+                                                                            </td>
+
+
+
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Temperature：
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                0.1 °C
+                                                                            </td>
+
+                                                                        </tr>
+
+
+                                                                        <tr class="bg-gray-800 ">
+                                                                            <th scope="row" colSpan={2} class="px-6 py-4 font-medium text-white whitespace-nowrap  text-center">
+                                                                                Accuracy
+
+                                                                            </th>
+
+
+                                                                        </tr>
+
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                pH Value：
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                ± 0.1 pH
+                                                                            </td>
+
+
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Electric Potential：
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                0.05 %
+                                                                            </td>
+
+
+
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Temperature:
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                ± 0.5°C
+                                                                            </td>
+
+                                                                        </tr>
+
+
+
+
+
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </CardBody>
+                                                    </Card>
+                                                </Tab>
+                                                <Tab key="Appearance" title="Appearance">
+                                                    <Card>
+                                                        <CardBody>
+                                                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+
+                                                                    <tbody>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Display：
+                                                                            </th>
+                                                                            <td class="px-6 py-4 text-gray-800">
+                                                                                4.3” Color Touchscreen
+                                                                            </td>
+
+
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Water Proof：
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                IP54
+                                                                            </td>
+
+
+                                                                        </tr>
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Camera：
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                5M Pixels
+
+                                                                            </td>
+
+
+
+                                                                        </tr>
+
+                                                                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Power supply：
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                5V DC，2A (Input 100/240V AC) (Battery Capacity 2500 mAh)
+
+                                                                            </td>
+
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Dimension:
+                                                                                
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                87 x 152 x 21 mm
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                                Weight:
+                                                                            </th>
+                                                                            <td class="px-6 text-gray-800 py-4">
+                                                                                250g
+                                                                            </td>
+
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </CardBody>
+                                                    </Card>
+                                                </Tab>
+
+                                            </Tabs>
+                                        </div>  
+
+
+
+
+
+
+
+
+
                                     </div>
 
+                                </div>
 
 
 
-                                       
 
 
+
+                                {/* 
 
                                     </motion.h2>
 
 
                                 </motion.div>
-
+ */}
 
 
                             </div>
@@ -2096,28 +1593,26 @@ Enjoy Sooner</p>
                         </div>
                     </div>
                 </section>
-                {/* <ReactSlick /> */}
-                <section>
-                    <div className="Container px-5 md:px-20">
-                        
+
+                <section className="section px-5">
+                    <div className="Container mb-6 md:mb-0 md:px-20">
+
+                        <div className="flex sm:flex-row flex-col justify-center items-center">
+                            <div className="mt-4  mx-3 w-full  md:w-2/3">
+                                <ModalBtn05 />
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            
+                <section className="section_others  hidden md:block">
+                    <div className="Container">
+
                         <div className="grid grid-cols-1">
-                            <div className="row mt-20 flex items-center flex-col  justify-center">
-                               
-                                {/* <motion.div className="card"
-                            initial={"offscreen"}
-                            whileInView={"onscreen"}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ staggerChildren: 0.3 }}
-                        >
+                            <div className="row  flex items-center flex-col  justify-center">
 
-                            <motion.h2
-                                className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
-                                variants={textAnimate}
-                            > About Helicobacter pylori</motion.h2>
-
-
-                        </motion.div> */}
-
+                       
 
                                 <motion.div className="card"
                                     initial={"offscreen"}
@@ -2127,13 +1622,13 @@ Enjoy Sooner</p>
                                 >
 
                                     <motion.h2
-                                        className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
+                                        className="h2-u"
                                         variants={title01}
-                                    >您可能也會喜歡
+                                    >You May Also Like
 
                                         <h2 className="text-black">
                                         </h2>
-                                        <p className="text-lg text-gray-800 md:w-2/3 w-full mx-auto">免校正酸鹼檢測儀
+                                        <p className="text-lg text-gray-800 md:w-2/3 w-full mx-auto">Others Products
                                         </p>
 
                                     </motion.h2>
@@ -2144,12 +1639,8 @@ Enjoy Sooner</p>
                                         className="text-m "
                                         variants={title02}
                                     >
-                                       
 
-                                        <div className="order mt-10 mx-auto py-1 px-5 text-center w-[150px] bg-black rounded-full text-slate-200 border">
-                                          
-                                            
-                                        </div>
+
                                         {/* 
                                         <div className="w-full border flex justify-center">
                                             <a href="https://www.ultraehp.com/ultrapeace" className="text-grey-400 text-center mx-auto">read more → </a>
@@ -2171,7 +1662,7 @@ Enjoy Sooner</p>
 
 
                             </div>
-                            <div className="row">
+                            <div className="row  sm:px-[30px] xl:px-[80px]">
                                 <motion.div className="card"
                                     initial={"offscreen"}
                                     whileInView={"onscreen"}
@@ -2183,6 +1674,9 @@ Enjoy Sooner</p>
                                         className="text-center mb-4 text-3xl font-extrabold  tracking-tight text-gray-900 md:text-4xl lg:text-5xl lg:leading-loose  dark:text-white"
                                         variants={ImageAnimate}
                                     >
+
+
+                                        <OthersProducts />
 
 
 
@@ -2206,24 +1700,10 @@ Enjoy Sooner</p>
                         </div>
                     </div>
                 </section>
-                {/* <iframe
-                    src="https://player.cloudinary.com/embed/?public_id=shoes_video&cloud_name=demo"
-                    width="640"
-                    height="360"
-                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                    frameborder="0"
-                ></iframe> */}
-         {/* <CldVideoPlayer
-                    id="drmonozsf"
-                    width="1920"
-                    height="1080"
-                    src="samples/sea-turtle`"
-                />  */}
+          
 
 
 
-                
             </div>
 
 
@@ -2235,16 +1715,5 @@ Enjoy Sooner</p>
 
 );
 
-
-// Product.getInitialProps = async function (context) {
-//     const { id } = context.query;
-//     const res = await fetch(
-//         `https://my-json-server.typicode.com/bob1127/next/products/${id}`
-//     );
-//     const product = await res.json();
-//     return { product };
-
-
-// };
 
 export default Product;

@@ -21,20 +21,20 @@ export default function App() {
     return (
         <Accordion
             showDivider={false}
-            className=" h-full px-2 pt-[70px] flex flex-col gap-1 w-full  mt-[-40px] border  z-[999] fixed"
+            className=" h-full px-2 pt-[70px] flex flex-col gap-1 w-full  mt-[-40px] border  z-50 fixed"
             variant="shadow"
             itemClasses={itemClasses}
         >
             <AccordionItem
                 key="1"
-                aria-label="我門的產品"
+                aria-label="Our Products"
                 startContent={<MonitorMobileIcon className="text-primary" />}
                 subtitle={
                     <p className="flex">
                         2 issues to <p className="text-primary ml-1">fix now</p>
                     </p>
                 }
-                title="我們的產品"
+                title="Our Products"
             >
                 {/* {defaultContent} */}
 

@@ -11,7 +11,7 @@ export default function cloudinaryLoader({
     quality?: number
 }) {
     const params = ['f_auto', 'c_limit', `w_${width}`, `q_${quality || 'auto'}`]
-    return `https://res.cloudinary.com/drmonozsf/image/upload/${params.join(
+    return `https://res.cloudinary.com/dc9veqqhp/image/upload/${params.join(
         ','
     )}${src}`
 }

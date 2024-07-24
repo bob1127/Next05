@@ -6,7 +6,7 @@
   border-radius: 20px;
   position: absolute;
   background-color: white;
-  border: solid 2px green;
+
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   display: flex;
   top:50%;
@@ -25,7 +25,7 @@
 .modal__image {
   object-fit: cover;
   border-radius: 20px;
-  border: solid 1px;
+  
   height: 300px;
     width: 50%;
 }
@@ -40,16 +40,33 @@
   /* margin: 20px 0px; */
   display: flex;
   color: #333;
+  font-size: 20px;
   
   text-align: left;
 }
 .modal__link{
-  padding: 3px 10px ;
-  border-radius: 20px;
-  background-color: black;
-  color: white;
-  font-size: 12px;
+  padding:10px ;
+  width: 120px;
+  border-radius: 50px;
+
   
+  background-color: rgb(255,29,72);
+  
+  color: white;
+  
+  
+}
+@media screen and (max-width:800px){
+  .modal__link{
+  padding: 1px 10px ;
+  width: 100%;
+
+  text-align: center;
+    border-radius: 12px;
+    font-weight: lighter;
+  
+  
+}
 }
 
 .modal__description-wrapper {
@@ -62,8 +79,8 @@
 }
 
 .modal__price {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 16px !important;
+  font-weight: 700;
 }
 
 .modal__address {
@@ -190,13 +207,13 @@
   }
     .modal {
     width: 90%;
-  height:60% ;
+  height:67% ;
   flex-direction: column !important; 
    
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    padding: 30px;
+    padding: 10px;
   }
    .modal__info{
     overflow-y: scroll;
